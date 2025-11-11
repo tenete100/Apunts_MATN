@@ -1,0 +1,272 @@
+\documentclass{report}
+% Configuración
+\input{../config.tex}
+
+\begin{document}
+\renewcommand{\rmdefault}{cmr}
+
+\pagestyle{empty}
+\portada{Mètodes analítics en teoria de nombres}{}{Bernat Esteve i Luis M. Villabón}
+\newpage
+
+\tableofcontents
+
+\newpage
+\chapter{Definicions}
+\section{Sèries de Dirichlet}
+\dfe{Sèrie de Dirichlet}{Una sèrie de Dirichlet és una sèrie de la forma
+\[
+\sum_{n\in\NN}\frac{f(n)}{n^s}
+\]
+On $f\colon\NN\rightarrow\CC$ és una funció aritmètica, i $s\in\CC$.
+}
+
+\dfe{Convergència de productoris}{
+Sigui $\{z_n\}_n\subset\CC$ una successió de complexos, aleshores el productori $\prod z_n$ convergeix si i només si existeix el límit $\lim_{n\rightarrow\infty}\prod_{i=1}^nz_n$, i aquest és no nul.
+}
+
+\dfe{Convergència absoluta de productoris}{
+Donada una seqüència $z_n$ amb $\Re(z_n)>0$, aleshores el productori $\prod z_r$ es diu que convergeix absolutament si $\sum \log(z_r)$ convergeix absolutament.
+}
+\section{Funcions L}
+\dfe{Caràcter d'un grup}{
+Sigui $G$ un grup finit i abelià, aleshores un caràcter de $G$ serà un morfisme $\psi\colon G\rightarrow \CC^*$ (on $\CC^*$ és el grup multiplicatiu de $\CC\setminus\{0\}$)}
+
+\dfe{El grup de caràcters}{Denotem per $\widehat{G}$ al grup $\widehat{G}=\Hom(G,\CC^*)=\{\text{Caràcters de G}\}$, on la operació és:
+\[
+\psi,\phi\colon G\rightarrow\CC^*\qquad\text{aleshores }(\psi{\;\cdot_{\widehat{G}} } \;\phi)(g)\mapsto\psi(g)\cdot_{\small{\mathbb{C}}^*}\phi(g)
+\]
+I anomenarem a $\widehat{G}$ el grup de caràcters de $G$.
+}
+
+\dfe{Caràcter mòdul $m$}{
+Un caràcter mòdul $m$ és un caràcter de $(\mathbb{Z}/m\mathbb{Z})^\times$.}
+
+\dfe{Caràcter principal mòdul $m$}{El caràcter principal mòdul $m$ és $\chi_0(a) \colon \ZZ^+ \to \CC$ definit per 
+\[
+    \chi_0(a) = \begin{cases}
+        1 & \gcd(a, m) = 1 \\
+        0 & \text{altrament}
+    \end{cases}
+\]}
+
+\dfe{Funció $L$ associada a un caràcter de Dirichlet}{La funció $L$ associada al caràcter de Dirichlet mòdul $m$ $\chi$ és la sèrie de Dirichlet \[
+L(\chi, s) = \sum_{n\geq 1} \frac{\chi(n)}{n^s}.
+\].}
+
+\dfe{Funció $m$-èsima de Dirichlet}{Sigui $m\in\NN$, aleshores la funció $m$-èsima de Dirichlet es defineix com
+\[
+\zeta_m(s)\vcentcolon=\prod_\chi L(\chi,s)
+\]
+On el producte recorre tots els caràcters de Dirichlet mòdul $m$.
+}
+
+\dfe{Caràcters reals i complexos.}{Diem que $\chi\colon\NN\to \CC$ és un caràcter de Dirichlet real si $\Ima(\chi)\subset\RR$. És a dir $\Ima(\chi)\subset\{-1,0,1\}$. I direm que és complex altrament.}
+
+\dfe{Caràcter conjugat}{Direm $\overline{X}$ al caràcter de Dirichlet conjugat
+\[
+\overline{X}\colon\NN\to\CC\qquad\text{que envia } a\in\ZZ\text{ a }\overline{\chi}(a)=\overline{\chi(a)}
+\]
+I no és massa difícil de veure que aquesta funció és un caràcter de Dirichlet del mateix mòdul.}
+\section{Continuació meromorfa i equació funcional de $\zeta(s)$}
+
+\dfe{$\theta$ de Jacobi}{
+La funció $\theta$ de Jacobi es defineix $\theta\colon \RR_{>0}\to \RR$
+\[
+\theta(x)=\sum_{n\in\ZZ}e^{-n^2\pi x}
+\]
+I definim també la funció $\omega$ com
+\[
+\omega(x)=\sum_{n\geq1}e^{-n^2\pi} x=\frac{\theta(x)-1}{2}
+\]
+}
+
+\dfe{La funció $\Gamma$}{La funció $\Gamma$ es defineix:
+\[
+\Gamma(s)=\int_0^\infty e^{-x}x^s\frac{\dd x}{x}\qquad \text{per }\sigma>0
+\]}
+\dfe{Funció de Riemann completada}{Definim la funció de Riemann completada com
+\[
+\xi(s)\vcentcolon=\frac{1}{2}s(s-1)\pi^{-\frac{s}{2}}\Gamma\left(\frac{s}{2}\right)\zeta(s)
+\]
+I també tenim
+\[
+\frac{s(s-1)}{2}\int_1^\infty \left(x^{\frac{s}{2}-1}+x^{-\frac{s+1}{2}}\right)\omega(x)\dd x+\frac{1}{2}
+\]}
+\section{Productes d'Hadamard}
+\dfe{Ordre d'una funció}{
+Sigui $f(s)$ una funció entera. Es diu que $f$ és d'ordre menor o igual que $\alpha\in\RR_{\geq0}$ si existeix $r_0\in\RR_{\geq0}$ tal que
+\[
+f(s)=\bigO\left(e^{|s|^{\alpha}}\right)\qquad\text{per tot }|s|\geq r_0
+\]
+Aleshores l'ordre de $f$ es defineix
+\[
+\inf\{\alpha\in\RR_{\geq0}|f\text{ és d'ordre }\leq \alpha\}.
+\]
+}
+\newpage
+
+\newpage
+\chapter{Enunciat sense demostració del criteri de sumació d’Abel (Teorema 4,capítol 1)}
+\teorema{Criteri de sumació d'Abel}{\label{2.04_teorema_sumació_Abel}Sigui $a\colon\NN\rightarrow\CC$, considerem $A(t)\coloneq\sum_{n\leq t}a(n)$ les sumes parcials de $a$; i una funció $g:\RR_{\geq0}\rightarrow\CC$ amb derivada contínua en un interval $[x,y]\neq\varnothing$\footnote{Per alguna raó, al professor li ha agradat considerar l'interval $[y,x]$, però em nego a fer servir aquesta notació.}. Aleshores 
+\[
+\sum_{x<n\leq y}a(n)g(n)=A(y)g(y)-A(x)g(x)-\int_x^yA(t)g'(t)\dd t
+\]
+}
+
+\newpage
+\chapter{Existència del semiplà de convergència: \textbf{demostració} del Lema 5, $\S 1$; i enunciat i demostració del lema 6, $\S1$.}
+\lema{Fita tècnica}{\label{2.05_lema_fita_de_sèries_de_Dirichlet} Suposem que $\sum_{n\geq 1} \frac{f(n)}{n^{s_0}}$ té sumes parcials fitades en $s_0\in\CC$, és a dir: existeix una fita $M\in\RR_{\geq 0}$ tal que $\left|\sum_{n\leq x}\frac{f(n)}{n^s_0}\right|\leq M$ per $x\geq 1$, aleshores per $s\in\CC$ tal que $\sigma>\sigma_0$ tenim:
+\[
+\left|\sum_{a< n\leq b}\frac{f(n)}{n^s}\right|\le2Ma^{\sigma_0-\sigma}\left(1+\frac{|s-s_0|}{\sigma-\sigma_0}\right)
+\]
+}
+\pf{
+\begin{enumerate}
+    \ii Abel amb $a=\frac{f(n)}{n^{s_0}}$ i $g=t^{s_0-s}$.\\
+    \ii ens queda això: $ Mb^{s_0-s}+Ma^{s_0-s}+M|s_0-s|\int_{a}^b\left|t^{s_0-s-1}\right|\dd t$
+    \ii I d'aquí ja es pot veure com s'acaba.
+\end{enumerate}
+}
+\lema{Semiplà de convergència}{
+\label{2.06_lema_semipla de convergencia} Donada una sèrie de Dirichlet $\sum_{n\geq1}\frac{f(n)}{n^s}$, aleshores aquesta convergeix si i només si $\sigma>\sigma_c$ per alguna $\sigma_c\in\RR\cup\{\pm\infty\}$. De la mateixa manera que abans, aquesta $\sigma_c$ rep un nom: es diu $\sigma$ de convergència.
+}
+\pf{
+\begin{enumerate}
+    \ii apliquem el lema anterior.
+\end{enumerate}
+}
+
+\newpage
+\chapter{Enunciat i demostració del teorema de Landau (Teorema 13, capítol 1).}
+\teorema{Landau}{\label{2.13_teorema_landau}Sigui $F(s)=\sum_{n\geq1}\frac{f(n)}{n^S}$ una sèrie de Dirichlet que convergeix per $\sigma>c\in\RR$. Si a més, tenim:
+\begin{enumerate}
+    \ii Que $f(n)\in\RR_{\geq0}$ per tota $n\geq n_0$,\\
+    \ii i suposem que $F(s)$ estén a una funció holomorfa en un disc al voltant de $c$.
+\end{enumerate}
+Aleshores, $F(s)$ convergeix per $\s>c-\varepsilon$ per alguna $\varepsilon>0$.
+}
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+    \filldraw[color=black!10!white] (0,-1.3)--(0,1.3)--(2.5,1.3)--(2.5,-1.3)--(0,-1.3);
+    \filldraw[color=black!10!white] (0,0) circle (0.5);
+    \draw (-1,0)--(2.5,0);
+    \draw (0,-1.3)--(0,1.3);
+    \draw (0,0) circle (0.5);
+    \filldraw (0,0) circle (0.05);
+    \draw (-0.2,0.2) node {$c$};
+    \draw (1,0) circle (1);
+    \draw (1.2,0.25) node {$c+1$};
+    \filldraw (1,0) circle (0.05);
+    \draw[color=black!40!green] (1,0) circle (1.1);
+\end{tikzpicture}
+\caption{\label{fig:thm13}La zona pintada de gris és la zona en que $F$ és holomorfa.}
+\end{center}
+\end{figure}
+\pf{
+\begin{enumerate}
+    \ii Fem sèrie de potències al voltant de $c+1$. Per hipòtesi $R>1$.\\
+    \ii $F^{(k)}(s)=(-1)^k\sum_{n\geq1}\frac{f(n)}{n^s}(\log(n))^k$.\\
+    \ii Sabem que podem reordenar, ja que tenim: $f(n)>0$ i la sèrie convergeix $\implies$ convergència absoluta $\implies$ podem reordenar.\\
+    \ii Sabem que $F(c-\eps)$, (ja que $R>1$), i per tant, hem d'aconseguir posar-la com a sèries de potències.
+    \ii fem aparèixer la sèrie de l'exponencial.\\
+    \ii Ens queda: $\sum_{n\geq1}\frac{f(n)}{n^{c-\eps}}$.
+\end{enumerate}
+}
+\newpage
+\chapter{\textbf{Demostració} de la Proposició 2,$\S2$.}
+\Prop{Extensió de caràcters de subgrups}{\label{3.02_proposició extensió de caràcters de subgrups}Sigui $H \leq G$ subgrup. Tot caràcter de $H$ estén a un caràcter de $G$.}
+\pf{
+\begin{enumerate}
+    \ii Cas 1: $H=G$.\\
+    \ii Cas 2: veure que un caràcter $\psi\colon H\to \CC^\times$ estén a un caràcter $\psi'\colon \langle H,x\rangle\to \CC ^\times$.\\
+    \ii Com que $G$ és abelià, podem escriure els elements de $H'\vcentcolon=\langle H,x\rangle$ com $hx^a$. Com que $G$ és finit, $x$ té ordre finit, i per tant, sigui $n=\mathrm{ord}(x)$.\\
+    \ii Sigui $\omega$ tal que $\psi(x^n)=\omega^n$\\
+    \ii Definim $\psi'(hx^a)=\psi(h)\omega^a$.\\
+    \ii Hem de veure que està ben definida.\\
+    \ii Hem de veure que és un morfisme.\\
+\end{enumerate}
+} 
+\chapter{\textbf{Demostració} del Teorema 11, $\S2$ (es poden assumir els lemes 7, 8 i la proposició 10).}
+\lema{Convergència de les funcions $L$ de caràcters no principals}{\label{3.07_lema convergencia de funcions L(X,s), on X no és principal}Si $\chi \neq \chi_0$, llavors $L(\chi, s)$ té
+\begin{itemize}
+    \item[(i)] $\sigma_c = 0$, per tant $L(\chi, s)$ és holomorfa per $\sigma > 0$.
+    \item[(ii)] $\sigma_a > 1$, per tant té una factorització 
+    \[
+        L(\chi, s) = \prod_p \frac{1}{1- \frac{\chi(p)}{p^{-s}}},
+    \] atès que $\chi$ és completament multiplicativa. En particular, no s'anul·la per $\sigma > 1$. 
+\end{itemize}}
+\lema{Continuació meromorfa de $L(\chi_0,s)$}{\label{3.08_lema cont meromorfa de X_0}Si $\chi_0$ és el caràcter principal, aleshores:
+\[
+L(\chi,s)=\zeta(s)\prod_{p|m}\left(1-\frac{1}{p^s}\right)\qquad \text{per }\sigma>1.
+\]
+En particular $L(\chi,s)$ té continuació meromorfa en el semiplà a la dreta del 0 amb un únic pol simple en $s=1$.
+}
+\Prop{Producte d'Euler, i sèrie de Dirichlet de $\zeta_m$.}{\label{3.10_proposició producte d'Euler i sèrie de zeta_m}
+Es té:
+\begin{enumerate}
+    \ii $\zeta_m(s)=\prod_{p\,\not\mid \,m}(1-p^{-f_ps})^{-\frac{\varphi(m)}{f_p}}$ per $\s>1$; i on $f_p$ és l'ordre de $p$ a $(\ZZ/m\ZZ)^\times$.\\
+    \ii $\zeta_m(s)$ admet una expressió com a sèrie de Dirichlet amb coeficients a $\ZZ\geq0$ (en particular, $\RR_{\geq0}$) per a $\sigma>1$.    
+\end{enumerate}
+}
+\teorema{Les funcions $L(\chi,s)$ no s'anul·len en $s=1$}{\label{3.11_teorema les funcions L no s'anul·len a l'1}\begin{enumerate}
+    \ii La funció $\zeta_m(s)$ té un pol simple a $s=1$.\\
+    \ii $L(\chi,1)\neq0$ si $\chi\neq\chi_0$.
+\end{enumerate}}
+\pf{
+\begin{enumerate}
+    \ii Només fa falta veure el primer apartat. (veure perquè)\\
+    \ii Suposem que hi ha alguna $L(\chi,1)=0$. Aleshores, $\zeta_m(s)$ ha de ser holomorfa per $\s>0$. I per tant, com que els coeficients són enters posistius, per Landau tenim que la sèrie ha de convergir per $\s>0$.
+    \ii Escriure la sèrie com a la prop 6.1: $\prod_{p|m}(1-p^{-f_ps})^{-\frac{\varphi(m)}{f_p}}$.\\
+    \ii Sèrie geomètrica.\\
+    \ii Entrar l'exponent a cada terme.\\
+    \ii Simplificar fins a arribar a $\sum\frac{1}{n^{s\phi(m)}}$ que no convergeix per $s=\frac{1}{\varphi(m)}$. Que contradiu el que hem vist de que la convergència arriba fins al $s=0$.
+\end{enumerate}
+}
+\newpage
+\chapter{Demostració de de la Vallée-Poussin que $L(\chi, 1)\neq 0$ si $\chi$ és un caràcter de Dirichlet real no principal.}
+\Prop{$L(\chi,1)$ no s'anul·la si $\chi$ és real no principal.}{Si $\chi$ és un caràcter complex, aleshores $L(\chi,1)\neq 0$.}
+\pf{
+\begin{enumerate}
+    \ii Considerem $\psi(s)=\frac{L(\chi,s)L(\chi_0,s)}{L(\chi,2s)}$.\\
+    \ii raonar que el numerador de $\psi$ és holomorf per $\s>0$.\\
+    \ii Calcular $\lim_{\substack{s\to\frac{1}{2}\\s\in\RR_{>\frac{1}{2}}}}\psi(s)=0$.\\
+    \ii Expandim la definició de funcions $L$ per $\s>1$ (que sabem que hi ha convergència absoluta).\\
+    \ii Ens queda $\prod_{p\nmid m}\frac{1+p^{-s}}{1-p^{-s}}$.\\
+    \ii Sèrie geomètrica.\\
+    \ii Definir $\sum_{n\geq1}\frac{a_n}{n^s}=\prod(1+p^{-s})(1+p^{-s}+p^{-2s}+\dots)=\psi(s)$.\\
+    \ii Fer sèries de potències al voltant de $s=2$, i com que sabem que $\psi$ és holomorfa per $\sigma>\frac{1}{2}$, tenim $R\geq\frac{3}{2}$.\\
+    \ii Definim $b_k=\sum_{n\geq1}\frac{a_n(\log(n))^k}{n^2}$ (és $\psi^{(k)}(2)$ sense els signes).\\
+    \ii Tornem a calcular el límit d'abans en un entorn de $s=\frac{1}{2}$, i ens surt que el límit ha de ser $\geq1$.
+\end{enumerate}
+}
+\chapter{Enunciat i demostració del Lema 3, $\S3$.}
+\lema{La funció $\Gamma$ és holomorfa.}{La funció $\Gamma(s)$ és holomorfa per $\sigma>0$.}
+\pf{
+\begin{enumerate}
+    \ii Definim $\Gamma_n\vcentcolon=\int_{\frac{1}{n}}^{n}e^{-x}x^s\frac{\dd x}{x}$.\\
+    \ii $\Gamma_n$ és holomorfa: utilitzem el següen teorema: Si $F\colon \{\s>0\}\times[\frac{1}{n},n]\to \CC$ tal que $F(s,x_0)$ és holomorfa i $F$ és contínua sobre $\{\s>0\}\times[\frac{1}{n},n]$; aleshores $\int_\frac{1}{n}^n F(s,x)\dd x$ és holomorfa.\\
+    \ii Separem $|\Gamma(s)-\Gamma_n(s)|\leq|I_0|+|I_1|$, on $I_0$ i $I_1$ són les integrals dels costats. Volem veure que convergeixen uniformement sobre tots els compactes.\\
+    \ii Agafem els rectangles $K(m,N,R)$, i veiem que convergeixen uniformement.\\
+    \ii $|I_0|<\frac{1}{mn^{-m}}$; i $|I_1|<2Ce^{-\frac{n}{2}}$.
+\end{enumerate}
+}
+\chapter{Demostració del Teorema 8, §3 (sense la part final de veure que la integral $I(s)$ defineix una funció holomorfa ).}
+\teorema{}{Per $\sigma>1$, tenim:
+\[
+\pi^{-\frac{s}{2}}\Gamma\left(\frac{s}{2}\right)\zeta(s)=-\frac{1}{s}+\frac{1}{s-1}+\underbrace{\int_1^\infty\left(x^{\frac{s}{2}-1}+x^{-\frac{s}{2}-\frac{1}{2}}\right)\omega(x)\dd x}_{=I(s)}
+\]
+On la funció $I(s)$ és una funció holomorfa a tot $\CC$.
+}
+\pf{
+\begin{enumerate}
+    \ii Comencem amb $\Gamma(s)$, i apliquem el canvi de variable $x=n^2\pi x$ i ho treiem tot a fora.\\
+    \ii Suposem que hi ha convergència absoluta, i fem el sumatori sobre $n\geq1$ dels 2 costats (en un costat apareix $\omega$ i a l'altre apareix $\zeta$).\\
+    \ii Separem la integral $\int_0^\infty=\int_0^1+\int_{1}^{\infty}$.\\
+    \ii Fem el canvi de varible $u=\frac{1}{t}$ a la integral de la esquerra.\\
+    \ii Fem servir $\theta(\frac{1}{x})=\sqrt{x}\theta(x)$ i que $2\omega(x)+1=\theta$.\\
+\end{enumerate}
+}
+
+\end{document}

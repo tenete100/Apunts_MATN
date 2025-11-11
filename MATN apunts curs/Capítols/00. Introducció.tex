@@ -1,0 +1,78 @@
+\chapter{Introducció}
+\section{Primera interacció}
+La teoria de nombres, es podria dir que va començar al 1737, amb Euler, donant una demostració molt diferent a qualsevol que hi havia fins al moment del següent problema.
+\teorema{Infinitud dels primers}{Existeixen infinits nombres primers}
+\pf{La demostració més coneguda és la d'Euclides, i comença suposant que la cardinalitat del conjunt dels primers $\# \PP=n$. Per tant, podem suposar que $\PP=\{p_1,\dots,p_n\}$. Considerem ara, $N=1+\prod_{i=1}^np_i$. Considerem ara un primer $P$ que divideixi a $N$, però com que $N\equiv1\pmod{p_i}$ per tots els primers, $P\notin \PP$. I per tant, arribem a una contradicció, que és el que volíem veure.}
+
+Ara veurem la demostració que va fer Euler al  1737.
+\pf{
+Suposem, un altre cop, que $\# \PP=n$, per tant, $\PP=\{p_1,\dots,p_n\}$. Per tant, considerem el productori:
+\[\prod_{i=1}^n\frac{1}{1-\frac{1}{p_i}}=\prod_{i=1}^n1+\frac{1}{p_i}+\frac{1}{p_i^2}+\dots\]
+Notem que com que estem multiplicant $n$ coses finites, aquest producte ha de ser convergent. Considerem, ara què passa si expandim el producte:
+\begin{equation}
+\label{suma_de_potències_de_primers}
+\prod_{i=1}^n1+\frac{1}{p_i}+\frac{1}{p_i^2}+\dots=\sum_{n\geq1}\frac{1}{n}
+\end{equation}
+Però aquesta última sumació no convergeix, que contradiu el que hem dit abans, i per tant, arribem a una contradicció.
+}
+Acabem de veure que hi han infinits primers, però això no ens diu tot el que voldríem saber: volem saber com de densos són. I per això podem considerar el següent sumatori. (això ens diu si n'hi ha més o menys que quadrats perfectes, per exemple).
+\coro{}{La suma $\sum_p\frac{1}{p}$ divergeix.}
+\claim{Si $x\in(0,\half]$, aleshores $-\log(1-x)<x+x^2$}
+\pf{Sabem que $-\log(1-x)=x+\half x^2+\frac{1}{3}x^3+\dots$ si $|x|<1$. Per tant, en tenim prou amb veure que $x+x^2>x+\half x^2+\frac{1}{3}x^3+\dots$ al rang que ens interessa.\\
+Notem que és suficient veure:
+\[
+\half x^2>\frac{1}{3}x^3+\frac{1}{3}x^4+\dots=\frac{x^3}{3}(1+x+x^2+\dots)=\frac{x^3}{3-3x}
+\]
+Però simplificant (i suposant que la $x$ està a $(0,\half]$), obtenim:
+\[
+\frac{3x^3(1-x)}{2}>x^3\iff\frac{3}{2}(1-x)>x\iff\frac{3}{2}>\frac{5}{2}x\iff x<\frac{3}{5}
+\]
+Que és el que volíem veure.
+}
+I ara demostrem el corol·lari:
+\pf{Per veure que $\sum_p\frac{1}{p}$ divergeix, considerem les seves sumes parcials:
+\[\sum_{n\leq N}\frac{1}{n}<\prod_{p\leq N}\frac{1}{1-\frac{1}{p}}\]
+On aquesta desigualtat és certa per la mateixa raó que abans.(equació \ref{suma_de_potències_de_primers}). Per tant, prenent el logaritme als 2 costats, obtenim:
+\[\log\left(\sum_{n\leq N}\frac{1}{n}\right)<-\sum_{p\leq N}\log\left(1-\frac{1}{p}\right)\]
+I com que $\frac{1}{p}\leq \half$ per tots els primers, podem aplicar la claim d'abans:\\
+\[\log\left(\sum_{n\leq N}\frac{1}{n}\right)<-\sum_{p\leq N}\log\left(1-\frac{1}{p}\right)<\sum_p\frac{1}{p}+\sum_p\frac{1}{p^2}\]
+Notem que, si prenem el límit, la part de dins de $\log\left(\sum_{n\leq N}\frac{1}{n}\right)$ divergeix, i per tant tot ho fa. I com que 
+$\sum_\NN\frac{1}{n^2}>\sum_p\frac{1}{p^2}$ convergeix, per força $\sum_p\frac{1}{p}$ ha de divergir. Que és el que volíem veure.
+}
+\section{Notacions típiques de teoria analítica de nombres}
+En aquesta assignatura ens interessen els límits, el creixement asimptòtic, i altres coses per l'estil, és per això que introduïm notació per tractar amb precisió aquests temes.
+\dfe{O-gran}{Sigui $(X,\leq)$\footnote{Normalment considerarem $X=\RR$ o $\NN$} un conjunt ordenat, $x_0\in X$, $f\colon X\rightarrow\CC$ i $g\colon X\rightarrow\RR_{\geq 0}$. Escrivim $f(x)=\bigO(g(x))$ per $x\geq x_0$ si existeix alguna $M>0$ tal que $|f(x)|<Mg(x)$ per $x\geq x_0$.\\
+A vegades utilitzarem la notació equivalent de Vinogradov:\\
+``$f(x)\ll g(x)$ per $x\geq x_0$'' per dir ``$f(x)=\bigO(g(x))$ pr $x\geq x_0$''.}
+A vegades farem un petit abús de notació i direm:
+\[f(x)=g(x)+\bigO(h(x))\]
+Per dir que $f(x)-g(x)=\bigO(h(x))$.
+\dfe{Equivalència asimptòtica}{Siguin $f,g \colon \RR\rightarrow\RR$ i $x_0\in\RR$. Escriurem $f(x)\sim g(x)$ per dir que el límit $\lim_{x\rightarrow x_0}\frac{f(x)}{g(x)}$ existeix, i és igual a 1.}
+\dfe{O-petita}{Escrivim $f(x)=\smallO(g(x))$ quan $x\rightarrow x_0$, si el següent límit existeix
+\[
+\lim_{x\rightarrow x_0}\frac{f(x)}{g(x)}
+\]
+i a més, dona 0.
+}
+Notem que ara podem ser més precisos amb el resultat que hem vist abans. Per exemple, en comtes de dir $\sum_p\frac{1}{p}$ divergeix, ara podem dir quina velocitat té. Per exemple, $\sum_{p\leq x}\frac{1}{p}\sim \log(\log(x))$ quan $x\rightarrow \infty$. Però això no ens diu com de gran és l'error asimptòtic. És encara més precís dir $\sum_{p\leq x}\frac{1}{p}=\log(\log(x))+A+\bigO(\frac{1}{\log(x)})$ per $x\geq 2$ quan $x\rightarrow \infty$.\par
+Ara introduirem un dels resultats més important que veurem en aquesta assignatura, que es deu a Dirichlet, 100 anys després del resultat d'Euler.
+\teorema{Teorema de la progressió aritmètica de Dirichlet (1837)}{
+Sigui $A,n\in\NN$, tals que $\gcd(a,n)=1$. Aleshores existeixen infinits primers $p$ tals que $p\equiv A\pmod n$. 
+}
+Euler, 100 anys abans, havia demostrat la infinitud dels primers estudiant la sèrie $\sum\frac{1}{n}=\prod_{p}\frac{1}{1-\frac{1}{p}}$; Dirichlet va estudiar les sèries $\zeta(s)=\sum_{n\geq1}\frac{1}{n^s}$ amb $n\in(1,\infty)$, i les de la forma $\sum_{n\in\NN}\frac{\chi(n)}{n^s}$, on $\chi(n)$ és un caràcter de Dirichlet mòdul $m$. I el caràcter de Dirichlet és:
+\dfe{Caràcter de Dirichlet}{\label{1.01_def_caràcter_de_dirichlet}Un \textit{caràcter de Dirichlet} és una funció $\chi\colon\NN\rightarrow\CC$ que compleix les següents propietats:
+\begin{enumerate}
+    \ii La funció sigui completament multiplicativa ($\chi(ab)=\chi(a)\chi(b)$)\footnote{Una funció multiplicativa és una funció que $f(ab)=f(a)f(b)$
+    si $\gcd(a,b)=1$.}.\\
+    \ii La funció tingui període $m$ ($\chi(a+m)=\chi(a)$).\\
+    \ii La funció s'anul·la en $a$ si i només si $\gcd(a,m)\neq 1$.
+\end{enumerate}
+}
+Per exemple, si considerem quins caràcters hi ha per $m=1$, com que $\gcd(1,0)=1$ tenim que $\chi(0)\neq0$, i com que $\chi(1)=\chi(1\times1)=\chi(1)^2$ tenim que $\chi(1)=1$. I per la segona propietat, tenim que $\chi(n)=1$.\par
+Si ara volguéssim veure què passa si $m=4$: pel mateix argument que abans $\chi(1)=1$. A més, com que $\gcd(0,4),\gcd(2,4)>1$ tenim que $\chi(0)=\chi(2)=0$. Per tant, ara només ens fa falta determinar quan val $\chi(3)$, però com que $\chi(3)^2=\chi(9)=\chi(1)=1$ tenim que $\chi(3)=\pm1$. Per tant, hi han 2 caràcters mòdul 4.\par
+
+Al 1859 Riemann va introduir la funció $\zeta$ de Riemann, que era molt semblant a la que havia estudiat Dirichlet, però mirant-la com una funció de meromorfa amb els zeros en una certa regió. I va traçar un pla d'atac per demostrar el teorema del nombre primer, i al 1896, de manera independent 2 matemàtics van demostrar-lo.
+\teorema{Teorema del nombre primer (1896, Hadamard, de la Vallée Poussin)}{Sigui $\pi(x)\coloneq\#\{\text{Primers }p \leq x\}$, aleshores 
+\[
+\pi(x)\sim\frac{x}{\log(x)}
+\] quan $x\rightarrow\infty$}

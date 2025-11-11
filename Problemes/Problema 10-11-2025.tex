@@ -1,0 +1,111 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[catalan]{babel}
+\usepackage[draft]{graphicx}
+% \usepackage[usenames,dvipsnames,svgnames]{xcolor}
+\usepackage{mathrsfs}
+\usepackage[shortlabels]{enumitem}
+\usepackage{mathtools}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{tikz}
+
+
+%% Macros
+\providecommand{\ol}{\overline}
+\providecommand{\ul}{\underline}
+\providecommand{\wt}{\widetilde}
+\providecommand{\wh}{\widehat}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\half}{\frac{1}{2}}
+\providecommand{\inv}{^{-1}}
+\newcommand{\dang}{\measuredangle} %% Directed angle
+\providecommand{\CC}{\mathbb C}
+\providecommand{\FF}{\mathbb F}
+\providecommand{\NN}{\mathbb N}
+\providecommand{\QQ}{\mathbb Q}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\ZZ}{\mathbb Z}
+\providecommand{\ts}{\textsuperscript}
+\providecommand{\dg}{^\circ}
+\providecommand{\ii}{\item}
+\DeclareMathOperator*{\lcm}{lcm}
+\DeclareMathOperator*{\argmin}{arg min}
+\DeclareMathOperator*{\argmax}{arg max}
+
+% theorem environments
+% starred versions are not numbered, unstarred versions have a number
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{claim*}{Claim}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{remark*}{Remark}
+
+\begin{document}
+
+%% Insert problem statement here
+\paragraph{TSTST 2018}
+Per un enter $n>0$ definim $\mathcal{F}(n)$ com el conjunt de $m\in\ZZ_{\geq1}$ tal que el polinomi
+\[
+p(x)=x^2+mx+n
+\]
+té alguna arrel entera.
+\begin{enumerate}
+    \ii sigui $S$ el conjunt de $n$ tals que $\mathcal{F}(n)$ conté 2 números consecutius. Aleshores, demostra que $S$ és infinit i que tenim:
+    \[
+    \sum_{n\in S} \frac{1}{n}\leq 1.
+    \]
+\end{enumerate}
+\newpage
+\paragraph{Pistes:}
+\begin{enumerate}
+    \ii Els $n\in S$ menors que $100$, són: $4$, $12$, $24$, $36$, $40$, $60$, $72$.
+    \vspace{45mm}
+    \ii Què diuen les fòrmules de Vieta?\\
+    \vspace{45mm}
+    \ii Pots calcular $\mathcal{F}(n)$ donat que $n=60$, per exemple?\\
+
+\end{enumerate}
+\newpage
+
+\paragraph{Solució:}
+Notem què diuen les fòrmules de Vieta: si $a$ i $b$ són arrels de $p(x)=x^2+mx+n$, aleshores tenim:
+\[
+    p(x)=(x-x_0)(x-x_1)=x^2-(x_1+x_1)x+x_0x_1 \qquad \implies \qquad x_0+x_1=-m \text{ i }x_0x_1=n.
+\]
+Per tant, sabem que si $n\in S$, aleshores, existeixen dos $d_1$, $d_2\in\ZZ_{\geq1}$ divisors de $n$ tals que 
+\[
+    m=\underbrace{\frac{n}{d_1}}_{k_1}+d_1 \qquad m+1=\underbrace{\frac{n}{d_2}}_{k_2}+d_2
+\]
+són consecutius. Per tant, podem escriure:
+\[
+    n=abcd
+\]
+On $ab=k_1$, $cd=d_1$; i $ac=k_2$, $bd=d_2$. Si fem aquest canvi de variables:
+\begin{align*}
+    ab+cd&=m+1\\
+    ac+bd&=m
+\end{align*}
+Per tant:
+\[
+    1=ab+cd-ac-bd=a(b-c)-d(b-c)=(a-d)(b-c)
+\]
+Però com que estem sobre els enters, la única manera de multiplicar 2 números i que doni 1 ha de ser amb $(+1)(+1)$ o $(-1)(-1)$. Per tant, si $a-d=1=b-c$, aleshores aconseguim que $n=(c^2+c)(d^2+d)$. I si fem $a-d=-1=b-c$ ens dona $n=(a^2+a)(b^2+b)$, que és el mateix que teníem abans.\par
+\vspace{15mm}
+Ara per veure quant val el sumatori:
+\[
+    \sum_{n\in S}\frac{1}{n}\leq
+    \sum_{a\geq1}\sum_{b\geq1}\frac{1}{(a+1)a(b+1)b}=
+    \sum_{a\geq1}\frac{1}{(a+1)a}\sum_{b\geq1}\frac{1}{(b+1)b}
+\]
+Però notem que 
+\[
+    \sum_{n\geq1}\frac{1}{n^2+n}=\sum_{n\geq1}\frac{1}{n}-\frac{1}{n+1}=1
+\]
+Que ens dona que el sumatori és exactament 1; que és el que volíem veure.
+\end{document}

@@ -1,0 +1,365 @@
+%----------------
+%   Importaciones
+%----------------
+\usepackage{xparse,xcolor}
+\usepackage{sectsty}
+\usepackage{amsmath,amssymb,latexsym,cancel,amsthm,mathtools} %amsfonts
+\usepackage{tikz,pgfplots}
+\pgfplotsset{compat=1.18, width=10cm}
+\usepackage{multicol}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+
+\usepackage[colorlinks=true]{hyperref}
+\usepackage[most]{tcolorbox}
+\usepackage{blindtext}
+\usepackage{framed}
+\usepackage{titletoc}
+\usepackage{etoolbox}
+
+\usepackage[explicit]{titlesec}
+\usepackage{anyfontsize}
+
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx, wrapfig, subcaption, setspace, booktabs}
+\usepackage[T1]{fontenc}
+\usepackage[catalan]{babel}
+\usepackage[scaled]{helvet}     % Fuente del documento
+
+
+\renewcommand{\familydefault}{\rmdefault} % per tornar a canviar la font posar aquí \sfdefault
+\usepackage[utf8]{inputenc}
+\usepackage{url, lipsum}
+\usepackage{tabularx}
+\usepackage{cancel}
+
+% \setlength{\parindent}{0cm}
+% \setlength{\parskip}{5pt}
+
+%-----------------
+%   Colores
+%-----------------
+\definecolor{mytheorembg}{HTML}{F2F2F9}
+\definecolor{mylenmabg}{HTML}{FFFAF8}
+\definecolor{mylenmafr}{HTML}{983b0f}
+\definecolor{mypropbg}{HTML}{f2fbfc}
+\definecolor{mypropfr}{HTML}{191971}
+\definecolor{myp}{RGB}{197, 92, 212}
+\definecolor{primary}{HTML}{207ba5}    % Color principal
+\definecolor{migris}{RGB}{17, 17, 17}
+\definecolor{grisfondo}{RGB}{249, 249, 249}
+\definecolor{MyGrey}{HTML}{5B5B5B}
+
+
+%----------------
+%   Colores para
+%   Las urls
+%----------------
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,
+    urlcolor=blue,
+}
+
+%----------------
+%   Cajas
+%----------------
+
+
+% \newcommand{\comb}[2]{\begin{pmatrix}
+%      #1\\
+%      #2
+% \end{pmatrix}}
+
+\newcommand\fancybox[3]{%
+    \tcbset{
+        mybox/.style={
+                enhanced,
+                boxsep=0mm,
+                opacityfill=0,
+                overlay={
+                        \coordinate (X) at ([xshift=-1mm, yshift=-1.5mm]frame.north west);
+                        \node[align=right, text=#1, text width=2.5cm, anchor=north east] at (X) {\bf#2};
+                        \draw[line width=0.5mm, color=#1] (frame.north west) -- (frame.south west);
+                    }
+            }
+    }
+    \begin{tcolorbox}[mybox]
+        #3
+    \end{tcolorbox}
+}
+
+\tcbuselibrary{theorems,skins,hooks}
+\NewDocumentCommand\caja{m O{\Large #1} O{grisfondo} O{primary} O{number within=chapter}}
+{
+    \newtcbtheorem[#5]{#1}{\large #2}
+    {%
+        enhanced
+        ,breakable
+        ,colback = #3
+        ,frame hidden
+        ,boxrule = 0sp
+        ,borderline west = {2pt}{0pt}{#4}
+        ,sharp corners
+        ,detach title
+        ,before upper = \tcbtitle\par\smallskip
+        ,coltitle = #4
+        ,fonttitle = \bfseries%
+        % ,description font = \mdseries
+        ,separator sign none
+        ,segmentation style={solid, #4}
+    }
+    {th}
+}
+
+\caja{Corolari}[Corol·lari][myp!10][myp!85!black]
+\caja{Lema}[Lema][mylenmabg][mylenmafr]
+\caja{Propo}[Proposició][mypropbg][mypropfr]
+\caja{defi}[Definició][primary!12][primary]
+\caja{Teorema}[Teorema][primary!12][primary]
+\caja{Nota}[Nota][white][migris][no counter]
+\caja{Propietats}[Propietats][white][migris][no counter]
+\caja{preg}[Pregunta][white][migris][no counter]
+\caja{Claim}[Claim:][white][migris][no counter]
+
+%---------------
+%   Comandos
+%---------------
+\newcommand{\teorema}[2]{\begin{Teorema}{#1}{}#2\end{Teorema}}
+\newcommand{\pregunta}[2]{\begin{preg}{#1}{}#2\end{preg}}
+\newcommand{\coro}[2]{\begin{Corolari}{#1}{}#2\end{Corolari}}
+\newcommand{\lema}[2]{\begin{Lema}{#1}{}#2\end{Lema}}
+\newcommand{\Prop}[2]{\begin{Propo}{#1}{}#2\end{Propo}}
+\newcommand{\propietats}[2]{\begin{Propietats}{#1}{}#2\end{Propietats}}
+\newcommand{\nota}[2]{\begin{Nota}{#1}{}{\em\color{MyGrey}#2}\end{Nota}}
+\newcommand{\dfe}[2]{\begin{defi}{#1}{}#2\end{defi}}
+\newcommand{\pf}[1]{\begin{proof}[\color{primary}\textbf{Demostració.}] #1 \end{proof}\vspace{7mm}}
+\newcommand{\claim}[1]{\begin{Claim}{}{} #1 \end{Claim}}
+
+\theoremstyle{definition}
+\newtheorem*{exem}{\color{primary}Exemple}
+\newcommand{\exemple}[1]{\begin{exem}#1\end{exem}}
+
+\theoremstyle{definition}
+\newtheorem*{solu}{\color{primary}Solució}
+\newcommand{\sol}[1]{\begin{solu}#1\end{solu}}
+
+\theoremstyle{definition}
+\newtheorem*{obser}{\color{primary}Observació}
+\newcommand{\obs}[1]{\begin{obser}#1\end{obser}}
+
+%---------------
+%   Listas
+%---------------
+
+% \newcommand{\cnumero}[2]{
+%     \tikz[baseline=(myanchor.base)]
+%     \node[minimum size=0.2cm,circle,
+%         inner sep=1pt,draw, #2,thick,fill=#2](myanchor)
+%     {\color{white}\bfseries\fontsize{8}{8}#1};}
+
+\newcommand*{\itembolasazules}[1]{\protect\cnumero{#1}{primary}}
+    
+\newcommand{\listo}[1]{
+    \begin{enumerate}[label=\itembolasazules{\arabic*}]
+        #1
+    \end{enumerate}
+}
+
+\newcommand{\listu}[1]{
+    \begin{itemize}[label=$\color{primary} \bullet$]
+        #1
+    \end{itemize}
+}
+
+%-------------------------
+% Tabla de Contenidos
+%-------------------------
+
+\patchcmd{\tableofcontents}{\contentsname}{\contentsname}{}{}
+
+\renewenvironment{leftbar}
+{\def\FrameCommand{\hspace{6em}%
+        {\color{primary}\vrule width 2pt depth 6pt}\hspace{1em}}%
+    \MakeFramed{\parshape 1 0cm \dimexpr\textwidth-6em\relax\FrameRestore}\vskip2pt%
+}
+{\endMakeFramed}
+
+\titlecontents{chapter}[0em]
+{\vspace*{2\baselineskip}}
+{\parbox{4.5em}{%
+        \hfill\Huge\bfseries\color{primary}\thecontentslabel}
+    \vspace*{-2.3\baselineskip}\leftbar\textbf{\color{primary}\small\chaptername~\thecontentslabel}\\
+}{}{\endleftbar}
+
+\titlecontents{section}[8.4em]
+{\contentslabel{3em}}{}{} 
+{\hspace{0.5em}\nobreak\itshape\color{primary}\contentspage}
+
+\titlecontents{subsection}[8.4em]
+{\contentslabel{3em}}{}{} 
+{\hspace{0.5em}\nobreak\itshape\color{primary}\contentspage}
+
+%-----------------------------
+%   Formato de los capitulos
+%-----------------------------
+
+%==================
+% Capitulos
+%==================
+\newtcolorbox{titlecolorbox}[1]{ %the box around chapter
+    coltext=white,
+    colframe=primary,
+    colback=primary,
+    boxrule=0pt,
+    arc=0pt,
+    notitle,
+    width=4.8em,
+    height=2.4ex,
+    before=\hfill
+}
+
+
+\makeatletter
+\let\old@rule\@rule
+\def\@rule[#1]#2#3{\textcolor{primary}{\old@rule[#1]{#2}{#3}}}
+\makeatother
+
+\titleformat{\chapter}[display]
+{\Huge}
+{}
+{0pt}
+{\begin{titlecolorbox}{}
+        {\large\MakeUppercase{\bf\chaptername}}
+    \end{titlecolorbox}
+    \vspace*{-4.19ex}\noindent\rule{\textwidth}{0.4pt}
+    \parbox[b]{\dimexpr\textwidth-4.8em\relax}{\raggedright\MakeUppercase{#1}}{\hfill\fontsize{70}{60}\selectfont{\color{primary}\thechapter}}
+}
+[]
+
+\titleformat{name=\chapter,numberless}[display]
+{\Huge\normalfont}
+{}
+{0pt}
+{
+    \vspace*{-4.19ex}\noindent\rule{\textwidth}{0.4pt}
+    \parbox[b]{\dimexpr\textwidth-4.8em\relax}{\raggedright\MakeUppercase{#1}}
+}
+[]
+
+%==============
+% Secciones
+%==============
+
+\titleformat{\section}[hang]{\Large\normalfont\bfseries}
+{\rlap{\color{primary}\rule[-6pt]{\textwidth}{0.4pt}}\colorbox{primary}{%
+        \raisebox{0pt}[13pt][3pt]{ \makebox[60pt]{% height, width
+                \fontfamily{cmr}\selectfont\color{white}{\thesection}}
+        }}}%
+{15pt}%
+{ \color{primary}#1
+    %
+}
+\titlespacing*{\section}{0pt}{3mm}{5mm}
+
+%================
+% Sub secciones
+%================
+\subsectionfont{\Large\color{primary}}
+
+%---------------------
+% Portada
+%---------------------
+\usetikzlibrary{ shapes.geometric }
+\usetikzlibrary{calc}
+\newcommand{\portada}[3]{
+    \begin{tikzpicture}[remember picture,overlay]
+        %%%%%%%%%%%%%%%%%%%% Background %%%%%%%%%%%%%%%%%%%%%%%%
+        %\fill[primary] (current page.south west) rectangle (current page.north east);
+
+
+        \foreach \i in {2.5,...,22}
+            {
+                \node[rounded corners,black!40,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.west)+(2.5,-5)$) {} ;
+            }
+
+        %%%%%%%%%%%%%%%%%%%% Background Polygon %%%%%%%%%%%%%%%%%%%% 
+        \foreach \i in {0.5,...,22}
+            {
+                \node[rounded corners,black!40,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.north west)+(2.5,0)$) {} ;
+            }
+
+        \foreach \i in {0.5,...,22}
+            {
+                \node[rounded corners,black!20,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.north east)+(0,-9.5)$) {} ;
+            }
+
+
+        \foreach \i in {21,...,6}
+            {
+                \node[black!85,rounded corners,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.south east)+(-0.2,-0.45)$) {} ;
+            }
+
+
+        %%%%%%%%%%%%%%%%%%%% Title of the Report %%%%%%%%%%%%%%%%%%%% 
+        \node[left,black!70,minimum width=0.625*\paperwidth,minimum height=3cm, rounded corners] at ($(current page.north east)+(0,-9.5)$)
+        {
+            {\fontsize{25}{30} \selectfont \bfseries #1} 
+        };
+
+        %%%%%%%%%%%%%%%%%%%% Subtitle %%%%%%%%%%%%%%%%%%%% 
+        \node[left,black!60,minimum width=0.625*\paperwidth,minimum height=2cm, rounded corners] at ($(current page.north east)+(0,-11)$)
+        {
+            {\huge \textit{#2}}
+        };
+
+        %%%%%%%%%%%%%%%%%%%% Author Name %%%%%%%%%%%%%%%%%%%% 
+        \node[left,black!60,minimum width=0.625*\paperwidth,minimum height=2cm, rounded corners] at ($(current page.north east)+(0,-13)$)
+        {
+            {\Large \textsc{#3}}
+        };
+
+        %%%%%%%%%%%%%%%%%%%% Year %%%%%%%%%%%%%%%%%%%% 
+        \node[rounded corners,fill=black!70,text =primary!5,regular polygon,regular polygon sides=6, minimum size=2.5 cm,inner sep=0,ultra thick] at ($(current page.west)+(2.5,-5)$) {\LARGE \bfseries \the\year{}};
+
+    \end{tikzpicture}
+}
+
+% declaracions de dreceres
+\providecommand{\ol}{\overline}
+\providecommand{\ul}{\underline}
+\providecommand{\wt}{\widetilde}
+\providecommand{\wh}{\widehat}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\half}{\frac{1}{2}}
+\providecommand{\inv}{^{-1}}
+\newcommand{\dang}{\measuredangle} %% Directed angle
+\providecommand{\CC}{\mathbb C}
+\providecommand{\s}{\sigma}
+\providecommand{\FF}{\mathbb F}
+\providecommand{\KK}{\mathbb K}
+\providecommand{\NN}{{\mathbb Z_{\geq1}}}
+\providecommand{\QQ}{\mathbb Q}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\ZZ}{\mathbb Z}
+\providecommand{\PP}{\mathbb P}
+\providecommand{\bigO}{\mathcal O}
+\newcommand\smallO{
+  \mathchoice
+    {{\scriptstyle\mathcal{O}}}% \displaystyle
+    {{\scriptstyle\mathcal{O}}}% \textstyle
+    {{\scriptscriptstyle\mathcal{O}}}% \scriptstyle
+    {\scalebox{.6}{$\scriptscriptstyle\mathcal{O}$}}%\scriptscriptstyle
+  }
+\providecommand{\dd}{\mathrm{d}}
+
+\providecommand{\ts}{\textsuperscript}
+\providecommand{\dg}{^\circ}
+\providecommand{\ii}{\item}
+\DeclareMathOperator*{\lcm}{lcm}
+\DeclareMathOperator*{\argmin}{arg min}
+\DeclareMathOperator*{\argmax}{arg max}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\Hom}{Hom}
+\newcommand{\mcal}[1]{\mathcal{#1}}
