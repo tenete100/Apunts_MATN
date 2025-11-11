@@ -466,7 +466,7 @@ Notem que en aquesta demostració incloent tots els lemes previs, hem utilitzat 
 \]
 I no és massa difícil de veure que aquesta funció és un caràcter de Dirichlet del mateix mòdul.}
 
-Valleé-Poussin va distingir 2 casos: si $\chi$ és real o si és complexa. Aleshores, nosaltres veurem primer:
+Vallée-Poussin va distingir 2 casos: si $\chi$ és real o si és complexa. Aleshores, nosaltres veurem primer:
 \Prop{$L(\chi,1)$ no s'anul·la si $\chi$ és complex.}{Si $\chi$ és un caràcter complex, aleshores $L(\chi,1)\neq 0$.}
 \pf{
 Suposem que $L(\chi,1)=0$, aleshores, primer veurem que $L(\ol\chi,1)=0$.\par
@@ -481,9 +481,50 @@ I com que les 2 són analítiques, i iguals en un conjunt amb un punt d'acumulac
 \zeta_m(s)=\prod_{\theta}L(\theta,s)=L(\chi_0,s)L(\chi,s)L(\ol\chi,s)\prod_{\theta\neq \chi_0,\chi,\ol\chi}L(\theta,s)
 \]
 Però sabem que $L(\chi_0,s)$ és meromorfa amb un pol en $s=1$; també sabem que $L(\chi,s)$ i la seva conjugada són funcions holomorfes que s'anul·len en el 1 (per hipòtesi). I com que el producte també és una funció holomorfa, sabem que $\zeta_m(1)=0$. I per tant, tindríem que $\zeta_m$ seria una funció holomorfa en $\s>0$.\par
-Però això no pot ser:
+Però això no pot ser, ja que vam veure que per $s\in\RR_{\geq1}$:
 \[
-\zeta_m(s)\geq \sum_{\substack{n>1\\(n,m)=1}}\frac{1}{n^{\varphi}}
+\zeta_m(s)\geq \sum_{\substack{n>1\\(n,m)=1}}\frac{1}{n^{\varphi(m)s}}\geq1
 \]
-
+Per tant, en un entorn de $s=1$ tenim que $\zeta_m$ no es fa petita, per tant, el límit no pot ser pas 0; que és la contradicció que volíem.
 }
+I ara veurem l'altra cara de la demostració de Vallée-Poussin:
+\Prop{$L(\chi,1)$ no s'anul·la si $\chi$ és real no principal.}{Si $\chi$ és un caràcter complex, aleshores $L(\chi,1)\neq 0$.}
+\pf{
+Suposem que existeix algun caràcter $\chi$ tal que $L(\chi,1)=0$ considerem la funció
+\[
+\psi(s)=\frac{L(\chi,s)L(\chi_0,s)}{L(\chi_0,2s)}
+\]
+Notem que $L(\chi,s)L(\chi_0,s)$ és holomorfa per $\sigma>0$ ja que $\chi_0$ és meromorfa amb un únic pol simple en $s=1$ que mor justament amb el zero de $L(\chi,1)$. També sabem que $L(\chi_0,2s)$ té un pol en $s=\frac{1}{2}$ per tant, $\psi(\frac{1}{2})=0$. Per tant:
+\[
+\lim_{\substack{s\to\frac{1}{2}\\s\in\RR_{>\frac{1}{2}}}}\psi(s)=0
+\]
+Ara veurem que això és una contradicció. Per fer-ho estudiem:
+\[
+\psi(s)=\frac{\prod_{p\nmid m}\left(1-\chi(p)p^{-s}\right)^{-1}\prod_{p\nmid m}\left(1-p^{-s}\right)^{-1}}{\prod_{p\nmid m}\left(1-p^{-s}\right)^{-1}}\qquad \text{per }\sigma>1
+\]
+Podem fer això, perquè sabem que tenim convergència absoluta per $\sigma>1$.
+\[
+\prod_{p\nmid m}\frac{1-\left(p^{-s}\right)^2}{\left(1-\chi(p)p^{-s}\right)\left(1-p^{-s}\right)}=
+\prod_{p\nmid m}\frac{1+p^{-s}}{1-\chi(p)p^{-s}}=
+\prod_{\chi(p)=1}\frac{1+p^{-s}}{1-p^{-s}}=
+\]
+Aquesta última igualtat, és degut a que estem treballant amb un caràcter real, i que per tant, els únics valors que pot prendre són $\pm1$ (o 0, però sabem que és zero si i només si $p|m$, però com que des del principi, aquests els estem ignorant, no hi ha problema); i com que si $\chi(p)=-1$, aleshores estem multiplicant per $\frac{1+p^{-s}}{1+p^{-s}}=1$, per tant, els termes que siguin així, els podem ignorar.
+\[
+\prod_{\chi(p)=1}\frac{1+p^{-s}}{1-p^{-s}}=
+\prod_{\chi(p)=1}\left(1+p^{-s}\right)\left(1+p^{-s}+p^{-2s}+\dots\right)
+\]
+Però ara si definim $\sum_{n\geq1}\frac{a_n}{n^S}\vcentcolon=\prod_{\chi(p)=1}\left(1+p^{-s}\right)\left(1+p^{-s}+p^{-2s}+\dots\right)=\psi(s)$, aleshores veiem que els $a_n\geq0$ i $a_n$ és positiva amb $g_1=1$ (tot això pel lema (\ref{2.02_proposició sèries de Dirichlet de funcions multiplicatives}) 2 del capítol 1).\par
+
+Com que sabem que $\psi$ és holomorfa a $\sigma>\frac{1}{2}$, si fem el desenvolupament en sèries de potències al voltant del 2, tindrà radi de convergència $R\geq\frac{3}{2}$. Per tant
+\[
+\psi(s)=\sum_{k\geq0}\frac{\psi^{(k)}(2)}{k!}(s-2)^k
+\]
+Però recordem que 
+\[\psi^{(k)}(2)=(-1)^k\underbrace{\sum_{n\geq1}\frac{a_n(\log(n))^k}{n^2}}_{=\vcentcolon b_k\text{ per }k\geq0}\]
+Per tant si fixem un $s_0\in (\frac{1}{2},2)$, tenim:
+\[
+\psi(s_0)=\sum_{k\geq0}\frac{b_k}{k!}\underbrace{(2-s_0)^k}_{\geq0}\geq b_0=\psi(2)=1+\sum_{n\geq1}\frac{a_n}{n^s}>1
+\]
+Que ens diu que el límit que hem calculat abans en $s=\frac{1}{2}$ no pot ser 0; i això és una contradicció.
+}
+
