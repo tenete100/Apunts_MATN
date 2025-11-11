@@ -66,16 +66,43 @@ Aquest teorema, degut a que és temari d'una altra assignatura, no el demostrare
 On $\sideset{}{'}\sum$ denota que s'ha de fer la mitjana en els extrems.
 }
 \pf{
-    Notem que si prenem $A=0$ i $B=1$, aleshores tenim que pel teorema d'expansió de Fourier:
-    \[
-    \sideset{}{'}\sum_{n=0}^1 f(n)=\frac{f(0)+f(1)}{2}=f_1(0)=\frac{a_0}{2}+\sum_{\nu\in\ZZ}a_\nu=\sum_{\nu\in\ZZ}\int_0^1 f(t)\cos(2\pi \nu t)\dd t
-    \]
-    Per tant, com que $\sum_{\nu\in\ZZ}\int_0^1f(t)\sin(2\pi \nu t)\dd t=0$, i per tant, sumar zero no afecta:
-    \[
-    \sum_{\nu\in\ZZ}\int_0^1 f(t)\cos(2\pi \nu t)\dd t
-    \sum_{\nu\in\ZZ}\int_0^1 f(t)(\cos(2\pi \nu t)+\sin(2\pi \nu t))\dd t=
-    \sum_{\nu\in\ZZ}\int_0^1 f(t)e^{2\pi i\nu t}\dd t=
-    \]
-    Que és el que volíem veure per aquests valors de $A$ i $B$.\par   
+Notem que si prenem $A=0$ i $B=1$, aleshores tenim que pel teorema d'expansió de Fourier:
+\[
+\sideset{}{'}\sum_{n=0}^1 f(n)=\frac{f(0)+f(1)}{2}=f_1(0)=\frac{a_0}{2}+\sum_{\nu\in\ZZ}a_\nu=\sum_{\nu\in\ZZ}\int_0^1 f(t)\cos(2\pi \nu t)\dd t
+\]
+Per tant, com que $\sum_{\nu\in\ZZ}\int_0^1f(t)\sin(2\pi \nu t)\dd t=0$, i per tant, sumar zero no afecta:
+\[
+\sum_{\nu\in\ZZ}\int_0^1 f(t)\cos(2\pi \nu t)\dd t
+\sum_{\nu\in\ZZ}\int_0^1 f(t)(\cos(2\pi \nu t)+\sin(2\pi \nu t))\dd t=
+\sum_{\nu\in\ZZ}\int_0^1 f(t)e^{2\pi i\nu t}\dd t
+\]
+Que és el que volíem veure per aquests valors de $A$ i $B$.\par
+
+Ara, per a valors generals de $A$ i $B$, només cal notar que sempre estem prenent $A$ i $B$ enters, i per tant, podem escriure
+\[
+\sideset{}{'}\sum_{n=A}^{B}f(n)=\sum_{n=A}^B\sideset{}{'}\sum_{i=0}^1 f(n+i)=
+\sum_{n=A}^{B}\sum_{\nu\in \ZZ}\int_0^1 f(n+t)e^{2\pi i \nu t}\dd t=
+\sum_{\nu\in\ZZ}\int_A^B f(t)e^{2\pi i \nu t}\dd t
+\]
+Que és justament el que volíem veure.
+}
+I ara, amb aquests dos teoremes, podem donar la demostració del teorema \ref{4.02_teorema equació funcional de theta}.
+\pf{
+Considerem, la següent suma:
+\[
+\sideset{}{'}\sum_{-N\leq n\leq N}e^{-\frac{(n+\alpha)^2}{x}\pi}
+\]
+Com que la funcó és contínua i monòtona a trossos (en el fons és una Gaussiana), podem aplicar la fórmula de Poisson:
+\[
+\sideset{}{'}\sum_{-N\leq n\leq N}e^{-\frac{(n+\alpha)^2}{x}\pi}=
+\sum_{\nu \in \ZZ}\int_{-N}^Ne^{-\frac{(n+\alpha)^2}{x}\pi}e^{2\pi i \nu t}\dd t=
+\sum_{\nu \in \ZZ}\int_{-N}^Ne^{-\frac{(n+\alpha)^2}{x}\pi+2\pi i \nu t}\dd t
+\]
+I ara si prenem $N\rightarrow \infty$, obtenim:
+\[
+\sideset{}{'}\sum_{-N\leq n\leq N}e^{-\frac{(n+\alpha)^2}{x}\pi}=
+\sum_{\nu \in \ZZ}\int_{-N}^Ne^{-\frac{(n+\alpha)^2}{x}\pi}e^{2\pi i \nu t}\dd t=
+\sum_{\nu \in \ZZ}\int_{-N}^Ne^{-\frac{(n+\alpha)^2}{x}\pi+2\pi i \nu t}\dd t
+\]
 
 }
