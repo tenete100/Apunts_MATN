@@ -39,22 +39,31 @@ Ara veurem la equació funcional de la funció $\theta$.
 \theta\left(\frac{1}{x}\right)=\sqrt{x}\,\theta(x)
 \]
 }
-Per fer aquesta demostració necessitarem resultats de l'assignatura d'anàlisi matemàtica:
-\teorema{Expansió de Fourier.}{\label{4.13_teorema resultat d'anmat}Sigui $f\colon \RR\to \RR$ una funció contínua i monòtona a trossos. Descrivim
+Per fer aquesta demostració necessitarem resultats de l'assignatura d'anàlisi matemàtica. Però abans, afegim una mica de notació.\par
+Sigui $f\colon \RR\to \RR$ una funció contínua i monòtona a trossos. Descrivim
 \[
 f_1(u)=\left\{\begin{array}{ll}
     f(\{u\}) & \text{si } u\not \in \ZZ\\
     \frac{f(0)+f(1)}{2}& \text{si } u\in \ZZ.
 \end{array}\right.
 \]
-Aleshores, la funció es pot expressar de la següent manera:
+I ara amb aquesta funció $f_1$, que és una funció periòdica de període 1, defnim els seus coeficients de Fourier:
+\teorema{Expansió de Fourier.}{\label{4.13_teorema resultat d'anmat}
+Sigui $f_1$ una funció com la que acabem de veure, aleshores, la podem expressar de la següent manera:
 \[
 f_1(u)=\frac{a_0}{2}+\sum_{\nu\geq1}(a_{\nu}\cos(2\pi \nu u)+b_\nu\sin(2\pi \nu u))
 \]
-On els coeficients venen donats per les següents fórmules:
+On els coeficients (anomenats coeficients de Fourier) venen donats per les següents fórmules:
 \[
 \frac{a_\nu}{2}=\int_0^1f(t)\cos(2\pi \nu t)dt\quad\text{i}\quad\frac{b_\nu}{2}=\int_0^1f(t)\sin(2\pi \nu t)dt
 \]
 }
 Aquest teorema, degut a que és temari d'una altra assignatura, no el demostrarem. Ara donarem un altre teorema que ens serà útil per a la demostració de l'equació funcional de $\theta$.
-\teorema{Fórmula de Poisson summation.}{\label{4.14_teorema Poisson summation} Sigui $f$ una funció }
+\teorema{Fórmula de sumació de Poisson}{\label{4.14_teorema Poisson summation} Sigui $f$ una funció com abans. Sigui $A$, $B\in \ZZ$, amb $A<B$. Aleshores:
+\[
+\sideset{}{'}\sum_{n=A}^B f(n)=\sum_{\nu\in\ZZ}\int_a^Bf(t)e^{2\pi i\nu t}\dd t
+\]
+On $\sideset{}{'}\sum$ denota que s'ha de fer la mitjana en els extrems.
+
+
+}
