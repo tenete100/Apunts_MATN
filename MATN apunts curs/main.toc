@@ -1,3 +1,0 @@
-\babel@toc {catalan}{}\relax 
-\contentsline {chapter}{\numberline {1}Funcions L}{3}{chapter.1}%
-\contentsfinish 
