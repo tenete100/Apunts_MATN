@@ -70,9 +70,9 @@ Notem que si prenem $A=0$ i $B=1$, aleshores tenim que pel teorema d'expansió d
 \[
 \sideset{}{'}\sum_{n=0}^1 f(n)=\frac{f(0)+f(1)}{2}=f_1(0)=\frac{a_0}{2}+\sum_{\nu\in\ZZ}a_\nu=\sum_{\nu\in\ZZ}\int_0^1 f(t)\cos(2\pi \nu t)\dd t
 \]
-Per tant, com que $\sum_{\nu\in\ZZ}\int_0^1f(t)\sin(2\pi \nu t)\dd t=0$ i, per tant, sumar zero no afecta:
+Per tant, com que $\sum_{\nu\in\ZZ}\int_0^1f(t)\sin(2\pi \nu t)\dd t=0$, podem sumar-ho al que teníem abans:
 \[
-\sum_{\nu\in\ZZ}\int_0^1 f(t)\cos(2\pi \nu t)\dd t
+\sum_{\nu\in\ZZ}\int_0^1 f(t)\cos(2\pi \nu t)\dd t=
 \sum_{\nu\in\ZZ}\int_0^1 f(t)(\cos(2\pi \nu t)+\sin(2\pi \nu t))\dd t=
 \sum_{\nu\in\ZZ}\int_0^1 f(t)e^{2\pi i\nu t}\dd t
 \]
@@ -88,21 +88,34 @@ Que és justament el que volíem veure.
 }
 I ara, amb aquests dos teoremes, podem donar la demostració del teorema \ref{4.02_teorema equació funcional de theta}.
 \pf{
-Considerem, la següent suma:
+Considerem ara la següent suma:
 \[
 \sideset{}{'}\sum_{-N\leq n\leq N}e^{-\frac{(n+\alpha)^2}{x}\pi}
 \]
 Com que la funció és contínua i monòtona a trossos (en el fons és una Gaussiana), podem aplicar la fórmula de Poisson:
 \[
-\sideset{}{'}\sum_{-N\leq n\leq N}e^{-\frac{(n+\alpha)^2}{x}\pi}=
-\sum_{\nu \in \ZZ}\int_{-N}^Ne^{-\frac{(n+\alpha)^2}{x}\pi}e^{2\pi i \nu t}\dd t=
-\sum_{\nu \in \ZZ}\int_{-N}^Ne^{-\frac{(n+\alpha)^2}{x}\pi+2\pi i \nu t}\dd t
+\sideset{}{'}\sum_{-N\leq n\leq N}\exp\left({-\frac{(n+\alpha)^2}{x}\pi}\right)=
+\sum_{\nu \in \ZZ}\int_{-N}^N\exp\left({-\frac{(t+\alpha)^2}{x}\pi}e^{2\pi i \nu t}\right)\dd t=
+\sum_{\nu \in \ZZ}\int_{-N}^N\exp\left({-\frac{(t+\alpha)^2}{x}\pi+2\pi i \nu t}\right)\dd t
 \]
 I ara si prenem $N\rightarrow \infty$, obtenim:
 \[
-\sideset{}{'}\sum_{-N\leq n\leq N}e^{-\frac{(n+\alpha)^2}{x}\pi}=
-\sum_{\nu \in \ZZ}\int_{-N}^Ne^{-\frac{(n+\alpha)^2}{x}\pi}e^{2\pi i \nu t}\dd t=
-\sum_{\nu \in \ZZ}\int_{-N}^Ne^{-\frac{(n+\alpha)^2}{x}\pi+2\pi i \nu t}\dd t
+\sum_{n\in\ZZ}\exp\left(-\frac{(n+\alpha)^2}{x}\pi\right)=
+\sum_{\nu \in \ZZ}\int_{-\infty}^\infty \exp\left(-\frac{(t+\alpha)^2}{x}\pi+2\pi i \nu t\right)\dd t
 \]
-
+I si ara fem el canvi de variables $t+\alpha=r x$ i $\dd t=x\dd r$, ens queda
+\[
+    \sum_{\nu \in \ZZ}\int_{-\infty}^\infty \exp\left(-\frac{(t+\alpha)^2}{x}\pi+2\pi i \nu t\right)\dd t=
+    x\sum_{\nu \in \ZZ}\int_{-\infty}^\infty \exp\left(-\frac{(rx)^2}{x}\pi+2\pi i \nu(rx-\alpha)\right)\dd r
+\]
+I ara si movem una mica les coses, obtenim:
+\[
+    x\sum_{\nu \in \ZZ}\exp\left(-2\pi i \nu\alpha\right)\int_{-\infty}^\infty \exp\left(-x\pi(r^2-2\nu ri)\right)\dd r
+    x\sum_{\nu \in \ZZ}\exp\left(-2\pi i \nu\alpha+x\pi(i\nu)^2\right)\int_{-\infty}^\infty \exp\left(-x\pi(r-i\nu)^2\right)\dd r
+\]
+I ara, amb un exercici de anàlisi complexa:
+\claim{Per tot $\beta\in\CC$, tenim
+\[
+    \int_{-\infty}^{\infty}\exp\left({-\pi x (r+\beta)^2}\right)\dd r=\frac{K}{\sqrt{x}}
+\]}
 }
