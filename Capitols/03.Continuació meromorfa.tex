@@ -1,12 +1,12 @@
 \chapter{Continuació meromorfa i equació funcional de $\zeta(s)$}
-Al 1859, Riemann va publicar un article on introduïa la funció zeta de Riemann i on establia dues propietats fonamentals d'aquesta funció: la seva continuació meromorfa a tot el pla complex i l'equació funcional que satisfà. En aquest capítol veurem com demostrar aquestes propietats. \par
+L'any 1859, Riemann va publicar un article on introduïa la funció zeta de Riemann i on establia dues propietats fonamentals d'aquesta funció: la seva continuació meromorfa a tot el pla complex i l'equació funcional que satisfà. En aquest capítol veurem com demostrar aquestes propietats. \par
 Primer definirem la funció $theta$ de Jacobi, i la funció $\Gamma$.
 \dfe{Funció $\theta$ de Jacobi}{
     La funció $\theta$ de Jacobi es defineix $\theta\colon\RR_{>0}\to\RR_{>0}$ com:
     \[
     \theta(x)=\sum_{n\in\ZZ}e^{-n^2\pi x}
     \]
-    I defnim també, la funció $\omega$ com:
+    I definim també, la funció $\omega$ com:
     \[
     \omega(x)=\sum_{n=\in\ZZ_{\geq1}} e^{-n^2\pi x}=\frac{\theta(x)-1}{2}
     \]
@@ -14,7 +14,7 @@ Primer definirem la funció $theta$ de Jacobi, i la funció $\Gamma$.
 I ara hem de veure que aquestes funcions estan ben definides, és a dir, que les sèries convergeixen; i com es comporten per $x>1$.
 \lema{}{\label{4.01_lema}
 \begin{enumerate}
-    \ii La funció $\omega(x)$ és convergent per tot $x>0$.\\
+    \ii La funció $\omega(x)$ és convergent per a tot $x>0$.\\
     \ii El comportament de $\omega(x)$ per $x>1$ és:
     \[
     \omega(x)=\mathcal{O}(e^{-\pi x})
@@ -26,14 +26,14 @@ I ara hem de veure que aquestes funcions estan ben definides, és a dir, que les
 \[
 \omega(x)=\sum_{n\geq1}e^{-n^2\pi x}\leq\sum_{n\geq1}e^{-n\pi x}=\frac{e^{-\pi x}}{1-e^{-\pi x}}
 \]
-On la última igualtat és certa perquè per $x>0$ tenim que $e^{-\pi x}<1$ i per tant la sèrie geomètrica convergeix. Així doncs, la sèrie de $\omega(x)$ convergeix per tot $x>0$ i a més, per $x>1$ tenim que:
+On l'última igualtat és certa perquè per $x>0$ tenim que $e^{-\pi x}<1$ i, per tant, la sèrie geomètrica convergeix. Així doncs, la sèrie de $\omega(x)$ convergeix per tot $x>0$ i a més, per $x>1$ tenim que:
 \[
 \frac{e^{-\pi x}}{1-e^{-\pi x}}=\mathcal{O}(e^{-\pi x})
 \]
 Ja que $1-e^{-\pi x}\neq 0$, i per tant es pot fitar per una constant.\par
 Finalment, com que $\theta(x)=1+2\omega(x)$, el mateix val per $\theta(x)$.
 }
-Ara veurem la equació funcional de la funció $\theta$.
+Ara veurem l'equació funcional de la funció $\theta$.
 \teorema{equació funcional de $\theta(x)$}{\label{4.02_teorema equació funcional de theta} La funció $\theta(x)$ de Jacobi satisfà la següent equació funcional:
 \[
 \theta\left(\frac{1}{x}\right)=\sqrt{x}\,\theta(x)
@@ -47,7 +47,7 @@ f_1(u)=\left\{\begin{array}{ll}
     \frac{f(0)+f(1)}{2}& \text{si } u\in \ZZ.
 \end{array}\right.
 \]
-I ara amb aquesta funció $f_1$, que és una funció periòdica de període 1, defnim els seus coeficients de Fourier:
+I ara amb aquesta funció $f_1$, que és una funció periòdica de període 1, definim els seus coeficients de Fourier:
 \teorema{Expansió de Fourier.}{\label{4.13_teorema resultat d'anmat}
 Sigui $f_1$ una funció com la que acabem de veure, aleshores, la podem expressar de la següent manera:
 \[
@@ -58,7 +58,7 @@ On els coeficients (anomenats coeficients de Fourier) venen donats per les segü
 \frac{a_\nu}{2}=\int_0^1f(t)\cos(2\pi \nu t)dt\quad\text{i}\quad\frac{b_\nu}{2}=\int_0^1f(t)\sin(2\pi \nu t)dt
 \]
 }
-Aquest teorema, degut a que és temari d'una altra assignatura, no el demostrarem. Ara donarem un altre teorema que ens serà útil per a la demostració de l'equació funcional de $\theta$.
+Aquest teorema, com que és temari d'una altra assignatura, no el demostrarem. Ara donarem un altre teorema que ens serà útil per a la demostració de l'equació funcional de $\theta$.
 \teorema{Fórmula de sumació de Poisson}{\label{4.14_teorema Poisson summation} Sigui $f$ una funció com abans. Sigui $A$, $B\in \ZZ$, amb $A<B$. Aleshores:
 \[
 \sideset{}{'}\sum_{n=A}^B f(n)=\sum_{\nu\in\ZZ}\int_a^Bf(t)e^{2\pi i\nu t}\dd t
@@ -70,7 +70,7 @@ Notem que si prenem $A=0$ i $B=1$, aleshores tenim que pel teorema d'expansió d
 \[
 \sideset{}{'}\sum_{n=0}^1 f(n)=\frac{f(0)+f(1)}{2}=f_1(0)=\frac{a_0}{2}+\sum_{\nu\in\ZZ}a_\nu=\sum_{\nu\in\ZZ}\int_0^1 f(t)\cos(2\pi \nu t)\dd t
 \]
-Per tant, com que $\sum_{\nu\in\ZZ}\int_0^1f(t)\sin(2\pi \nu t)\dd t=0$, i per tant, sumar zero no afecta:
+Per tant, com que $\sum_{\nu\in\ZZ}\int_0^1f(t)\sin(2\pi \nu t)\dd t=0$ i, per tant, sumar zero no afecta:
 \[
 \sum_{\nu\in\ZZ}\int_0^1 f(t)\cos(2\pi \nu t)\dd t
 \sum_{\nu\in\ZZ}\int_0^1 f(t)(\cos(2\pi \nu t)+\sin(2\pi \nu t))\dd t=
@@ -78,7 +78,7 @@ Per tant, com que $\sum_{\nu\in\ZZ}\int_0^1f(t)\sin(2\pi \nu t)\dd t=0$, i per t
 \]
 Que és el que volíem veure per aquests valors de $A$ i $B$.\par
 
-Ara, per a valors generals de $A$ i $B$, només cal notar que sempre estem prenent $A$ i $B$ enters, i per tant, podem escriure
+Ara, per a valors generals de $A$ i $B$, només cal notar que sempre prenem $A$ i $B$ enters i, per tant, podem escriure
 \[
 \sideset{}{'}\sum_{n=A}^{B}f(n)=\sum_{n=A}^B\sideset{}{'}\sum_{i=0}^1 f(n+i)=
 \sum_{n=A}^{B}\sum_{\nu\in \ZZ}\int_0^1 f(n+t)e^{2\pi i \nu t}\dd t=
@@ -92,7 +92,7 @@ Considerem, la següent suma:
 \[
 \sideset{}{'}\sum_{-N\leq n\leq N}e^{-\frac{(n+\alpha)^2}{x}\pi}
 \]
-Com que la funcó és contínua i monòtona a trossos (en el fons és una Gaussiana), podem aplicar la fórmula de Poisson:
+Com que la funció és contínua i monòtona a trossos (en el fons és una Gaussiana), podem aplicar la fórmula de Poisson:
 \[
 \sideset{}{'}\sum_{-N\leq n\leq N}e^{-\frac{(n+\alpha)^2}{x}\pi}=
 \sum_{\nu \in \ZZ}\int_{-N}^Ne^{-\frac{(n+\alpha)^2}{x}\pi}e^{2\pi i \nu t}\dd t=
