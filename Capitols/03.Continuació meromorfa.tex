@@ -118,7 +118,13 @@ I ara, amb un exercici de anàlisi complexa:
 \[
     \int_{-\infty}^{\infty}\exp\left({-\pi x (r+\beta)^2}\right)\dd r=\frac{K}{\sqrt{x}}
 \]}
-Considerem el següent rectangle:
+Considerem el següent rectangle, que té com a contorn les corbes 
+\[
+    \gamma_1(t)=2Rt-R\qquad
+    \gamma_1(t)=R+\beta i t\qquad
+    \gamma_1(t)=R-2Rt+\beta i\qquad
+    \gamma_1(t)=-R+\beta i (1-t)\qquad
+\]
 \begin{tikzpicture}
     \draw (-3,0)--(3,0);
     \draw[thick,blue] (-2,0)--(-2,2)--(2,2)--(2,0)--(-2,0);
@@ -137,5 +143,18 @@ Considerem el següent rectangle:
     \node at (-1.75,1.2) {$\gamma_4$};
     \node at (-2,-0.3) {$-R$};
     \node at (2,-0.3) {$R$};
+    \node at (-0.2,2.2) {$\Ima(\beta)$};
 \end{tikzpicture}
+Notem que la funció $f(z)=\exp(-\pi x(z+\beta)^2)$ és una funció entera, per tant, per el teorema de Cauchy, tenim que:
+\[
+\int_{\gamma_1}f(z)\dd z+\int_{\gamma_2}f(z)\dd z+\int_{\gamma_3}f(z)\dd z+\int_{\gamma_4}f(z)\dd z=0
+\]
+Per tant, considerem ara les integrals corresponents a $\gamma_2$ i $\gamma_4$:
+\[
+\left|\int_{\gamma_2}\exp(-\pi x (z+\beta)^2)\dd z\right|\leq
+\int_{0}^{\Ima(\beta)}
+\left|
+    \exp(-\pi x (R+it+\beta)^2)\dd z
+    \right|=
+\]
 }
