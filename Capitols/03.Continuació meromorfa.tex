@@ -113,48 +113,89 @@ I ara si movem una mica les coses, obtenim:
     x\sum_{\nu \in \ZZ}\exp\left(-2\pi i \nu\alpha\right)\int_{-\infty}^\infty \exp\left(-x\pi(r^2-2\nu ri)\right)\dd r
     x\sum_{\nu \in \ZZ}\exp\left(-2\pi i \nu\alpha+x\pi(i\nu)^2\right)\int_{-\infty}^\infty \exp\left(-x\pi(r-i\nu)^2\right)\dd r
 \]
-I ara, amb un exercici de anàlisi complexa:
+I ara, amb un exercici de anàlisi complexa \ref{Ap_Ex_AnCo_equació funcional de theta}:
 \claim{Per tot $\beta\in\CC$, tenim
 \[
     \int_{-\infty}^{\infty}\exp\left({-\pi x (r+\beta)^2}\right)\dd r=\frac{K}{\sqrt{x}}
 \]}
-Considerem el següent rectangle, que té com a contorn les corbes 
+Per tant, ens falta veure que $k=1$; però si fem $\alpha=0$ i $x=1$, aleshores:
 \[
-    \gamma_1(t)=2Rt-R\qquad
-    \gamma_1(t)=R+\beta i t\qquad
-    \gamma_1(t)=R-2Rt+\beta i\qquad
-    \gamma_1(t)=-R+\beta i (1-t)\qquad
+    \sum_{n\in\ZZ}e^{-n^2 \pi}=K\sum_{n\in\ZZ}e^{-n^2\pi}
 \]
-\begin{tikzpicture}
-    \draw (-3,0)--(3,0);
-    \draw[thick,blue] (-2,0)--(-2,2)--(2,2)--(2,0)--(-2,0);
-    \draw (0,-1)--(0,3);
-    \draw [->,blue]   (1,0)--(1.1,0);
-    \draw [->,blue]   (-1,0)--(-0.9,0);
-    \draw [->,blue]   (1,2)--(0.9,2);
-    \draw [->,blue]   (-1,2)--(-1.1,2);
-    \draw [->,blue]   (-2,1)--(-2,0.9);
-    \draw [->,blue]   (2,1)--(2,1.1);
-    \node at (3,-0.2) {$\sigma$};
-    \node at (0.2,3) {$t$};
-    \node at (0.25,0.2) {$\gamma_1$};
-    \node at (2.25,1.2) {$\gamma_2$};
-    \node at (0.25,2.2) {$\gamma_3$};
-    \node at (-1.75,1.2) {$\gamma_4$};
-    \node at (-2,-0.3) {$-R$};
-    \node at (2,-0.3) {$R$};
-    \node at (-0.2,2.2) {$\Ima(\beta)$};
-\end{tikzpicture}
-Notem que la funció $f(z)=\exp(-\pi x(z+\beta)^2)$ és una funció entera, per tant, per el teorema de Cauchy, tenim que:
+I com que la suma no és 0; tenim que $K=1$. Que és el que volíem veure.
+}
+I una altra funció que anirà apareixent al llarg de l'assignatura, és la funció $\Gamma$.
+\dfe{Funció $\Gamma$}{La funció $\Gamma$, introduïda per Euler, es defineix com
 \[
-\int_{\gamma_1}f(z)\dd z+\int_{\gamma_2}f(z)\dd z+\int_{\gamma_3}f(z)\dd z+\int_{\gamma_4}f(z)\dd z=0
-\]
-Per tant, considerem ara les integrals corresponents a $\gamma_2$ i $\gamma_4$:
+    \Gamma(s)=\int_{0}^{\infty}e^{-x}x^s\frac{\dd x}{x}\qquad \text{per }\s>0
+\]}
+I no és gaire sorprenent, que aquesta funció que serà de gran rellevància, sigui holmorfa:
+\lema{La funció $\Gamma$ és holomorfa.}{\label{4.03_lema holomorfitat de gamma}La funció $\Gamma(s)$ és holomorfa per $\sigma>0$.}
+\pf{
+Considerem $n\in \ZZ_{\geq1}$
 \[
-\left|\int_{\gamma_2}\exp(-\pi x (z+\beta)^2)\dd z\right|\leq
-\int_{0}^{\Ima(\beta)}
-\left|
-    \exp(-\pi x (R+it+\beta)^2)\dd z
-    \right|=
+\Gamma_n(s)=\int_{\frac{1}{n}}^n e^{-s}x^s\frac{\dd x}{x}
 \]
+Volem veure que $\Gamma_n$ és holomorfa; i que $\Gamma_n$ convergeix uniformement cap a $\Gamma$ sobre compactes dins de $\sigma>0$. Aleshores, amb el teorema \ref{2.08_teorema} ens regalarà la holoformitat de $\Gamma$.\par
+\vspace{10mm}
+Primer veurem que $\Gamma _n$ efectivament són funcions holomorfes. Per fer-ho utilitzarem el següent resultat de anàlisi complexa.
+\teorema{}{Sigui $F\colon \Omega\times[a,b]\to \CC$, amb $\Omega$ un obert de $\CC$. Suposem també que 
+\begin{enumerate}
+    \item $F(s,x_0)$ és una funció holomorfa en $s\in \Omega$ i en $x_0\in[a,b]$.
+    \ii $F$ és una funció contínua sobre $\Omega\times[a,b]$.
+\end{enumerate}
+Aleshores $f(x)=\int_a^bF(s,x)\dd x$ és una funció holomorfa.
+}
+Per tant, si ara prenem $F(s,x)=x^{s-1}e^{-x}$ holomorfa sobre $s\in\{\sigma>0\}$, i $x^{s-1}e^{-x}$ és contínua sobre $\{\sigma>0\}\times[\frac{1}{n},n]$. Per tant, $\Gamma_n$ és holomorfa.\par
+\vspace{10mm}
+
+Per veure el segon apartat, notem que és suficient considerar compactes de la forma $K(m,M,r)\vcentcolon=\{\sigma+it\;|\;m\leq \sigma \leq M,\; -R\leq t\leq R\}$, on $0<m<M$ i $0<R$. Això és cert, ja que qualsevol compacte viu dins d'algun d'aquests rectangles.\par
+Fixem ara un $m,M,R$, i prenem un $s\in K(m,M,R)$, per tant:
+\[
+\left|\Gamma(s)-\Gamma_n(s)\right|=
+\left|\underbrace{\int_0^\frac{1}{n} x^{s-1}e^{-x}\dd x}_{I_1}+\underbrace{\int_n^\infty x^{s-1}e^{-x}\dd x}_{I_2}\right|
+\]
+Per tant, la nostra feina ara consisteix en fitar $I_1$ i $I_2$ en funció del rectangle.
+\[
+I_1:\left|\int_0^{\frac{1}{n}}e^{-x}x^{s-1}\dd x\right|\leq
+\int_0^{\frac{1}{n}}e^{-x}x^{\sigma-1}\dd x\leq 
+\int_0^{\frac{1}{n}}x^{\sigma-1}\dd x=\frac{1}{\sigma n^{\sigma}}
+\]
+Però com que estem en un rectangle, podem fitar tot això per:
+\[
+\frac{1}{\sigma n^{\sigma}}\leq \frac{1}{mn^{-m}}
+\]
+I ara per la segona integral:
+\[
+I_2:\left|\int_{n}^\infty e^{-x}x^{s-1}\dd x\right|\leq
+\int_{n}^\infty e^{-x}x^{\sigma-1}\dd x\leq
+\int_n^\infty Ce^{-\frac{x}{2}}\dd x=2Ce^{-\frac{n}{2} }
+\]
+Per tant: 
+\[
+|\Gamma(s)-\Gamma_n(s)|\leq \frac{1}{mn^{-m}}+2Ce^{-\frac{n}{2}}
+\]
+Per tant tenim convergència uniforme sobre qualsevol compacte; i amb la proposició 7 del tema 1, tenim que $\Gamma$ és holomorfa.
+}
+I de la mateixa manera que hem vist que la funció $\theta$ tenia una equació funcional, ara en donarem una per la de la funció $\Gamma$.
+\lema{Equació funcional de $\Gamma$.}{\label{4.04_lema eq. funcional de Gamma}La funció $\Gamma$ satisfà
+\[
+    \Gamma(s+1)=s\Gamma(s)\qquad\text{per }\s>0
+\]}
+\pf{
+    \[
+        \Gamma(s+1)=\int_{0}^{\infty}x^se^{-x}\dd x
+    \]
+    I ara si fem integració per parts, amb $u=x^s$ i $\dd v=e^{-x}$:
+    \[
+        \Gamma(s+1)=\int_{0}^{\infty}x^se^{-x}\dd x=\left[-x^se^{-x}\right]_0^\infty+\int_0^\infty e^{-x}sx^{s-1}\dd x=s\Gamma(s)
+    \]
+    que és el que volíem veure.
+}
+I ara demostrarem alguna propietat d'aquesta funció.
+\coro{}{
+\begin{enumerate}
+    \ii $\Gamma(n)=(n-1)!$ per $n\in\NN$.\\
+    \ii La funció $\Gamma$ és una funció meromorfa a $\CC$, amb només pols simples sobre els enters no positius. A més, el residu en $s=0$ és $1$.
+\end{enumerate}
 }

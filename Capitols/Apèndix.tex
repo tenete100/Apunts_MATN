@@ -1,0 +1,62 @@
+\chapter{Apèndix:}
+\subsection{Exercici d'anàlisi complexa}
+Al capítol 3, per la demostració del teorema \ref{4.02_teorema equació funcional de theta}
+\claim{\label{Ap_Ex_AnCo_equació funcional de theta}Per tot $\beta\in\CC$, tenim
+\[
+    \int_{-\infty}^{\infty}\exp\left({-\pi x (r+\beta)^2}\right)\dd r=\frac{K}{\sqrt{x}}
+\]}
+\pf{
+Considerem el següent rectangle, que té com a contorn les corbes 
+\[
+    \gamma_1(t)=2Rt-R\qquad
+    \gamma_1(t)=R+\beta i t\qquad
+    \gamma_1(t)=R-2Rt+\beta i\qquad
+    \gamma_1(t)=-R+\beta i (1-t)\qquad
+\]
+amb $t\in[0,1]$.
+\begin{center}
+\begin{tikzpicture}
+    \draw (-3,0)--(3,0);
+    \draw[thick,blue] (-2,0)--(-2,2)--(2,2)--(2,0)--(-2,0);
+    \draw (0,-1)--(0,3);
+    \draw [->,blue]   (1,0)--(1.1,0);
+    \draw [->,blue]   (-1,0)--(-0.9,0);
+    \draw [->,blue]   (1,2)--(0.9,2);
+    \draw [->,blue]   (-1,2)--(-1.1,2);
+    \draw [->,blue]   (-2,1)--(-2,0.9);
+    \draw [->,blue]   (2,1)--(2,1.1);
+    \node at (3,-0.2) {$\sigma$};
+    \node at (0.2,3) {$t$};
+    \node at (0.25,0.2) {$\gamma_1$};
+    \node at (2.25,1.2) {$\gamma_2$};
+    \node at (0.25,2.2) {$\gamma_3$};
+    \node at (-1.75,1.2) {$\gamma_4$};
+    \node at (-2,-0.3) {$-R$};
+    \node at (2,-0.3) {$R$};
+    \node at (-0.6,2.2) {$\Ima(\beta)$};
+\end{tikzpicture}
+\end{center}
+Notem que la funció $f(z)=\exp(-\pi x(z+\beta)^2)$ és una funció entera, per tant, per el teorema de Cauchy, tenim que:
+\[
+\underbrace{\int_{\gamma_1}f(z)\dd z}_{I_1}+\underbrace{\int_{\gamma_2}f(z)\dd z}_{I_2}+\underbrace{\int_{\gamma_3}f(z)\dd z}_{I_3}+\underbrace{\int_{\gamma_4}f(z)\dd z}_{I_4}=0
+\]
+Considerem ara les integrals corresponents a $\gamma_2$ i $\gamma_4$:
+\[
+\left|I_4\right|=
+\left|I_2\right|=
+\left|\int_{\gamma_2}\exp(-\pi x (z+\beta)^2)\dd z\right|\leq
+\int_{0}^{\Ima(\beta)}
+\left|
+\exp(-\pi x (R+it+\beta)^2)\dd z
+\right|\xrightarrow{R\to\infty}0
+\]
+Per tant, $I_2$ i $I_4$ els podem ignorar, i per tant:
+\[
+    \lim_{R\to\infty}-I_3=
+    \lim_{R\to\infty}I_1=
+    \lim_{R\to\infty}\int_{-R}^{R}e^{-\pi x r^2}\dd r\overset{\omega=\sqrt{x}r}{=}
+    \lim_{R\to\infty}\frac{1}{\sqrt{x}}\int_{-R}^{R}e^{-\pi \omega^2}\dd r=
+    \frac{1}{\sqrt{x}}\underbrace{\int_{-\infty}^{\infty}e^{-\pi \omega^2}\dd r}_{K}
+\]
+Que és el que volíem veure.
+}
