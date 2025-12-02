@@ -199,3 +199,15 @@ I ara demostrarem alguna propietat d'aquesta funció.
     \ii La funció $\Gamma$ és una funció meromorfa a $\CC$, amb només pols simples sobre els enters no positius. A més, el residu en $s=0$ és $1$.
 \end{enumerate}
 }
+\pf{
+Com que del lema \ref{4.04_lema eq. funcional de Gamma} tenim que $\Gamma(n)=(n-1)\Gamma(n-1)=\dots=(n-1)!\Gamma(1)$. Per tant, només hem de veure quant val $\Gamma(1)$:
+\[
+    \Gamma(1)=\int_{0}^{\infty}e^{-x}\dd x=1
+\]
+Per tant, amb això veiem la primera part del corol·lari.\\
+Per veure la segona, notem que la funció $\Gamma$ és holomorfa per $\s>0$, per tant, si estenem la funció a $\s>-1$ utilitzant l'equació funcional, ens diu:
+\[
+    \Gamma(s)=\frac{\Gamma(s+1)}{s}
+\]
+Que fora de $s=0$ és una funció sense pols; i en $s=0$ tenim que la funció té un pol d'ordre 1. Per aquest mateix argument, el pol es va propagant per tots els enters no positius.
+}
