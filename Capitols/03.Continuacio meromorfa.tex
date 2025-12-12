@@ -1,0 +1,213 @@
+\chapter{Continuació meromorfa i equació funcional de $\zeta(s)$}
+L'any 1859, Riemann va publicar un article on introduïa la funció zeta de Riemann i on establia dues propietats fonamentals d'aquesta funció: la seva continuació meromorfa a tot el pla complex i l'equació funcional que satisfà. En aquest capítol veurem com demostrar aquestes propietats. \par
+Primer definirem la funció $theta$ de Jacobi, i la funció $\Gamma$.
+\dfe{Funció $\theta$ de Jacobi}{
+    La funció $\theta$ de Jacobi es defineix $\theta\colon\RR_{>0}\to\RR_{>0}$ com:
+    \[
+    \theta(x)=\sum_{n\in\ZZ}e^{-n^2\pi x}
+    \]
+    I definim també, la funció $\omega$ com:
+    \[
+    \omega(x)=\sum_{n=\in\ZZ_{\geq1}} e^{-n^2\pi x}=\frac{\theta(x)-1}{2}
+    \]
+}
+I ara hem de veure que aquestes funcions estan ben definides, és a dir, que les sèries convergeixen; i com es comporten per $x>1$.
+\lema{}{\label{4.01_lema}
+\begin{enumerate}
+    \ii La funció $\omega(x)$ és convergent per a tot $x>0$.\\
+    \ii El comportament de $\omega(x)$ per $x>1$ és:
+    \[
+    \omega(x)=\mathcal{O}(e^{-\pi x})
+    \]
+    \ii El mateix val per la funció $\theta(x)$.
+\end{enumerate}
+}
+\pf{
+\[
+\omega(x)=\sum_{n\geq1}e^{-n^2\pi x}\leq\sum_{n\geq1}e^{-n\pi x}=\frac{e^{-\pi x}}{1-e^{-\pi x}}
+\]
+On l'última igualtat és certa perquè per $x>0$ tenim que $e^{-\pi x}<1$ i, per tant, la sèrie geomètrica convergeix. Així doncs, la sèrie de $\omega(x)$ convergeix per tot $x>0$ i a més, per $x>1$ tenim que:
+\[
+\frac{e^{-\pi x}}{1-e^{-\pi x}}=\mathcal{O}(e^{-\pi x})
+\]
+Ja que $1-e^{-\pi x}\neq 0$, i per tant es pot fitar per una constant.\par
+Finalment, com que $\theta(x)=1+2\omega(x)$, el mateix val per $\theta(x)$.
+}
+Ara veurem l'equació funcional de la funció $\theta$.
+\teorema{equació funcional de $\theta(x)$}{\label{4.02_teorema equació funcional de theta} La funció $\theta(x)$ de Jacobi satisfà la següent equació funcional:
+\[
+\theta\left(\frac{1}{x}\right)=\sqrt{x}\,\theta(x)
+\]
+}
+Per fer aquesta demostració necessitarem resultats de l'assignatura d'anàlisi matemàtica. Però abans, afegim una mica de notació.\par
+Sigui $f\colon \RR\to \RR$ una funció contínua i monòtona a trossos. Descrivim
+\[
+f_1(u)=\left\{\begin{array}{ll}
+    f(\{u\}) & \text{si } u\not \in \ZZ\\
+    \frac{f(0)+f(1)}{2}& \text{si } u\in \ZZ.
+\end{array}\right.
+\]
+I ara amb aquesta funció $f_1$, que és una funció periòdica de període 1, definim els seus coeficients de Fourier:
+\teorema{Expansió de Fourier.}{\label{4.13_teorema resultat d'anmat}
+Sigui $f_1$ una funció com la que acabem de veure, aleshores, la podem expressar de la següent manera:
+\[
+f_1(u)=\frac{a_0}{2}+\sum_{\nu\geq1}(a_{\nu}\cos(2\pi \nu u)+b_\nu\sin(2\pi \nu u))
+\]
+On els coeficients (anomenats coeficients de Fourier) venen donats per les següents fórmules:
+\[
+\frac{a_\nu}{2}=\int_0^1f(t)\cos(2\pi \nu t)dt\quad\text{i}\quad\frac{b_\nu}{2}=\int_0^1f(t)\sin(2\pi \nu t)dt
+\]
+}
+Aquest teorema, com que és temari d'una altra assignatura, no el demostrarem. Ara donarem un altre teorema que ens serà útil per a la demostració de l'equació funcional de $\theta$.
+\teorema{Fórmula de sumació de Poisson}{\label{4.14_teorema Poisson summation} Sigui $f$ una funció com abans. Sigui $A$, $B\in \ZZ$, amb $A<B$. Aleshores:
+\[
+\sideset{}{'}\sum_{n=A}^B f(n)=\sum_{\nu\in\ZZ}\int_a^Bf(t)e^{2\pi i\nu t}\dd t
+\]
+On $\sideset{}{'}\sum$ denota que s'ha de fer la mitjana en els extrems.
+}
+\pf{
+Notem que si prenem $A=0$ i $B=1$, aleshores tenim que pel teorema d'expansió de Fourier:
+\[
+\sideset{}{'}\sum_{n=0}^1 f(n)=\frac{f(0)+f(1)}{2}=f_1(0)=\frac{a_0}{2}+\sum_{\nu\in\ZZ}a_\nu=\sum_{\nu\in\ZZ}\int_0^1 f(t)\cos(2\pi \nu t)\dd t
+\]
+Per tant, com que $\sum_{\nu\in\ZZ}\int_0^1f(t)\sin(2\pi \nu t)\dd t=0$, podem sumar-ho al que teníem abans:
+\[
+\sum_{\nu\in\ZZ}\int_0^1 f(t)\cos(2\pi \nu t)\dd t=
+\sum_{\nu\in\ZZ}\int_0^1 f(t)(\cos(2\pi \nu t)+\sin(2\pi \nu t))\dd t=
+\sum_{\nu\in\ZZ}\int_0^1 f(t)e^{2\pi i\nu t}\dd t
+\]
+Que és el que volíem veure per aquests valors de $A$ i $B$.\par
+
+Ara, per a valors generals de $A$ i $B$, només cal notar que sempre prenem $A$ i $B$ enters i, per tant, podem escriure
+\[
+\sideset{}{'}\sum_{n=A}^{B}f(n)=\sum_{n=A}^B\sideset{}{'}\sum_{i=0}^1 f(n+i)=
+\sum_{n=A}^{B}\sum_{\nu\in \ZZ}\int_0^1 f(n+t)e^{2\pi i \nu t}\dd t=
+\sum_{\nu\in\ZZ}\int_A^B f(t)e^{2\pi i \nu t}\dd t
+\]
+Que és justament el que volíem veure.
+}
+I ara, amb aquests dos teoremes, podem donar la demostració del teorema \ref{4.02_teorema equació funcional de theta}.
+\pf{
+Considerem ara la següent suma:
+\[
+\sideset{}{'}\sum_{-N\leq n\leq N}e^{-\frac{(n+\alpha)^2}{x}\pi}
+\]
+Com que la funció és contínua i monòtona a trossos (en el fons és una Gaussiana), podem aplicar la fórmula de Poisson:
+\[
+\sideset{}{'}\sum_{-N\leq n\leq N}\exp\left({-\frac{(n+\alpha)^2}{x}\pi}\right)=
+\sum_{\nu \in \ZZ}\int_{-N}^N\exp\left({-\frac{(t+\alpha)^2}{x}\pi}e^{2\pi i \nu t}\right)\dd t=
+\sum_{\nu \in \ZZ}\int_{-N}^N\exp\left({-\frac{(t+\alpha)^2}{x}\pi+2\pi i \nu t}\right)\dd t
+\]
+I ara si prenem $N\rightarrow \infty$, obtenim:
+\[
+\sum_{n\in\ZZ}\exp\left(-\frac{(n+\alpha)^2}{x}\pi\right)=
+\sum_{\nu \in \ZZ}\int_{-\infty}^\infty \exp\left(-\frac{(t+\alpha)^2}{x}\pi+2\pi i \nu t\right)\dd t
+\]
+I si ara fem el canvi de variables $t+\alpha=r x$ i $\dd t=x\dd r$, ens queda
+\[
+    \sum_{\nu \in \ZZ}\int_{-\infty}^\infty \exp\left(-\frac{(t+\alpha)^2}{x}\pi+2\pi i \nu t\right)\dd t=
+    x\sum_{\nu \in \ZZ}\int_{-\infty}^\infty \exp\left(-\frac{(rx)^2}{x}\pi+2\pi i \nu(rx-\alpha)\right)\dd r
+\]
+I ara si movem una mica les coses, obtenim:
+\[
+    x\sum_{\nu \in \ZZ}\exp\left(-2\pi i \nu\alpha\right)\int_{-\infty}^\infty \exp\left(-x\pi(r^2-2\nu ri)\right)\dd r
+    x\sum_{\nu \in \ZZ}\exp\left(-2\pi i \nu\alpha+x\pi(i\nu)^2\right)\int_{-\infty}^\infty \exp\left(-x\pi(r-i\nu)^2\right)\dd r
+\]
+I ara, amb un exercici de anàlisi complexa \ref{Ap_Ex_AnCo_equació funcional de theta}:
+\claim{Per tot $\beta\in\CC$, tenim
+\[
+    \int_{-\infty}^{\infty}\exp\left({-\pi x (r+\beta)^2}\right)\dd r=\frac{K}{\sqrt{x}}
+\]}
+Per tant, ens falta veure que $k=1$; però si fem $\alpha=0$ i $x=1$, aleshores:
+\[
+    \sum_{n\in\ZZ}e^{-n^2 \pi}=K\sum_{n\in\ZZ}e^{-n^2\pi}
+\]
+I com que la suma no és 0; tenim que $K=1$. Que és el que volíem veure.
+}
+I una altra funció que anirà apareixent al llarg de l'assignatura, és la funció $\Gamma$.
+\dfe{Funció $\Gamma$}{La funció $\Gamma$, introduïda per Euler, es defineix com
+\[
+    \Gamma(s)=\int_{0}^{\infty}e^{-x}x^s\frac{\dd x}{x}\qquad \text{per }\s>0
+\]}
+I no és gaire sorprenent, que aquesta funció que serà de gran rellevància, sigui holmorfa:
+\lema{La funció $\Gamma$ és holomorfa.}{\label{4.03_lema holomorfitat de gamma}La funció $\Gamma(s)$ és holomorfa per $\sigma>0$.}
+\pf{
+Considerem $n\in \ZZ_{\geq1}$
+\[
+\Gamma_n(s)=\int_{\frac{1}{n}}^n e^{-s}x^s\frac{\dd x}{x}
+\]
+Volem veure que $\Gamma_n$ és holomorfa; i que $\Gamma_n$ convergeix uniformement cap a $\Gamma$ sobre compactes dins de $\sigma>0$. Aleshores, amb el teorema \ref{2.08_teorema} ens regalarà la holoformitat de $\Gamma$.\par
+\vspace{10mm}
+Primer veurem que $\Gamma _n$ efectivament són funcions holomorfes. Per fer-ho utilitzarem el següent resultat de anàlisi complexa.
+\teorema{}{Sigui $F\colon \Omega\times[a,b]\to \CC$, amb $\Omega$ un obert de $\CC$. Suposem també que 
+\begin{enumerate}
+    \item $F(s,x_0)$ és una funció holomorfa en $s\in \Omega$ i en $x_0\in[a,b]$.
+    \ii $F$ és una funció contínua sobre $\Omega\times[a,b]$.
+\end{enumerate}
+Aleshores $f(x)=\int_a^bF(s,x)\dd x$ és una funció holomorfa.
+}
+Per tant, si ara prenem $F(s,x)=x^{s-1}e^{-x}$ holomorfa sobre $s\in\{\sigma>0\}$, i $x^{s-1}e^{-x}$ és contínua sobre $\{\sigma>0\}\times[\frac{1}{n},n]$. Per tant, $\Gamma_n$ és holomorfa.\par
+\vspace{10mm}
+
+Per veure el segon apartat, notem que és suficient considerar compactes de la forma $K(m,M,r)\vcentcolon=\{\sigma+it\;|\;m\leq \sigma \leq M,\; -R\leq t\leq R\}$, on $0<m<M$ i $0<R$. Això és cert, ja que qualsevol compacte viu dins d'algun d'aquests rectangles.\par
+Fixem ara un $m,M,R$, i prenem un $s\in K(m,M,R)$, per tant:
+\[
+\left|\Gamma(s)-\Gamma_n(s)\right|=
+\left|\underbrace{\int_0^\frac{1}{n} x^{s-1}e^{-x}\dd x}_{I_1}+\underbrace{\int_n^\infty x^{s-1}e^{-x}\dd x}_{I_2}\right|
+\]
+Per tant, la nostra feina ara consisteix en fitar $I_1$ i $I_2$ en funció del rectangle.
+\[
+I_1:\left|\int_0^{\frac{1}{n}}e^{-x}x^{s-1}\dd x\right|\leq
+\int_0^{\frac{1}{n}}e^{-x}x^{\sigma-1}\dd x\leq 
+\int_0^{\frac{1}{n}}x^{\sigma-1}\dd x=\frac{1}{\sigma n^{\sigma}}
+\]
+Però com que estem en un rectangle, podem fitar tot això per:
+\[
+\frac{1}{\sigma n^{\sigma}}\leq \frac{1}{mn^{-m}}
+\]
+I ara per la segona integral:
+\[
+I_2:\left|\int_{n}^\infty e^{-x}x^{s-1}\dd x\right|\leq
+\int_{n}^\infty e^{-x}x^{\sigma-1}\dd x\leq
+\int_n^\infty Ce^{-\frac{x}{2}}\dd x=2Ce^{-\frac{n}{2} }
+\]
+Per tant: 
+\[
+|\Gamma(s)-\Gamma_n(s)|\leq \frac{1}{mn^{-m}}+2Ce^{-\frac{n}{2}}
+\]
+Per tant tenim convergència uniforme sobre qualsevol compacte; i amb la proposició 7 del tema 1, tenim que $\Gamma$ és holomorfa.
+}
+I de la mateixa manera que hem vist que la funció $\theta$ tenia una equació funcional, ara en donarem una per la de la funció $\Gamma$.
+\lema{Equació funcional de $\Gamma$.}{\label{4.04_lema eq. funcional de Gamma}La funció $\Gamma$ satisfà
+\[
+    \Gamma(s+1)=s\Gamma(s)\qquad\text{per }\s>0
+\]}
+\pf{
+    \[
+        \Gamma(s+1)=\int_{0}^{\infty}x^se^{-x}\dd x
+    \]
+    I ara si fem integració per parts, amb $u=x^s$ i $\dd v=e^{-x}$:
+    \[
+        \Gamma(s+1)=\int_{0}^{\infty}x^se^{-x}\dd x=\left[-x^se^{-x}\right]_0^\infty+\int_0^\infty e^{-x}sx^{s-1}\dd x=s\Gamma(s)
+    \]
+    que és el que volíem veure.
+}
+I ara demostrarem alguna propietat d'aquesta funció.
+\coro{}{
+\begin{enumerate}
+    \ii $\Gamma(n)=(n-1)!$ per $n\in\NN$.\\
+    \ii La funció $\Gamma$ és una funció meromorfa a $\CC$, amb només pols simples sobre els enters no positius. A més, el residu en $s=0$ és $1$.
+\end{enumerate}
+}
+\pf{
+Com que del lema \ref{4.04_lema eq. funcional de Gamma} tenim que $\Gamma(n)=(n-1)\Gamma(n-1)=\dots=(n-1)!\Gamma(1)$. Per tant, només hem de veure quant val $\Gamma(1)$:
+\[
+    \Gamma(1)=\int_{0}^{\infty}e^{-x}\dd x=1
+\]
+Per tant, amb això veiem la primera part del corol·lari.\\
+Per veure la segona, notem que la funció $\Gamma$ és holomorfa per $\s>0$, per tant, si estenem la funció a $\s>-1$ utilitzant l'equació funcional, ens diu:
+\[
+    \Gamma(s)=\frac{\Gamma(s+1)}{s}
+\]
+Que fora de $s=0$ és una funció sense pols; i en $s=0$ tenim que la funció té un pol d'ordre 1. Per aquest mateix argument, el pol es va propagant per tots els enters no positius.
+}
