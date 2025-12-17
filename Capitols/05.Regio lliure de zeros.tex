@@ -49,7 +49,7 @@
 Podem graficar la següent regió per diferents valors de $c$, i ens dona el següent:\\
 Encara no farem la demostració d'aquest teorema; però de la mateixa manera que la funció $L(\chi,s)$ tingués un pol en $s=1$ era un punt clau de la demostració del teorema de Dirichlet per a successions; aquest teorema serà de vital importància per la demostració del teorema del nombre primer.
 \vspace{7mm}
-\lema{}{\label{}Per $\s>1$ es té:
+\lema{}{\label{6.02_lema}Per $\s>1$ es té:
 \begin{enumerate}
     \ii $\Re\;\log(\zeta(s))=\sum_p\sum_{m\geq1}\frac{\cos(mt)\log p}{mp^{\s m}}$\\
     \ii $-\Re\; \frac{\zeta'(s)}{\zeta(s)}=\sum_{n\geq1}\frac{\Lambda(n)\,\cos(t\log n)}{n^\s}$.
@@ -78,6 +78,34 @@ Pel segon, notem que $\frac{\zeta'(s)}{\zeta(s)}$ és la derivada logarítmica d
 \[
     \frac{\zeta'(s)}{\zeta(s)}=
     \left(-\sum_p\sum_{m\geq1}\frac{1}{mp^{ms}}\right)'\overset{(*)}{=}
-    \sum_p\sum_{m\geq1}\frac{\log(p)}{p^{ms}}
+    \sum_p\sum_{m\geq1}\frac{\log(p)}{p^{ms}}=-\sum_{n\geq1}\frac{\Lambda(n)}{n^s}
 \]
+On $(*)$ ve de que tenim convergència absoluta. I ara si estudiem la part real:
+\[
+    \Re\left(\frac{\zeta'(s)}{\zeta(s)}\right)=
+    -\sum_{n\geq1}\frac{\cos(t\log(n))\Lambda(n)}{n^s}
+\]
+Que és el que necessitem veure.
+}
+I ara, degut a que han aparegut funcions trigonomètriques, voldrem tenir algun control sobre aquestes; i d'aquí sorgirà el lema de Mertens:
+\lema{Lema de Mertens}{\label{6.03_lema de Mertens} Per qualsevol $\theta\in\RR$, tenim la següent desigualtat.
+\[
+    3+4\cos(\theta)+\cos(2\theta)\geq0
+\]
+}
+\pf{
+Utilitzant la fórmula de l'angle doble del cosinus, tenim:
+\[
+    3+4\cos(\theta)+\cos(2\theta)=
+    3+4\cos(\theta)+\cos^2(\theta)-\sin^2(\theta)=
+    2(1+\cos(\theta))^2\geq0
+\]
+}
+I ara d'aquesta identitat trigonomètrica se'n poden derivar dos sobre la funció $\zeta$:
+\Prop{Mertens per a la funció $\zeta$.}{
+    Per $\s>1$, tenim:
+    \begin{enumerate}
+        \ii $\zeta^3(\s)|\zeta^4(\s+it)||\zeta(\s+i2t)|\geq0$,\\
+        \ii $3\left(-\frac{\zeta'(\s)}{\zeta(\s)}\right)+4\Re\left(\frac{\zeta'(\s+it)}{\zeta(\s+it)}\right)+3\left(-\frac{\zeta'(\s+i2t)}{\zeta(\s+i2t)}\right)\geq0$.
+    \end{enumerate}
 }
