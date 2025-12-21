@@ -102,10 +102,75 @@ Utilitzant la fórmula de l'angle doble del cosinus, tenim:
 \]
 }
 I ara d'aquesta identitat trigonomètrica se'n poden derivar dos sobre la funció $\zeta$:
-\Prop{Mertens per a la funció $\zeta$.}{
+\Prop{Mertens per a la funció $\zeta$.}{\label{6.04_prop}
     Per $\s>1$, tenim:
     \begin{enumerate}
         \ii $\zeta^3(\s)|\zeta^4(\s+it)||\zeta(\s+i2t)|\geq0$,\\
         \ii $3\left(-\frac{\zeta'(\s)}{\zeta(\s)}\right)+4\Re\left(\frac{\zeta'(\s+it)}{\zeta(\s+it)}\right)+3\left(-\frac{\zeta'(\s+i2t)}{\zeta(\s+i2t)}\right)\geq0$.
     \end{enumerate}
+}
+\pf{
+Com que a $\s>1$:
+\[
+    |\zeta(s)|=e^{\Re\log(\zeta(s))}
+\]
+Només hem de veure que:
+\[
+    0\leq 3\log(\zeta(\s))+4\Re\log(\zeta(\s+it))+\Re\log\zeta(\s+2it)
+\]
+Però pel lema \ref{6.02_lema}, tenim
+\[
+    3\log(\zeta(\s))+4\Re\log(\zeta(\s+it))+\Re\log\zeta(\s+2it)=\sum_{p}\sum_{m\geq1}\frac{\log(p)}{mp^{\s m}}(3+4\cos(mt\log p)+\cos(2mt\log p))\geq0
+\]
+Que és el que havíem de veure pel primer apartat.\\
+Pel segon apartat, però, podem fer un càlcul anàleg utilitzant el segon apartat del lema \ref{6.02_lema}.
+}
+\teorema{Regió lliure de zeros I}{\label{6.05_teorema regió lliure de zeros en sigma=0,1}La funció $\zeta(s)\neq0$ en $\s=1$ (i per la simetria de $\zeta$, en $\s=0$).}
+\pf{
+Procedirem per reducció a l'absurd: suposem que existeix alguna $t\in \RR$ tal que $\zeta(1+it)=0$. Clarament $t\neq0$, ja que $\zeta(1)\neq0$. De fet, podem dir una miqueta més: com que $\zeta(s)\sim \frac{1}{\s-1}$ quan $\s\to 1$.\\
+Com que $\zeta$ té un zero en $1+it$, podem escriure $\zeta(s)=(s-(1+it))^mf(s)$ per alguna $m\geq1$, on ara $f$ no s'anul·la en $1+it$. Per tant, si considerem
+\[
+    \zeta(\s+it)=(\s-1)^m f(\s+it)
+\]
+I ara, utilitzem la proposició \ref{6.04_prop}:
+\[
+    \lim_{\s\to 1}\underbrace{\zeta^3(\s)}_{\sim (\s-1)^{-3}}
+    \underbrace{|\zeta^4(\s+it)|}_{\sim(\s-1)^4|f(1+it)|}
+    \underbrace{|\zeta(\s+2it)|}_{<\infty}=\lim_{\s\to 1}(\s-1)^{4m-3}|\dots|= 0
+\]
+Però, la proposició ens diu que això és com a mínim 1 i, per tant, contradicció.
+}
+Acabem de demostrar que la funció $\zeta$ té tots els zeros no trivials a l'interior de la franja crítica. Ara passarem a veure que, de fet, aquesta regió és molt més gran. Però abans demostrarem un parell de lemes més, que necessitarem per la demostració.
+\lema{}{Es té el següent:
+\begin{enumerate}
+    \ii Per $1\leq \s\leq 2$
+    \[
+        -\frac{\zeta'(s)}{\zeta(s)}<\frac{1}{\s-1}+K\qquad \text{on }K\in\RR.
+    \]
+    \ii Per $1<\s\leq 2$ i $t\geq 2$
+    \[
+        -\Re\left(\frac{\zeta'(s)}{\zeta(s)}\right)<K\log(t)-\sum_{n}\Re\left(\frac{1}{s-\rho_n}+\frac{1}{\rho_n}\right)
+    \]
+    On $\{\rho_n\}$ són els zeros no trivials de $\zeta$, i $K\in \RR$ és una constant no necessàriament igual a la del primer apartat.
+\end{enumerate}
+}
+\pf{
+Notem que el primer apartat és exactament el que es demostra al exercici 4 del full de problemes 8.\\[5mm]
+Per la demostració del corol·lari \ref{5.16_corol·lari}\footnote{16 del capítol 4}, sabem que
+\[
+    \frac{\xi'(s)}{\xi(s)}=B+\sum_{n\geq1}\left(\frac{1}{s-\rho_n}+\frac{1}{\rho_n}\right)
+\]
+On, vam veure que $B=-\frac{\gamma}{2}-1+\log(4\pi)/2$. Però
+\[
+    \frac{\zeta'(s)}{\zeta(s)}+\frac{1}{s-1}-\frac{\log(\pi)}{2}+\frac{1}{2}\frac{\Gamma'(s/2+1)}{\Gamma(s/2+1)}=\frac{\xi'(s)}{\xi(s)}=B+\sum_{n\geq1}\left(\frac{1}{s-\rho_n}+\frac{1}{\rho_n}\right)
+\]
+On la primera igualtat es deu al exerici 2 del full de problemes 7. Aleshores, per a $1<\s\leq 2$, i per $t\geq2$, tenim que les següents quantitats estan fitades$(s-1)^{-1}$, $\log \pi/2$ i $B$. Per tant, l'únic que ens pot molestar és $\frac{\Gamma'(s/2+1)}{\Gamma(s/2+1)}$, però al full de problemes 7, vam estudiar justament això
+\[
+    \Re\left(\frac{1}{2}\frac{\Gamma'(s/2+1)}{\Gamma(s/2+1)}\right)=-\frac{\gamma}{2}+\frac{1}{2}\sum_{n\geq1}\Re\left(\frac{1}{n}-\frac1{n+s/2}\right)
+\]
+I ara si fem el canvi de variables $s/2=x+iy$, amb $x\in(1/2,1]$ i $y\in[2,\infty)$:
+\[
+    -\frac{\gamma}{2}+\frac{1}{2}\sum_{n\geq1}\Re\left(\frac{1}{n}-\frac1{n+s/2}\right)=
+    -\frac{\gamma}{2}+\frac{1}{2}\sum_{n\geq1}\frac{1}{n}-\frac{\Re()}{}
+\]
 }
