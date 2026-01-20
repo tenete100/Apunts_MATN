@@ -6,7 +6,9 @@
 \renewcommand{\rmdefault}{cmr}
 
 \pagestyle{empty}
-\portada{Teoria pel final de mètodes analítics en teoria de nombres}{Curs 2025-2026}{Bernat Esteve}
+\portada{Resum de teoria pel final de MATN}{Curs 2025-2026}{Bernat Esteve}
+
+
 \newpage
 
 \tableofcontents
@@ -106,8 +108,9 @@ Aleshores l'ordre de $f$ es defineix
 }
 \newpage
 
+
 \newpage
-\chapter{Enunciat sense demostració del criteri de sumació d’Abel (Teorema 4,capítol 1)}
+\chapter{Enunciat sense demostració del criteri de sumació d'Abel (Teorema 4,capítol 1)}
 \teorema{Criteri de sumació d'Abel}{\label{2.04_teorema_sumació_Abel}Sigui $a\colon\NN\rightarrow\CC$, considerem $A(t)\coloneq\sum_{n\leq t}a(n)$ les sumes parcials de $a$; i una funció $g:\RR_{\geq0}\rightarrow\CC$ amb derivada contínua en un interval $[x,y]\neq\varnothing$\footnote{Per alguna raó, al professor li ha agradat considerar l'interval $[y,x]$, però em nego a fer servir aquesta notació.}. Aleshores 
 \[
 \sum_{x<n\leq y}a(n)g(n)=A(y)g(y)-A(x)g(x)-\int_x^yA(t)g'(t)\dd t
@@ -115,14 +118,14 @@ Aleshores l'ordre de $f$ es defineix
 }
 
 \newpage
-\chapter{Demostració del Teorema 8, capítol 3 (sense la part final de veure que la integral $I(s)$ defineix una funció holomorfa ).}
-\teorema{}{Per $\sigma>1$, tenim:
+\chapter{Demostració del Teorema 8, capítol 3 (sense la part final de veure que la integral I(s) defineix una funció holomorfa ).}
+\teorema{Teorema 8}{Per $\sigma>1$, tenim:
 \[
 \pi^{-\frac{s}{2}}\Gamma\left(\frac{s}{2}\right)\zeta(s)=-\frac{1}{s}+\frac{1}{s-1}+\underbrace{\int_1^\infty\left(x^{\frac{s}{2}-1}+x^{-\frac{s}{2}-\frac{1}{2}}\right)\omega(x)\dd x}_{=I(s)}
 \]
 On la funció $I(s)$ és una funció holomorfa a tot $\CC$.
 }
-\pf{
+% \pf{
 \begin{enumerate}
     \ii Comencem amb $\Gamma(s)$, i apliquem el canvi de variable $x=n^2\pi x$ i ho treiem tot a fora.\\
     \ii Suposem que hi ha convergència absoluta, i fem el sumatori sobre $n\geq1$ dels 2 costats (en un costat apareix $\omega$ i a l'altre apareix $\zeta$).\\
@@ -130,73 +133,26 @@ On la funció $I(s)$ és una funció holomorfa a tot $\CC$.
     \ii Fem el canvi de varible $u=\frac{1}{t}$ a la integral de la esquerra.\\
     \ii Fem servir $\theta(\frac{1}{x})=\sqrt{x}\theta(x)$ i que $2\omega(x)+1=\theta$.\\
 \end{enumerate}
-}
+% }
 \newpage
 \chapter{Demostració de la Proposició 6 del capítol 4, donat el seu enunciat i assumint la Proposició 7.}
 \Prop{proposició 6}{Sigui $f$ una funció entera d'ordre $\alpha$. I suposem que $f$ no té zeros. Aleshores es té que $f=e^{g(s)}$ on $g$ és un polinomi de grau $\alpha$. És a dir, que el grau d'una funció entera sense zeros ha de ser un enter.
 }
-\pf{
-    Ens caldrà el següent resultat d'AnCo:
     \Prop{proposició 7}{Sigui $U\subseteq \CC$ simplement connex. Sigui $f:U\to\CC$ holomorfa i sense zeros en $U$. Aleshores existeix $g:U\to\CC$ holomorfa tal que $f(s)=e^{g(s)}$ per tot $s\in U$.}
+    Amb això, només ens fa falta veure que $g$ ha de ser un polinomi.
     \begin{enumerate}
         \item Agafar la $g(s)$ que ens dona la proposició.
+        \item Fitar la part real de $g(s)$
+        \item Menjar-nos el que no fa falta en una constant.
+        \item Assumir que $g(0)=0$
+        \item Fer Taylor de $g$.
+        \item posar els summands de Taylor com a integrals amb el teorema de Cauchy
+        \item Calcular la integral de $g(s)s^{n-1}$, i fer el conjugat.
+        \item Sumar 0 a $a_n$
+        \item Fer el valor absolut de tot $a_n$. 
+        \item Integrar $g(s)/s$, i veure que la integral de la part real ha de ser 0.
+        \item Sumar 0 a la integral que tenim de $|a_n|$.
     \end{enumerate}
-    Per la proposició, podem dir que $f(s)=e^{g(s)}$ amb $g$ entera. Com que $f$ té ordre $\alpha$:
-    \[
-        |f(s)|\leq K e^{|s|^{\alpha+\delta}}\quad\forall \delta>0,\quad \text{per }K\in\CC, |s|\gg1
-    \]
-    I d'aquí en podem treure que
-    \[
-        \Re(g(s))\leq |s|^{\alpha+\delta}+\log(K)\quad\forall \delta>0,\quad \text{per }K\in\CC, |s|\gg1
-    \]
-    I ara, engrandint el valor de $\delta$ si fa falta, tenim
-    \[
-        \Re(g(s))\leq 2|s|^{\alpha+\delta}        
-    \]
-    i considerant $g\to g-g(0)$ (és a dir que podem assumir que $g(0)=0$), podem expressar $g$ amb la seva sèrie de Taylor:
-    \[
-        g(s)=\sum_{n=1}a_ns^n
-    \]
-    Amb $a_n=\frac{g^{(n)}(0)}{n!}$, i ara utilitzant Cauchy:
-    \begin{align*}
-    a_n=&\frac{1}{2\pi i}\int_{|s|=\RR^n}\frac{g(s)}{s^{n+1}}\dd s=\\
-    =&\frac{1}{2\pi i}\int_{0}^{2\pi}\frac{g(Re^{i\theta})}{R^{n+1}e^{(n+1)i\theta}} Re^{i\theta} i\dd \theta=\\
-    =&\frac{1}{2\pi R^n}\int_{0}^{2\pi}\frac{g(Re^{i\theta})}{e^{ni\theta}}\dd \theta
-    \end{align*}
-    Considerem ara la següent integral
-    \[
-        \int_{|s|=R}g(s)s^{n-1}\dd s =\underbrace{\int_0^{2\pi}g(Re^{i\theta})R^n i e^{in\theta}\dd\theta}_{I_1}=0=\underbrace{\int_0^{2\pi}\ol{g(Re^{i\theta})}R^n i e^{-in\theta}\dd\theta}_{I_2}
-    \]
-    Això és zero degut a que estem considerant $n\geq1$, i per tant, la funció que estem integrant és entera. I per tant:
-    \[
-        a_n=\frac{1}{2\pi R^n}\int_0^{2\pi}(g(Re^{i\theta})+\ol{g(Re^{i\theta})})e^{-in\theta}\dd \theta=\frac{1}{\pi R^n}\int_0^{2\pi}\Re (g(Re^{i\theta})e^{-in\theta})\dd \theta
-    \]
-    Nosaltres sabem que $\Re(g(Re^{i\theta}))<2R^{\alpha+\delta}$; però podria ser que $\Re(g(Re^{i\theta}))<0$ fos molt negatiu; per tant, ens interessa tenir una fita per $|\Re(Re^{i\theta})|$:
-    \[
-        |a_n|\leq\frac{1}{\pi R^n}\int_0^{2\pi}|\Re(g(Re^{i\theta}))|
-    \]
-    Però notem que:
-    \[
-        g(0)=0=\int_{|s|=R}\frac{g(s)}s\dd s=\int_0^{2\pi}g(Re^{i\theta})\dd \theta=0
-    \]
-    I d'aquí en podem deduir que 
-    \[
-        \frac{1}{2\pi}\int_0^{2\pi}\Re(g(Re^{i\theta}))\dd \theta = 0
-    \]
-    Per tant, podem canviar el coeficient sense cap preocupació:
-    \[
-        \frac{1}{\pi R^n}\int_0^{2\pi}\Re(g(Re^{i\theta}))\dd \theta = 0
-    \]
-    Però abans hem vist que el valor absolut de l'integrand era una fita de $|a_n|$:
-    \[
-        |a_n|\leq \frac{1}{\pi R^n}\int_0^{2\pi}\left|\Re(g(Re^{i\theta}))\right|+\Re(g(Re^{i\theta}))\dd \theta\leq\frac{1}{\pi R^n}\int_0^{2\pi}\max\{0,2\Re(g(Re^{i\theta}))\}\dd\theta
-    \]
-    Però $\Re(g(s))\leq 2|s|^{\alpha+\delta}$, per tant (per $|s|\gg1$, però això no és un problema):
-    \[
-        |a_n|\leq \frac{1}{\pi R^n}\int_0^{2\pi}4R^{\alpha+\delta}\dd\theta=\frac{8\pi R^{\alpha+\delta}}{\pi R^n}=8R^{\alpha+\delta-n}
-    \]
-    I per $\alpha+\delta>n$, $|a_n|\leq 8R^{\alpha+\delta-n}\to 0$; per tant tots els coeficients de la sèrie de Taylor amb grau més gran que $\alpha$ seràn 0; i per tant, $g$ és un polinomi (de grau $\alpha$, ja que sabem que $f$ és d'ordre $\alpha$), que és el que volíem veure.
-}
 \newpage
 \chapter{Demostració del Teorema 15 del capítol 4, donat el seu enunciat i assumint els corol·laris 10 i 14.}
 \teorema{}{
@@ -211,45 +167,24 @@ On la funció $I(s)$ és una funció holomorfa a tot $\CC$.
         \item $\sum_{n\geq1}\frac{1}{|\rho_n|}$ divergeix; i $\sum_{n\geq1}\frac{1}{|\rho_n|^{1+\eps}}$ convergeix $\forall \eps>0$.
     \end{enumerate}
 }
-Notem que els zeros de la funció $\xi$ són exactament els zeros (amb multiplicitat) de $\zeta$ en la franja crítica.
-\pf{
-    I amb aquesta remarca, procedirem a demostrar els 3 apartats del teorema.\\
-    Notem que pel corol·lari 9 del tema 3, tenim que la funció $\xi$ és una funció entera.
-    A més, $\half(s-1)s\pi^{-s/2} = \bigO\left(e^{|s|^{1+\eps}}\right)$ per tot $\eps$ positiu, i $|s|\gg1$.\\
-    Ara només fa falta tractar la funció $\Gamma$, però sabem que $\Gamma(s/2)=\bigO(e^{|s|^{1+\eps}})$ $\forall \eps>0$ i $|s|\gg1$ amb $\s\geq0$, tot i que aquesta última condició no ens importa, ja que $\xi(s)=\xi(1-s)$ i tot el que poguem dir per $\s>0$ ho podem dir també per $\s<0$.\\
-    Però pel teorema 15 del capítol 1, per $\s>0$ tenim que
-    \[
-        \zeta(s)=\underbrace{\frac{1}{s-1}+1}_{\text{per $|s|>1$ fitat}}-s\underbrace{\int_{1}^{\infty}\frac{\{x\}}{x^{s+1}}\dd x}_{\text{per }|s|\gg1\text{ amb }\s>1/2\text{, fitat}}=\bigO(|s|).
-    \]
-    Per tant, per $s\gg1$, $\bigO(|s|)=\bigO\left(e^{|s|^\eps}\right)$, és a dir, que $\zeta(s)=\bigO(e^{|s|^\eps})$ per $s\gg 1$ i $\s\geq\half$.\\
-    En resum $|\xi(s)|=\bigO(e^{|s|^{1+\eps}})$ $\forall\eps>0$, $|s|\gg1$ i $\s\geq\half$. I per l'equació funcional de $\xi$, ho tenim per $|s|\gg1$. És a dir, que $\xi$ és d'ordre $\leq$1. I per tant, ara ens fa falta veure que l'ordre és exactament 1.\\[4mm]
-    Per veure que la funció assoleix valors grans, farem un claim:
-    \claim{Sigui $r\in\NN$, aleshores $\log(r!)\sim r\log(r)$ quan $r\to \infty$.}
-    \pf{La demostració de la claim consisteix en veure que
-    \[
-        \log(r^r)=r\log(r)>\log(r!)=\sum_{i=1}^r \log(i)>\int_1^r\log(x)\dd x=r\log(r)-r+1
-    \]}
-    O sigui, que en els enters, sabem que la funció $\Lambda$ és gran:
-    \[
-        \log(\xi)=\log(\Lambda)-\frac s2\log(\pi)+\log\left(\half s(s-1)\right)+\log(\zeta)
-    \]
-    Però en $s=r$: sabem que $\log\Lambda(r)=\log(r-1)!\sim r\log r$. També sabem que $\log\zeta(r)=\log\sum_{n\geq1}\frac{1}{n^r}\xrightarrow{r\to\infty}0$ (ja que $\sum_{n\geq1}\frac{1}{n^r}\to 1$.). I finalment la resta de coses són de la mida $-r/2\log(\pi)$. Per tant
-    \[
-        \log(\xi)\sim r\log(r)\qquad\text{quan }r\to\infty.
-    \]
-    I d'aquí en podem deduir que $\xi$ té ordre 1. I d'aquí se'n desprenen la resta de coses.\\[5mm]
-    Per tant, suposem que el número de zeros és finit, aleshores:
-    \[
-        \sum_{n\in N_f}\frac{1}{|\rho_n|}<\infty\quad\implies\quad|\xi(s)|<e^{C|s|}\quad\text{per }s\gg 1
-    \]
-    On la implicació ve del corol·lari 14; però això contradiu el fet que $\log(\xi(r))\sim r\log(r)$. I això contradiu el fet que el sumatori convergeix.\\[4mm]
-    Per veure que el segon sumatori convergeix, en tenim prou en invocar el corol·lari 10, i el resultat és immediat.
-}
+Notem que els zeros de la funció $\xi$ són exactament els zeros (amb multipliciat) de $\zeta$ en la franja crítica.
+\begin{enumerate}
+    \item Notar que $\half s(s-1)\pi^{-s/2}$ té ordre 1.
+    \item Si ens centrem en $\s>0$ la funció gamma també té ordre 1 (i argumentar per què és suficient $\s>0$).
+    \item Escriure $\zeta$ com $\frac{1}{s-1}+1-s\int_1^\infty\{x\}x^{-s-1}\dd x$ en $\s>\half$, i veure que això també és d'ordre 1 (de fet és aproximadament lineal per $s\gg1$). 
+    % Aquí veiem que $\xi$ té ordre menor o igual que 1, ara ens falta veure que realment té ordre 1.
+    \item Argumentar que $\log(r!)\sim r \log(r)$.(una fita és trivial, l'altre es fa comparant-ho amb una integral)
+    \item Estudiar $\log(\xi)$ en $s=r$ (un enter)
+    \item Estudiar $r\to\infty$.
+    \item Com que té ordre 1, pel corol·lari 14 sabem que si el sumatori convergeix aleshores la funció ha de ser $\leq e^{C|s|}$.
+    \item Raonar a partir d'aquí que hi ha d'haver un numero infinit de zeros.
+    \item Enunciar el corol·lari 10, i acabar la demostració.
+\end{enumerate}
 \newpage
 \chapter{Demostració del Teorema 5 del capítol 5. La demostració ha d'incloure els enunciats i demostracions de Lema 2 i), Lema 3, i Proposició 4 i).}
-\lema{}{\label{6.02_lema}Per $\s>1$ es té:
+\lema{lema 2}{\label{6.02_lema}Per $\s>1$ es té:
 \begin{enumerate}
-    \ii $\Re\;\log(\zeta(s))=\sum_p\sum_{m\geq1}\frac{\cos(mt)\log p}{mp^{\s m}}$\\
+    \ii $\Re\;\log(\zeta(s))=\sum_p\sum_{m\geq1}\frac{\cos(mt\log p)}{mp^{\s m}}$\\
 \end{enumerate}
 On en el segon apartat, la funció $\Lambda(n)=\left\{\begin{array}{cc}
     \log p&\text{ si }n=p^k\\
@@ -257,20 +192,11 @@ On en el segon apartat, la funció $\Lambda(n)=\left\{\begin{array}{cc}
 \end{array}\right.$
 }
 \pf{
-Per $s\in\RR_{>1}$ ja sabem del corol·lari $\ref{2.17_coro sèries de potències de p}$ del capítol \ref{capítol 1: sèries de Dirichlet}, que 
-\[
-    \log(\zeta(s))=-\sum_{p}\log(1-p^{-s})=\sum_p\sum_{m\geq 1}\frac{1}{mp^{\s m}}
-\]
-I per continuació analítica, la igualtat es certa per $s=\s+it\in \CC$. Per tant:
-\[
-    \log(\zeta(s))=\sum_p\sum_{m\geq1}\frac{1}{mp^{ms}}=\sum_p\sum_{m\geq1}\frac{p^{-im t}}{mp^{m\s}}
-\]
-I ara, si prenem la part real del que tenim:
-\[
-    \Re\,\log(\zeta(s))=\sum_p\sum_{m\geq1}\frac{\cos(mt\log p)}{mp^{m\s}}
-\]
-On la igualtat ve de que si $\theta\in\RR$, aleshores $p^{i\theta}=\log p(\cos(\theta)+i\sin(\theta))$.
-Que és el que volíem veure.\\
+    \begin{enumerate}
+        \item Per corol·lari 1.17 sabem que $\log(\zeta(s))=-\sum_{p}\log(1-p^{-s})=\sum_p\sum_{m\geq 1}\frac{1}{mp^{\s m}}$ a tot $\CC$ (per continaució analítica)
+        \item trencar $s$ en la seva part real i la seva part imaginària. 
+        \item Fer $\Re(\log(\zeta(s)))$.
+    \end{enumerate}
 }
 \lema{Lema de Mertens}{\label{6.03_lema de Mertens} Per qualsevol $\theta\in\RR$, tenim la següent desigualtat.
 \[
@@ -278,12 +204,9 @@ Que és el que volíem veure.\\
 \]
 }
 \pf{
-Utilitzant la fórmula de l'angle doble del cosinus, tenim:
-\[
-    3+4\cos(\theta)+\cos(2\theta)=
-    3+4\cos(\theta)+\cos^2(\theta)-\sin^2(\theta)=
-    2(1+\cos(\theta))^2\geq0
-\]
+    \begin{enumerate}
+        \item Utilitzar la fórmula de l'angle dobl del cosinus.
+    \end{enumerate}
 }
 \Prop{Mertens per a la funció $\zeta$.}{\label{6.04_prop}
     Per $\s>1$, tenim:
@@ -292,34 +215,21 @@ Utilitzant la fórmula de l'angle doble del cosinus, tenim:
     \end{enumerate}
 }
 \pf{
-Com que a $\s>1$:
-\[
-    |\zeta(s)|=e^{\Re\log(\zeta(s))}
-\]
-Només hem de veure que:
-\[
-    0\leq 3\log(\zeta(\s))+4\Re\log(\zeta(\s+it))+\Re\log\zeta(\s+2it)
-\]
-Però pel lema \ref{6.02_lema}, tenim
-\[
-    3\log(\zeta(\s))+4\Re\log(\zeta(\s+it))+\Re\log\zeta(\s+2it)=\sum_{p}\sum_{m\geq1}\frac{\log(p)}{mp^{\s m}}(3+4\cos(mt\log p)+\cos(2mt\log p))\geq0
-\]
-Que és el que havíem de veure pel primer apartat.\\
+    \begin{enumerate}
+        \item Aplicar el lema 2.
+        \item Aplicar el lema de Mertens.
+    \end{enumerate}
 }
 \teorema{Regió lliure de zeros I}{\label{6.05_teorema regió lliure de zeros en sigma=0,1}La funció $\zeta(s)\neq0$ en $\s=1$ (i per la simetria de $\zeta$, en $\s=0$).}
 \pf{
-Procedirem per reducció a l'absurd: suposem que existeix alguna $t\in \RR$ tal que $\zeta(1+it)=0$. Clarament $t\neq0$, ja que $\zeta(1)\neq0$. De fet, podem dir una miqueta més: com que $\zeta(s)\sim \frac{1}{\s-1}$ quan $\s\to 1$.\\
-Com que $\zeta$ té un zero en $1+it$, podem escriure $\zeta(s)=(s-(1+it))^mf(s)$ per alguna $m\geq1$, on ara $f$ no s'anul·la en $1+it$. Per tant, si considerem
-\[
-    \zeta(\s+it)=(\s-1)^m f(\s+it)
-\]
-I ara, utilitzem la proposició \ref{6.04_prop}:
-\[
-    \lim_{\s\to 1}\underbrace{\zeta^3(\s)}_{\sim (\s-1)^{-3}}
-    \underbrace{|\zeta^4(\s+it)|}_{\sim(\s-1)^4|f(1+it)|}
-    \underbrace{|\zeta(\s+2it)|}_{<\infty}=\lim_{\s\to 1}(\s-1)^{4m-3}|\dots|= 0
-\]
-Però, la proposició ens diu que això és com a mínim 1 i, per tant, contradicció.
+\begin{enumerate}
+    \item Suposem que $\exists t\in\RR$ tal que $\zeta(1+it)=0$.
+    \item Veure que $t\neq 0$
+    \item A més $\zeta(s)\sim \frac{1}{\s-1}$.
+    \item agafem $f$ tal que $\zeta(\s+it)=(\s-1)^mf(\s+it)$
+    \item Utilitzem la prop 6, i arribem a una contradicció
+\end{enumerate}
+
 }
 \newpage
 \chapter{Demostració del Teorema 8 §5, donat el seu enunciat. A la demostració cal ser capaç d'enunciar el Lema 6 i) i el Lema 7 de capítol 5 amb les seves dues parts (però no cal donar les demostracions dels lemes).}
@@ -340,63 +250,15 @@ Però, la proposició ens diu que això és com a mínim 1 i, per tant, contradi
     Existeix $c\in\RR_{>0}$ tal que $\zeta$ no té zeros a la regió $t\geq2,$ i $\s\geq1-\frac{c}{\log(t)}$
 }
 \pf{
-    Per la segona part 4, tenim que per $\s>1$:
-    \begin{equation}
-        3\left(-\frac{\zeta'(\s)}{\zeta(\s)}\right)-4\Re\left(\frac{\zeta'(\s+it)}{\zeta(\s+it)}\right)-\Re\left(\frac{\zeta'(\s+2it)}{\zeta(\s+2it)}\right)\geq0
-    \end{equation}\label{eq_lema_4}
-    Sigui $s(t)=\s+it$ on $\s=1+\frac{\delta}{\log(t)}$, per algun $\delta\in(0,\log2]$ (prenem $\delta$ en aquest interval per tal de tenir $\s\in(1,2]$, per a qualsevol $t\geq2$). Això ens donarà aquesta corba:
-    \begin{center}
-    \begin{tikzpicture}[domain=0:3, scale=0.5]
-    \draw[ultra thick] (-0.3,0)--(6.3,0);
-    \draw[ultra thick] (0,-0.3)--(0,4);
-    \draw[ultra thick] (3,-0.3)--(3,4);
-    \draw[ultra thick] (6,-0.3)--(6,4);
-    \node at (0,4.3) {$\s=0$};
-    \node at (3,4.3) {$\s=1$};
-    \node at (6,4.3) {$\s=2$};
-    \node at (7.5,0) {$t=0$};
-    \node at (7.5,1) {$t=2$};
-    \draw[red!60!black, domain = 2:8]   plot ({3+3*(ln(2)-.00)/(ln(\x))},    \x/2);
-    \draw[red!90!black, domain = 2:8]   plot ({3+3*(ln(2)-.15)/(ln(\x))},    \x/2);
-    \draw[orange, domain = 2:8]         plot ({3+3*(ln(2)-.30)/(ln(\x))},    \x/2);
-    \draw[pink!70!purple, domain = 2:8] plot ({3+3*(ln(2)-.45)/(ln(\x))},    \x/2);
-    \draw[pink, domain = 2:8]           plot ({3+3*(ln(2)-.60)/(ln(\x))},    \x/2);
-    \filldraw (1.5,3) circle (0.1);
-    \node at (1.5,3.4) {$\rho$};
-    \draw [dashed] (0,3)--(6,3);
-    \filldraw[red!60!black] ({3+3*ln(2)/(ln(6))},3) circle (0.1);
-    \node[red!60!black] at ({3.2+3*ln(2)/(ln(6))},3.4) {$s$};
-    \draw[ultra thick] (-0.3,1)--(6.3,1);
-    \end{tikzpicture}
-    \end{center}
-    I ara, prenem $t$ com l'ordenada del zero no trivial de $\zeta$: $\rho=\beta+i\gamma$.\\
-    Apliquem ara el lema 6 i 7 a la desigualtat del principi (\ref{eq_lema_4}), i obtenim:
-    \[
-        0\leq \underbrace{\frac{3}{\s-1}+k_1}_{\text{lema 6, i)}}+\underbrace{k_2\log(t)-\frac{4}{\s-\beta}}_{\text{lema 7, ii)}}+\underbrace{k_3\log(t)}_{\text{lema 7 i)}}
-    \]
-    Si prenem $k/2\geq\max\{k_1,k_2,k_3\}$, podem suposar que tenim una $k$ comuna (i si cal, la fem encara més gran per a quedar-nos només el termes dominants), obtenim:
-    \[
-        \frac{4}{\s-\beta}< \frac{3}{\s-1}+k\log(t)
-    \]
-    Posant $\s=1+\frac{\delta}{\log(t)}$:
-    \[
-        \frac{4}{1+\frac{\delta}{\log(t)}-\beta}< \frac{3\log(t)}{\delta}+k\log(t)
-    \]
-    I que manipulant una mica les coses, tenim:
-    \[
-        \frac{4}{1+\frac{\delta}{\log(t)}-\beta}< \frac{\log(t)}{\delta}\left(3+k\delta\right).
-    \]
-    Com que $\beta\in(0,1)$, sabem que $\s-\beta>0$, és a dir, que podem invertir les coses:
-    \[
-        \frac{4\delta}{\log(t)(3+k\delta)}<1+\frac{\delta}{\log(t)}-\beta
-    \]
-    És a dir:
-    \[
-        \beta<-\frac{4\delta}{\log(t)(3+k\delta)}+1+\frac{\delta}{\log(t)}=
-        1-\frac{1}{\log(t)}\underbrace{\delta\left(\frac{4}{3+k\delta}-1\right)}_{=c}
-    \]
-    Per tant, per $\delta$ prou petita ($\delta<\frac{1}{k}$), tenim que la $c>0$, que és el que volíem veure.
-}
+    \begin{enumerate}
+        \item Posem el que ens diu Mertens per $-\frac{\zeta'}{\zeta}$.
+        \item Posem $s(t)=\s+it$ amb $\s=1+\frac{\delta}{\log(t)}$ de tal manera que estigui entre $\s\in(1,2]$.
+        \item Prenem $t$ l'ordenada d'algun zero no trivial de $\zeta$.
+        \item Fitem tots els termes pel que ens diuen els lemes 6 i 7.
+        \item Fem que totes les $k$ siguin iguals i simplifiquem les coses de tal manera que només quedin 3 termes.
+        \item Fem $\s=1+\delta/\log(t)$.
+        \item Fem àlgebra i posem tot el que sobra en una constant (que per $\delta$ prou petita, aquesta constant serà positiva).
+    \end{enumerate}}
 \newpage
 \chapter{Demostració de la Proposició 8 de capítol 6 assumint el Lema 9 (l'enunciat del qual cal recordar).}
 \Prop{Proposició 8}{Per $T\gg1$, i $x\in\RR_{\geq2}$, i $c=1+\frac{1}{\log x}$, aleshores:
@@ -404,8 +266,10 @@ Però, la proposició ens diu que això és com a mínim 1 i, per tant, contradi
     \frac{1}{2\pi i}\int_{c-iT}^{c+iT}\underbrace{\left(-\frac{\zeta'(s)}{\zeta(s)}\right)\frac{x^s}{s}}_{F(s)}\dd s=x-\sum_{\substack{\rho=\beta+i\gamma\\|\gamma|<T}}\frac{x^{\rho}}{\rho}-\frac{\zeta'(0)}{\zeta(0)}-\frac{1}{2}\log\left(1-\frac{1}{x^2}\right)+\bigO\left(\frac{x(\log T)^2}{T\log(x)}\right)
 \]
 On la suma sobre $\rho$ és una suma sobre els zeros no trivials de $\zeta$.}
-\textit{Comentari: l'expressió a la dreta té 4 termes, cadascun representa una família de pols/zeros de $\zeta(s)\frac{x^s}{s}$: el $x$ representa el pol en $s=0$ de $\zeta$; la suma representa els zeros no trivials de $\zeta(s)$; el $\zeta'(0)/\zeta(0)$ representa el zero de $\frac{x^s}{s}$, i el logaritme representa els zeros trivials de $\zeta$.}
 \pf{
+\begin{enumerate}
+
+\end{enumerate}
 Considerem el següent contorn:
 \begin{center}
     \begin{tikzpicture}[domain=0:3, scale=0.5]
@@ -583,4 +447,5 @@ Per tant:
 \]
 Que és el que volíem veure.    
 }
+
 \end{document}
