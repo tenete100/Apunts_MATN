@@ -229,11 +229,11 @@ Notem que els zeros de la funció $\xi$ són exactament els zeros (amb multiplic
     \[
         \log(r^r)=r\log(r)>\log(r!)=\sum_{i=1}^r \log(i)>\int_1^r\log(x)\dd x=r\log(r)-r+1
     \]}
-    O sigui, que en els enters, sabem que la funció $\Lambda$ és gran:
+    O sigui, que en els enters, sabem que la funció $\Gamma$ és gran:
     \[
-        \log(\xi)=\log(\Lambda)-\frac s2\log(\pi)+\log\left(\half s(s-1)\right)+\log(\zeta)
+        \log(\xi)=\log(\Gamma)-\frac s2\log(\pi)+\log\left(\half s(s-1)\right)+\log(\zeta)
     \]
-    Però en $s=r$: sabem que $\log\Lambda(r)=\log(r-1)!\sim r\log r$. També sabem que $\log\zeta(r)=\log\sum_{n\geq1}\frac{1}{n^r}\xrightarrow{r\to\infty}0$ (ja que $\sum_{n\geq1}\frac{1}{n^r}\to 1$.). I finalment la resta de coses són de la mida $-r/2\log(\pi)$. Per tant
+    Però en $s=2r$: sabem que $\log\Gamma(r)=\log(r-1)!\sim r\log r$. També sabem que $\log\zeta(2r)=\log\sum_{n\geq1}\frac{1}{n^{2r}}\xrightarrow{r\to\infty}0$ (ja que $\sum_{n\geq1}\frac{1}{n^r}\to 1$.). I finalment la resta de coses són de la mida $-r/2\log(\pi)$. Per tant
     \[
         \log(\xi)\sim r\log(r)\qquad\text{quan }r\to\infty.
     \]
@@ -288,8 +288,9 @@ Utilitzant la fórmula de l'angle doble del cosinus, tenim:
 \Prop{Mertens per a la funció $\zeta$.}{\label{6.04_prop}
     Per $\s>1$, tenim:
     \begin{enumerate}
-        \ii $\zeta^3(\s)|\zeta^4(\s+it)||\zeta(\s+i2t)|\geq0$,\\
+        \ii $\zeta^3(\s)|\zeta^4(\s+it)||\zeta(\s+i2t)|\geq1$,\\
     \end{enumerate}
+
 }
 \pf{
 Com que a $\s>1$:
@@ -337,7 +338,7 @@ Però, la proposició ens diu que això és com a mínim 1 i, per tant, contradi
     \end{enumerate}
 }
 \lema{Teorema 8}{
-    Existeix $c\in\RR_{>0}$ tal que $\zeta$ no té zeros a la regió $t\geq2,$ i $\s\geq1-\frac{c}{\log(t)}$
+    Existeix $c\in\RR_{>0}$ tal que $\zeta$ no té zeros a la regió $t\geq2,$ i $\s\leq1-\frac{c}{\log(t)}$
 }
 \pf{
     Per la segona part 4, tenim que per $\s>1$:
@@ -475,7 +476,7 @@ Aleshores, per $y>0$, $c>0$, $T>0$:
 \[
     \left|\frac{1}{2\pi i}\int_{c-iT}^{c+iT}\frac{y^s}{s}\dd s-\delta(y)\right|<\left\{\begin{array}{cl}
         \frac{y^c}{T|\log y|}&\text{si }y\neq 1\\
-        \frac{c}{T}&\text{si }u=1.
+        \frac{c}{T}&\text{si }y=1.
     \end{array}\right.
 \]
 }
@@ -575,7 +576,7 @@ Aquí la segona integral és zero per la paritat de la funció que estem integra
     \frac{1}{2\pi}\int_{-T}^{T}\frac{c}{c^2+t^2}\dd t 
     &=\frac{1}{2\pi}\int_{-T/c}^{T/c}\frac{1}{1+u^2}\dd u =\\
     &=\frac{1}{\pi}\int_{0}^{T/c}\frac{1}{1+u^2}\dd u =\\
-    &=\frac{1}{\pi}\left(\underbrace{\int_{0}^{\infty}\frac{1}{1+u^2}\dd u}_{=\frac{\pi}{2}}-\int_{T/c}^{\infty}\frac{1}{1+u^2}\dd u\right) =\\
+    &=\frac{1}{\pi}\left(\underbrace{\int_{0}^{\infty}\frac{1}{1+u^2}\dd u}_{=\frac{\pi}{2}}-\int_{T/c}^{\infty}\frac{1}{1+u^2}\dd u\right)
 \end{align*}
 Per tant:
 \[

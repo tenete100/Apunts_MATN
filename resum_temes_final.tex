@@ -107,10 +107,7 @@ Aleshores l'ordre de $f$ es defineix
 \]
 }
 \newpage
-
-
-\newpage
-\chapter{Enunciat sense demostració del criteri de sumació d'Abel (Teorema 4,capítol 1)}
+\chapter{Enunciar Abel}
 \teorema{Criteri de sumació d'Abel}{\label{2.04_teorema_sumació_Abel}Sigui $a\colon\NN\rightarrow\CC$, considerem $A(t)\coloneq\sum_{n\leq t}a(n)$ les sumes parcials de $a$; i una funció $g:\RR_{\geq0}\rightarrow\CC$ amb derivada contínua en un interval $[x,y]\neq\varnothing$\footnote{Per alguna raó, al professor li ha agradat considerar l'interval $[y,x]$, però em nego a fer servir aquesta notació.}. Aleshores 
 \[
 \sum_{x<n\leq y}a(n)g(n)=A(y)g(y)-A(x)g(x)-\int_x^yA(t)g'(t)\dd t
@@ -118,8 +115,8 @@ Aleshores l'ordre de $f$ es defineix
 }
 
 \newpage
-\chapter{Demostració del Teorema 8, capítol 3 (sense la part final de veure que la integral I(s) defineix una funció holomorfa ).}
-\teorema{Teorema 8}{Per $\sigma>1$, tenim:
+\chapter{Demostrar 3.8 (sense veure que la integral I(s) és una funció holomorfa).}
+\teorema{Teorema 8 (No donat)}{Per $\sigma>1$, tenim:
 \[
 \pi^{-\frac{s}{2}}\Gamma\left(\frac{s}{2}\right)\zeta(s)=-\frac{1}{s}+\frac{1}{s-1}+\underbrace{\int_1^\infty\left(x^{\frac{s}{2}-1}+x^{-\frac{s}{2}-\frac{1}{2}}\right)\omega(x)\dd x}_{=I(s)}
 \]
@@ -135,10 +132,10 @@ On la funció $I(s)$ és una funció holomorfa a tot $\CC$.
 \end{enumerate}
 % }
 \newpage
-\chapter{Demostració de la Proposició 6 del capítol 4, donat el seu enunciat i assumint la Proposició 7.}
-\Prop{proposició 6}{Sigui $f$ una funció entera d'ordre $\alpha$. I suposem que $f$ no té zeros. Aleshores es té que $f=e^{g(s)}$ on $g$ és un polinomi de grau $\alpha$. És a dir, que el grau d'una funció entera sense zeros ha de ser un enter.
+\chapter{Demostració de 4.6 i assumint 4.7.}
+\Prop{proposició 6 (Donat)}{Sigui $f$ una funció entera d'ordre $\alpha$. I suposem que $f$ no té zeros. Aleshores es té que $f=e^{g(s)}$ on $g$ és un polinomi de grau $\alpha$. És a dir, que el grau d'una funció entera sense zeros ha de ser un enter.
 }
-    \Prop{proposició 7}{Sigui $U\subseteq \CC$ simplement connex. Sigui $f:U\to\CC$ holomorfa i sense zeros en $U$. Aleshores existeix $g:U\to\CC$ holomorfa tal que $f(s)=e^{g(s)}$ per tot $s\in U$.}
+    \Prop{proposició 7 (No donat)}{Sigui $U\subseteq \CC$ simplement connex. Sigui $f:U\to\CC$ holomorfa i sense zeros en $U$. Aleshores existeix $g:U\to\CC$ holomorfa tal que $f(s)=e^{g(s)}$ per tot $s\in U$.}
     Amb això, només ens fa falta veure que $g$ ha de ser un polinomi.
     \begin{enumerate}
         \item Agafar la $g(s)$ que ens dona la proposició.
@@ -154,8 +151,8 @@ On la funció $I(s)$ és una funció holomorfa a tot $\CC$.
         \item Sumar 0 a la integral que tenim de $|a_n|$.
     \end{enumerate}
 \newpage
-\chapter{Demostració del Teorema 15 del capítol 4, donat el seu enunciat i assumint els corol·laris 10 i 14.}
-\teorema{}{
+\chapter{Demostració de 4.15 i assumint 4.10 i 4.14.}
+\teorema{Teorema 15 (Donat)}{
     La funció zeta de Riemann completada
     \[
         \xi(s)=\half s(s-1)\pi^{-s/2}\zeta(s)\Gamma\left(\frac s2\right)
@@ -181,8 +178,8 @@ Notem que els zeros de la funció $\xi$ són exactament els zeros (amb multiplic
     \item Enunciar el corol·lari 10, i acabar la demostració.
 \end{enumerate}
 \newpage
-\chapter{Demostració del Teorema 5 del capítol 5. La demostració ha d'incloure els enunciats i demostracions de Lema 2 i), Lema 3, i Proposició 4 i).}
-\lema{lema 2}{\label{6.02_lema}Per $\s>1$ es té:
+\chapter{Demostració de 5.5. La demostració ha d'incloure els enunciats i demostracions de 5.2 i), 5.3, i 5.4 i).}
+\lema{Lema 2 (No donat)}{\label{6.02_lema}Per $\s>1$ es té:
 \begin{enumerate}
     \ii $\Re\;\log(\zeta(s))=\sum_p\sum_{m\geq1}\frac{\cos(mt\log p)}{mp^{\s m}}$\\
 \end{enumerate}
@@ -193,25 +190,25 @@ On en el segon apartat, la funció $\Lambda(n)=\left\{\begin{array}{cc}
 }
 \pf{
     \begin{enumerate}
-        \item Per corol·lari 1.17 sabem que $\log(\zeta(s))=-\sum_{p}\log(1-p^{-s})=\sum_p\sum_{m\geq 1}\frac{1}{mp^{\s m}}$ a tot $\CC$ (per continaució analítica)
+        \item Per corol·lari 1.17 sabem que $\log(\zeta(s))=-\sum_{p}\log(1-p^{-s})=\sum_p\sum_{m\geq 1}\frac{1}{mp^{s m}}$ a tot $\CC$ (per continaució analítica)
         \item trencar $s$ en la seva part real i la seva part imaginària. 
         \item Fer $\Re(\log(\zeta(s)))$.
     \end{enumerate}
 }
-\lema{Lema de Mertens}{\label{6.03_lema de Mertens} Per qualsevol $\theta\in\RR$, tenim la següent desigualtat.
+\lema{Lema de Mertens (no donat)}{\label{6.03_lema de Mertens} Per qualsevol $\theta\in\RR$, tenim la següent desigualtat.
 \[
     3+4\cos(\theta)+\cos(2\theta)\geq0
 \]
 }
 \pf{
     \begin{enumerate}
-        \item Utilitzar la fórmula de l'angle dobl del cosinus.
+        \item Utilitzar la fórmula de l'angle doble del cosinus.
     \end{enumerate}
 }
-\Prop{Mertens per a la funció $\zeta$.}{\label{6.04_prop}
+\Prop{Mertens per a la funció $\zeta$. (No donat)}{\label{6.04_prop}
     Per $\s>1$, tenim:
     \begin{enumerate}
-        \ii $\zeta^3(\s)|\zeta^4(\s+it)||\zeta(\s+i2t)|\geq0$,\\
+        \ii $\zeta^3(\s)|\zeta^4(\s+it)||\zeta(\s+i2t)|\geq1$,\\
     \end{enumerate}
 }
 \pf{
@@ -220,34 +217,34 @@ On en el segon apartat, la funció $\Lambda(n)=\left\{\begin{array}{cc}
         \item Aplicar el lema de Mertens.
     \end{enumerate}
 }
-\teorema{Regió lliure de zeros I}{\label{6.05_teorema regió lliure de zeros en sigma=0,1}La funció $\zeta(s)\neq0$ en $\s=1$ (i per la simetria de $\zeta$, en $\s=0$).}
+\teorema{Regió lliure de zeros I (no donat)}{\label{6.05_teorema regió lliure de zeros en sigma=0,1}La funció $\zeta(s)\neq0$ en $\s=1$ (i per la simetria de $\zeta$, en $\s=0$).}
 \pf{
 \begin{enumerate}
     \item Suposem que $\exists t\in\RR$ tal que $\zeta(1+it)=0$.
     \item Veure que $t\neq 0$
-    \item A més $\zeta(s)\sim \frac{1}{\s-1}$.
+    \item A més $\zeta(\s)\sim \frac{1}{\s-1}$.
     \item agafem $f$ tal que $\zeta(\s+it)=(\s-1)^mf(\s+it)$
     \item Utilitzem la prop 6, i arribem a una contradicció
 \end{enumerate}
 
 }
 \newpage
-\chapter{Demostració del Teorema 8 §5, donat el seu enunciat. A la demostració cal ser capaç d'enunciar el Lema 6 i) i el Lema 7 de capítol 5 amb les seves dues parts (però no cal donar les demostracions dels lemes).}
-\lema{Lema 6}{
+\chapter{Demostració del Teorema 5.8 (i el lema 5.6.1 i 5.7).}
+\lema{Lema 6 (No donat)}{
     Per $1<\s\leq2$
     \[
         -\frac{\zeta'(s)}{\zeta(s)}<\frac{1}{\s-1}+K\qquad\text{on }K\in\RR
     \]
 }
-\lema{Lema 7}{
+\lema{Lema 7 (No donat)}{
     Sigui $\rho=\beta+i\gamma$ un zero no trivial de $\zeta(s)$ amb $\gamma\geq2$. Sigui $s=\s+i t$ amb $1< \s\leq 2$ i $t\geq2$, aleshores
     \begin{enumerate}
         \item $-\Re\left(\frac{\zeta'(\s+2it)}{\zeta(\s+2it)}\right)<K\log(t)$ per $k\in\RR_{>0}$.
         \item Si a més $t=\gamma$, aleshores: $-\Re\left(\frac{\zeta'(\s+it)}{\zeta(\s+it)}\right)<k\log(t)-\frac{1}{\s-\beta}$ per $k\in\RR_{\geq0}$
     \end{enumerate}
 }
-\lema{Teorema 8}{
-    Existeix $c\in\RR_{>0}$ tal que $\zeta$ no té zeros a la regió $t\geq2,$ i $\s\geq1-\frac{c}{\log(t)}$
+\lema{Teorema 8 (Donat)}{
+    Existeix $c\in\RR_{>0}$ tal que $\zeta$ no té zeros a la regió $t\geq2,$ i $\s\leq1-\frac{c}{\log(t)}$
 }
 \pf{
     \begin{enumerate}
@@ -260,78 +257,30 @@ On en el segon apartat, la funció $\Lambda(n)=\left\{\begin{array}{cc}
         \item Fem àlgebra i posem tot el que sobra en una constant (que per $\delta$ prou petita, aquesta constant serà positiva).
     \end{enumerate}}
 \newpage
-\chapter{Demostració de la Proposició 8 de capítol 6 assumint el Lema 9 (l'enunciat del qual cal recordar).}
-\Prop{Proposició 8}{Per $T\gg1$, i $x\in\RR_{\geq2}$, i $c=1+\frac{1}{\log x}$, aleshores:
+\chapter{Demostració de 6.8 assumint 6.9 (l'enunciat del qual cal recordar).}
+\Prop{Proposició 8 (No donat)}{Per $T\gg1$, i $x\in\RR_{\geq2}$, i $c=1+\frac{1}{\log x}$, aleshores:
 \[
     \frac{1}{2\pi i}\int_{c-iT}^{c+iT}\underbrace{\left(-\frac{\zeta'(s)}{\zeta(s)}\right)\frac{x^s}{s}}_{F(s)}\dd s=x-\sum_{\substack{\rho=\beta+i\gamma\\|\gamma|<T}}\frac{x^{\rho}}{\rho}-\frac{\zeta'(0)}{\zeta(0)}-\frac{1}{2}\log\left(1-\frac{1}{x^2}\right)+\bigO\left(\frac{x(\log T)^2}{T\log(x)}\right)
 \]
 On la suma sobre $\rho$ és una suma sobre els zeros no trivials de $\zeta$.}
 \pf{
 \begin{enumerate}
-
+    \item Prenem el contorn $c+iT\overset{\gamma_1}\rightsquigarrow-U+iT\overset{\gamma_2}{\rightsquigarrow}-U-iT\overset{\gamma_3}\rightsquigarrow c-iT\rightsquigarrow c+iT$. Amb $U$ senar positiu, i T no és la ordenadad de cap zero.
+    \item Considerem la integral de $F$ sobre aquest domini, i anomenem les integrals $I_1$, $I_2$, $I_3$ a les integrals associades al seu camí respectiu; i $R$ al residu.
+    \item Calculem el residu dels 3 tipus de pols de $F$.
+    \item Enunciem el lema 9.
+    \item Calculem el límit $U\to \infty$.
 \end{enumerate}
-Considerem el següent contorn:
-\begin{center}
-    \begin{tikzpicture}[domain=0:3, scale=0.5]
-    \draw[ultra thick] (-5.3,0)--(3.3,0);
-    \draw[ultra thick] (0,-2.5)--(0,2.5);
-    \draw[thick] (3,2)--(-5,2)--(-5,-2)--(3,-2)--cycle;
-    \draw[->] (3,1)--(3,1.1);
-    \draw[->] (3,-1.1)--(3,-1);
-    \draw[->] (-1,2)--(-1.1,2);
-    \draw[<-] (-5,1)--(-5,1.1);
-    \draw[<-] (-5,-1.1)--(-5,-1);
-    \draw[<-] (-1,-2)--(-1.1,-2);
-    \draw[dashed] (1,-2.5)--(1,2.5);
-    \node at (3,2.5) {$c+iT$};
-    \node at (3,-2.5) {$c-iT$};
-    \node at (-5,2.5) {$-U+iT$};
-    \node at (-5,-2.5) {$-U-iT$};
-    \node at (-1,2.5) {$\gamma_1$};
-    \node at (-1,-2.5) {$\gamma_3$};
-    \node at (-5.5,0.5) {$\gamma_2$};
-    \end{tikzpicture}
-\end{center}
-On $U$ és un senar positiu; i $T$ no és la ordenada de cap zero de $\zeta$.\\
-Recordem per l'exercici 4 del FP 8, $\frac{\zeta'(s)}{\zeta(s)}$ té un pol a cada pol/zero de $\zeta$, amb residu l'ordre del zero o pol. Per tant:
-\[
-    \frac{1}{2\pi i}\int_{c-iT}^{c+iT}F(s)\dd s=-R
-    \underbrace{-\frac{1}{2\pi i}\int_{c+iT}^{-U+iT}F(s)\dd s}_{I_1}
-    \underbrace{-\frac{1}{2\pi i}\int_{-U+iT}^{-U-iT}F(s)\dd s}_{I_2}
-    \underbrace{-\frac{1}{2\pi i}\int_{-U-iT}^{c-iT}F(s)\dd s}_{I_3}
-\]
-On $R$ són els residus:
-\[
-    R=\overbrace{\sum_{\substack{\rho=\beta+i\gamma\\-U<\beta<1\\|\gamma|<T}}\mathrm{Res}_{s=\rho}\,F(s)}^{R_1}+\overbrace{\mathrm{Res}_{s=0}\,F(s)}^{R_2}+\overbrace{\mathrm{Res}_{s=1}\,F(s)}^{R_3}
-\]
-Notem que l'ordre dels zeros de $R_1$ és 1 (tant dels zeros trivials, com el dels no trivials); i els altres residus són:
-\begin{align*}
-    R_1=&\sum_{\substack{\rho=\beta+i\gamma\\-U<\beta<c\\|\gamma|<T}}\frac{x^{\rho}}{\rho}+\sum_{2\leq 2m<U}\frac{x^{-2m}}{-2m}\\
-    R_2=&\frac{\zeta'(0)}{\zeta(0)}\\
-    R_3=&x
-\end{align*}
-Per tant, ens queda:
-\[
-    \frac{1}{2\pi i}\int_{c-iT}^{c+iT}F(s)\dd s=
--\sum_{\substack{\rho=\beta+i\gamma\\-U<\beta<c\\|\gamma|<T}}\frac{x^{\rho}}{\rho}+\sum_{2\leq 2m<U}\frac{x^{-2m}}{-2m}-\frac{\zeta'(0)}{\zeta(0)}-x
-    +I_1+I_2+I_3
-\]
-I ara, pel lema 9:
-\lema{Lema 9}{Les integrals:
+\lema{Lema 9 (No donat)}{Les integrals:
 \begin{align*}    
     I_1,I_3&=\bigO\left(\frac{x(\log T)^2}{T\log x}\right)\\
     I_2&=\bigO\left(\frac{T\log U}{U x^U}\right)
 \end{align*}
 }
-Aleshores, prenent $U\to \infty$, tenim:
-\[
-    \frac{1}{2\pi i}\int_{c-iT}^{c+iT}F(s)\dd s=x-\sum_{\substack{\rho=\beta+i\gamma\\|\gamma|<T}}\frac{x^\rho}{\rho}-\underbrace{\frac{1}{2}\sum_{n\geq1}\frac{x^{-2m}}{-m}}_{\text{Taylor de }\log(1-x^2)}-\frac{\zeta'(0)}{\zeta(0)}+\bigO\left(\frac{x(\log T)^2}{T\log x}\right)
-\]
-Que és el que volíem veure.
 }
 \newpage
-\chapter{Demostració de Lema 5 del capítol 6 donat el seu enunciat.}
-\lema{Lema 5}{Sigui 
+\chapter{Demostració de 6.5}
+\lema{Lema 5 (Donat)}{Sigui 
 \[
     \delta(y)=\left\{\begin{array}{cl}0&\text{si }y\in(0,1)\\\frac12&\text{si }y=1\\1&\text{si }y>1\end{array}\right.
 \]
@@ -339,113 +288,24 @@ Aleshores, per $y>0$, $c>0$, $T>0$:
 \[
     \left|\frac{1}{2\pi i}\int_{c-iT}^{c+iT}\frac{y^s}{s}\dd s-\delta(y)\right|<\left\{\begin{array}{cl}
         \frac{y^c}{T|\log y|}&\text{si }y\neq 1\\
-        \frac{c}{T}&\text{si }u=1.
+        \frac{c}{T}&\text{si }y=1.
     \end{array}\right.
 \]
 }
 \pf{
-Per fer aquesta demostració distingirem 3 casos: $y\in(0,1)$, $y=1$ i $y>1$.\\
-\textbf{Cas 1: $y\in(0,1)$.}\\
-Considerem el següent contorn:
-\begin{center}
-    \begin{tikzpicture}[scale = 0.5]
-        \draw [ultra thick] (-0.3,0)--(5.3,0)  (0,-3.3)--(0,3.3);
-        \draw (5,-3)--(5,3)--(2,3)--(2,-3)--cycle;
-        \draw [->] (5,1.5)--(5,1.6);
-        \draw [->] (5,-1.6)--(5,-1.5);
-        \draw [->] (2,1.5)--(2,1.6);
-        \draw [->] (2,-1.6)--(2,-1.5);
-        \draw [->] (3.5,3)--(3.4,3);
-        \draw [<-] (3.5,-3)--(3.4,-3);
-        \node at (2.3,0.3) {$c$};
-        \node at (2,-3.4) {$c-iT$};
-        \node at (2,3.4) {$c+iT$};
-        \node at (5.4,0.4) {$U$};
-        \node at (3.6,-2.6) {$\gamma_1$};
-        \node at (5.4,-1) {$\gamma_2$};
-        \node at (3.6,2.6) {$\gamma_3$};
-    \end{tikzpicture}
-\end{center}
-Aleshores, com que a dins d'aquest contorn, la funció $y^s/s$ no té pols, podem canviar aquesta integral per les altres tres integrals:
-\[
-    \frac{1}{2\pi i}\int_{c-iT}^{c+iT}\frac{y^s}{s}=
-    \underbrace{\frac{1}{2\pi i}\int_{c-iT}^{U-iT}\frac{y^s}{s}}_{=I_1(U)}+
-    \underbrace{\frac{1}{2\pi i}\int_{U-iT}^{U+iT}\frac{y^s}{s}}_{=I_2(U)}+
-    \underbrace{\frac{1}{2\pi i}\int_{U+iT}^{c+iT}\frac{y^s}{s}}_{=I_3(U)}
-\]
-Però com que en $\gamma_2$ la integral és fàcil de fitar:
-\[
-    |I_2|\leq\int_{\gamma_2}\left|\frac{y^s}{s}\right|\dd s\leq 2T \frac{y^U}{U}\xrightarrow{U\to\infty}0
-\]
-Només ens hem de preocupar de $I_1=\lim_{U\to\infty}I_1(U)$ i de $I_3=\lim_{U\to\infty}I_3(U)$.
-I ara per fitar les altres integrals:
-\[
-    |I_1|\leq\frac{1}{2\pi}\int_c^\infty\frac{|y^{\s-iT}|}{|\s-iT|}\dd \s
-\]
-I com que $|\s-iT|>|T|$:
-\[
-  \frac{1}{2\pi}\int_c^\infty\frac{|y^{\s-iT}|}{|\s-iT|}\dd \s\leq\frac{1}{2\pi}\int_c^\infty\frac{y^\s}{T}\dd \s=\frac{1}{2\pi T}\left[\frac{y^\s}{\log y}\right]_c^\infty=\frac{y^c}{2\pi T|\log y|}
-\]
-I si repetim aquest mateix càlcul amb l'altra integral ens dona:
-\[
-    |I_3|\leq\frac{y^\s}{2\pi T|\log y|}
-\]
-I si ho ajuntem tot, obtenim una fita millor que la que volíem.\\
-\textbf{Cas 2: $y>1$.}\\
-Considerem ara, aquest contorn:
-\begin{center}
-    \begin{tikzpicture}[scale=0.5]
-        \draw [ultra thick] (-4.3,0)--(1.8,0) (0,-3.3)--(0,3.3);
-        \draw (1.5,3)--(-4,3)--(-4,-3)--(1.5,-3)--cycle;
-        \draw [->] (1.5,1.5)--(1.5,1.6);
-        \draw [->] (1.5,-1.6)--(1.5,-1.5);
-        \draw [->] (-4,1.5)--(-4,1.6);
-        \draw [->] (-4,-1.6)--(-4,-1.5);
-        \draw [->] (-1.25,3)--(-1.15,3);
-        \draw [->] (-1.15,-3)--(-1.25,-3);
-        \node at (1.8,0.3) {$c$};
-        \node at (-3.6,0.4) {$-U$};
-        \node at (1.5,3.4) {$c+iT$};
-        \node at (1.5,-3.4) {$c-iT$};
-        \node at (-4,-3.4) {$-U-iT$};
-        \node at (-4,3.4) {$-U+iT$};
-        \node at (-1.25,-2.6) {$\gamma_1$};
-        \node at (-4.4,-1) {$\gamma_2$};
-        \node at (-1.25,2.6) {$\gamma_3$};
-        \node [circle, draw = black,  fill=red, inner sep=0pt,minimum size=5pt] at (0,0) {};
-    \end{tikzpicture}
-\end{center}
-Ara no podem fer el que hem fet abans: ara en aquest contorn hi ha un pol en el $s=0$. Per tant, haurem de sumar el residu del pol:
-\[
-    \frac{1}{2\pi i}\int_{c-iT}^{c+iT}\frac{y^s}{s}\dd s=\mathrm{Res}_{s=0} \frac{y^s}{s}+I_1(-U)+I_2(-U)+I_3(-U)
-\]
-I de la mateia manera que abans, $I_2(-U)\xrightarrow{U\to\infty}0$, i les altres 2 integrals es poden fitar per:
-\[
-    |I_1|\leq\frac{1}{2\pi}\int_{-\infty}^c \frac{y^\s}{T}\dd \s=\frac{1}{2\pi T}\left[\frac{y^\s}{\log y}\right]_{-\infty}^c=\frac{y^c}{2\pi T |\log y|}
-\]
-I l'altra integral es pot fitar igual.\\
-\textbf{Cas 3: $y=1$.}\\
-Com que la funció és més senzilla, podem fer-ho d'una manera més directa:
-\begin{align*}
-    \frac{1}{2\pi i}\int_{c-iT}^{c+iT}\frac{1}{s}\dd s&=
-    \frac{1}{2\pi i}\int_{-T}^{T}\frac{i}{c+it}\dd t =\\
-    &=\frac{1}{2\pi}\int_{-T}^{T}\frac{c-it}{|c+it|^2}\dd t =\\
-    &=\frac{1}{2\pi}\int_{-T}^{T}\frac{c-it}{c^2+t^2}\dd t =\\
-    &=\frac{1}{2\pi}\int_{-T}^{T}\frac{c}{c^2+t^2}\dd t 
-    -\frac{i}{2\pi}\underbrace{\int_{-T}^{T}\frac{t}{c^2+t^2}\dd t}_{=0}
-\end{align*}
-Aquí la segona integral és zero per la paritat de la funció que estem integrant.
-\begin{align*}
-    \frac{1}{2\pi}\int_{-T}^{T}\frac{c}{c^2+t^2}\dd t 
-    &=\frac{1}{2\pi}\int_{-T/c}^{T/c}\frac{1}{1+u^2}\dd u =\\
-    &=\frac{1}{\pi}\int_{0}^{T/c}\frac{1}{1+u^2}\dd u =\\
-    &=\frac{1}{\pi}\left(\underbrace{\int_{0}^{\infty}\frac{1}{1+u^2}\dd u}_{=\frac{\pi}{2}}-\int_{T/c}^{\infty}\frac{1}{1+u^2}\dd u\right) =\\
-\end{align*}
-Per tant:
-\[
-    \left|\frac{1}{2\pi i}\int_{c-iT}^{c+iT}\frac{1}{s}\dd s-\frac{1}{2}\right|\leq\frac{1}{\pi}\int_{T/c}^\infty\frac{1}{1+u^2}\dd u\leq \int_{T/c}^{\infty}\frac{1}{u^2}\dd u= \frac{1}{\pi}\left[\frac{-1}{u}\right]_{T/c}^\infty=\frac{c}{\pi T}<\frac{c}{T}
-\]
-Que és el que volíem veure.    
+    \begin{enumerate}
+        \item Cas 1: $y\in(0,1)$. Considerem el domini $c-iT\overset{\gamma 1}\rightsquigarrow U-iT\overset{\gamma_2}\rightsquigarrow U+iT\overset{\gamma_3}\rightsquigarrow c+iT$
+        \item Fitem la $|I_2|$.
+        \item Fem $\lim_{U\to\infty}$.
+        \item Fem $|\s-iT|>|T|$, integrem, i ho ajuntem tot.
+
+        \item Cas 2: $y>1$. Considerem el domini $c-iT\overset{\gamma 1}\rightsquigarrow -U-iT\overset{\gamma_2}\rightsquigarrow -U+iT\overset{\gamma_3}\rightsquigarrow c+iT$
+        \item Calculem el residu en $s=0$. I calculem les integrals com ho hem fet abans.
+        
+        \item Cas 3: $y=1$. Calculem la integral directament.
+        \item Argumentem per paritat per carregar-nos la part senar. I per la part parella fem un canvir d'integral per tenir la integral de l'arctangent.
+        \item Calculem $|I-\delta(y)|$, on fitem $1/1+u^2<1/u^2$ i aconseguim la fita de l'enunciat.
+    \end{enumerate}
 }
 
 \end{document}
