@@ -212,6 +212,13 @@ On la funció $I(s)$ és una funció holomorfa a tot $\CC$.
     \end{enumerate}
 }
 Notem que els zeros de la funció $\xi$ són exactament els zeros (amb multiplicitat) de $\zeta$ en la franja crítica.
+\coro{Corol·lari 10}{Sigui $f$ d'ordre $\alpha$ amb $f(0)\neq 0$. Aleshores per tot $\rho\in\RR_{>\alpha}$, tenim:
+\begin{enumerate}
+    \item $n(R)=\bigO(R^{\rho})$ per tot $R\gg1$; i on $n:\RR_{\geq0}\to \NN$ és el número de zeros amb mòdul menor que $R$.
+    \item $\sum_{n\in N_f}|s_n|^{-1}$, on $s_n$ és el $n$-èsim zero de $f$ (indexat per $N_f$).
+\end{enumerate}
+    }
+\coro{Corol·lari 14}{Sigui $f$ d'ordre 1 amb $f(0)\neq0$. Si $\sum_{n\in N_f}|s_n|^{-1}$ convergeix, aleshores $|f|<e^{C|s|}$ per $s\gg1$.}
 \pf{
     I amb aquesta remarca, procedirem a demostrar els 3 apartats del teorema.\\
     Notem que pel corol·lari 9 del tema 3, tenim que la funció $\xi$ és una funció entera.
@@ -441,7 +448,7 @@ On $R$ són els residus:
 \[
     R=\overbrace{\sum_{\substack{\rho=\beta+i\gamma\\-U<\beta<1\\|\gamma|<T}}\mathrm{Res}_{s=\rho}\,F(s)}^{R_1}+\overbrace{\mathrm{Res}_{s=0}\,F(s)}^{R_2}+\overbrace{\mathrm{Res}_{s=1}\,F(s)}^{R_3}
 \]
-Notem que l'ordre dels zeros de $R_1$ és 1 (tant dels zeros trivials, com el dels no trivials); i els altres residus són:
+Notem que l'ordre dels zeros trivials de $R_1$ és 1 (i els no trivials els sumem tantes vegades com l'ordre del zero); i els altres residus són:
 \begin{align*}
     R_1=&\sum_{\substack{\rho=\beta+i\gamma\\-U<\beta<c\\|\gamma|<T}}\frac{x^{\rho}}{\rho}+\sum_{2\leq 2m<U}\frac{x^{-2m}}{-2m}\\
     R_2=&\frac{\zeta'(0)}{\zeta(0)}\\

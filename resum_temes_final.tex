@@ -257,7 +257,7 @@ On en el segon apartat, la funció $\Lambda(n)=\left\{\begin{array}{cc}
         \item Fem àlgebra i posem tot el que sobra en una constant (que per $\delta$ prou petita, aquesta constant serà positiva).
     \end{enumerate}}
 \newpage
-\chapter{Demostració de 6.8 assumint 6.9 (l'enunciat del qual cal recordar).}
+\chapter{Demostració de 6.8 assumint 6.9.}
 \Prop{Proposició 8 (No donat)}{Per $T\gg1$, i $x\in\RR_{\geq2}$, i $c=1+\frac{1}{\log x}$, aleshores:
 \[
     \frac{1}{2\pi i}\int_{c-iT}^{c+iT}\underbrace{\left(-\frac{\zeta'(s)}{\zeta(s)}\right)\frac{x^s}{s}}_{F(s)}\dd s=x-\sum_{\substack{\rho=\beta+i\gamma\\|\gamma|<T}}\frac{x^{\rho}}{\rho}-\frac{\zeta'(0)}{\zeta(0)}-\frac{1}{2}\log\left(1-\frac{1}{x^2}\right)+\bigO\left(\frac{x(\log T)^2}{T\log(x)}\right)
@@ -297,15 +297,12 @@ Aleshores, per $y>0$, $c>0$, $T>0$:
         \item Cas 1: $y\in(0,1)$. Considerem el domini $c-iT\overset{\gamma 1}\rightsquigarrow U-iT\overset{\gamma_2}\rightsquigarrow U+iT\overset{\gamma_3}\rightsquigarrow c+iT$
         \item Fitem la $|I_2|$.
         \item Fem $\lim_{U\to\infty}$.
-        \item Fem $|\s-iT|>|T|$, integrem, i ho ajuntem tot.
-
+        \item Fem $|\s-iT|>|T|$, integrem, i ho ajuntem tot.\\
         \item Cas 2: $y>1$. Considerem el domini $c-iT\overset{\gamma 1}\rightsquigarrow -U-iT\overset{\gamma_2}\rightsquigarrow -U+iT\overset{\gamma_3}\rightsquigarrow c+iT$
-        \item Calculem el residu en $s=0$. I calculem les integrals com ho hem fet abans.
-        
+        \item Calculem el residu en $s=0$. I calculem les integrals com ho hem fet abans.\\
         \item Cas 3: $y=1$. Calculem la integral directament.
         \item Argumentem per paritat per carregar-nos la part senar. I per la part parella fem un canvir d'integral per tenir la integral de l'arctangent.
         \item Calculem $|I-\delta(y)|$, on fitem $1/1+u^2<1/u^2$ i aconseguim la fita de l'enunciat.
     \end{enumerate}
 }
-hhoollaa
 \end{document}
