@@ -113,11 +113,22 @@
     {th}
 }
 
-\caja{Corolari}[Corol·lari][myp!10][myp!85!black]
-\caja{Lema}[Lema][mylenmabg][mylenmafr]
-\caja{Propo}[Proposició][mypropbg][mypropfr]
-\caja{defi}[Definició][primary!12][primary]
-\caja{Teorema}[Teorema][primary!12][primary]
+% \caja{Corolari}[Corol·lari][myp!10][myp!85!black]
+% \caja{Lema}[Lema][mylenmabg][mylenmafr]
+% \caja{Propo}[Proposició][mypropbg][mypropfr]
+% \caja{defi}[Definició][primary!12][primary]
+% \caja{Teorema}[Teorema][primary!12][primary]
+
+% 1. Definim "Teorema" primer. Li passem un 5è paràmetre buit "[]" 
+% per sobreescriure el "number within=chapter" i fer que el comptador sigui global.
+\caja{Teorema}[Teorema][primary!12][primary]%[]
+
+% 2. Definim la resta d'entorns indicant que facin servir el comptador de "Teorema".
+\caja{Corolari}[Corol·lari][myp!10][myp!85!black][use counter from=Teorema]
+\caja{Lema}[Lema][mylenmabg][mylenmafr][use counter from=Teorema]
+\caja{Propo}[Proposició][mypropbg][mypropfr][use counter from=Teorema]
+\caja{defi}[Definició][primary!12][primary][use counter from=Teorema]
+
 \caja{Nota}[Nota][white][migris][no counter]
 \caja{Propietats}[Propietats][white][migris][no counter]
 \caja{preg}[Pregunta][white][migris][no counter]
