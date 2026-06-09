@@ -1,9 +1,9 @@
 %----------------
-%   Importaciones
+%   Paquets
 %----------------
 \usepackage{xparse,xcolor}
-\usepackage{sectsty}
-\usepackage{amsmath,amssymb,latexsym,cancel,amsthm,mathtools} %amsfonts
+% \usepackage{sectsty}
+\usepackage{amsmath,amssymb,latexsym,cancel,amsthm,mathtools}
 \usepackage{tikz,pgfplots}
 \pgfplotsset{compat=1.18, width=10cm}
 \usepackage{multicol}
@@ -47,7 +47,7 @@
 \definecolor{myp}{RGB}{197, 92, 212}
 \definecolor{primary}{HTML}{207ba5}    % Color principal
 \definecolor{migris}{RGB}{17, 17, 17}
-\definecolor{grisfondo}{RGB}{249, 249, 249}
+\definecolor{gris fondo}{RGB}{249, 249, 249}
 \definecolor{MyGrey}{HTML}{5B5B5B}
 
 
@@ -63,7 +63,7 @@
 }
 
 %----------------
-%   Cajas
+%   caixes
 %----------------
 
 
@@ -91,7 +91,7 @@
 }
 
 \tcbuselibrary{theorems,skins,hooks}
-\NewDocumentCommand\caja{m O{\Large #1} O{grisfondo} O{primary} O{number within=chapter}}
+\NewDocumentCommand\caixa{m O{\Large #1} O{gris fondo} O{primary} O{number within=chapter}}
 {
     \newtcbtheorem[#5]{#1}{\large #2}
     {%
@@ -110,39 +110,40 @@
         ,separator sign none
         ,segmentation style={solid, #4}
     }
-    {th}
+    {#1}
 }
 
-% \caja{Corolari}[Corol·lari][myp!10][myp!85!black]
-% \caja{Lema}[Lema][mylenmabg][mylenmafr]
-% \caja{Propo}[Proposició][mypropbg][mypropfr]
-% \caja{defi}[Definició][primary!12][primary]
-% \caja{Teorema}[Teorema][primary!12][primary]
+% \caixa{Corolari}[Corol·lari][myp!10][myp!85!black]
+% \caixa{Lema}[Lema][mylenmabg][mylenmafr]
+% \caixa{Propo}[Proposició][mypropbg][mypropfr]
+% \caixa{defi}[Definició][primary!12][primary]
+% \caixa{Teorema}[Teorema][primary!12][primary]
 
 % 1. Definim "Teorema" primer. Li passem un 5è paràmetre buit "[]" 
 % per sobreescriure el "number within=chapter" i fer que el comptador sigui global.
-\caja{Teorema}[Teorema][primary!12][primary]%[]
+\caixa{Teorema}[Teorema][primary!12][primary]%[]
 
 % 2. Definim la resta d'entorns indicant que facin servir el comptador de "Teorema".
-\caja{Corolari}[Corol·lari][myp!10][myp!85!black][use counter from=Teorema]
-\caja{Lema}[Lema][mylenmabg][mylenmafr][use counter from=Teorema]
-\caja{Propo}[Proposició][mypropbg][mypropfr][use counter from=Teorema]
-\caja{defi}[Definició][primary!12][primary][use counter from=Teorema]
+\caixa{Corolari}[Corol·lari][myp!10][myp!85!black][use counter from=Teorema]
+\caixa{Lema}[Lema][mylenmabg][mylenmafr][use counter from=Teorema]
+\caixa{Propo}[Proposició][mypropbg][mypropfr][use counter from=Teorema]
+\caixa{defi}[Definició][primary!12][primary]%[use counter from=Teorema]
 
-\caja{Nota}[Nota][white][migris][no counter]
-\caja{Propietats}[Propietats][white][migris][no counter]
-\caja{preg}[Pregunta][white][migris][no counter]
-\caja{Claim}[Claim:][white][migris][no counter]
+\caixa{Nota}[Nota][white][migris][no counter]
+\caixa{Propietats}[Propietats][white][migris][no counter]
+\caixa{preg}[Pregunta][white][migris][no counter]
+\caixa{Claim}[Claim:][white][migris][no counter]
 
 %---------------
 %   Comandos
 %---------------
-\newcommand{\teorema}[2]{\begin{Teorema}{#1}{}#2\end{Teorema}}
+\newcommand{\teorema}[3]{\begin{Teorema}{#1}{#2}#3\end{Teorema}}
+\newcommand{\coro}[3]{\begin{Corolari}{#1}{#2}#3\end{Corolari}}
+\newcommand{\lema}[3]{\begin{Lema}{#1}{#2}#3\end{Lema}}
+\newcommand{\Prop}[3]{\begin{Propo}{#1}{#2}#3\end{Propo}}
+\newcommand{\propietats}[3]{\begin{Propietats}{#1}{#2}#3\end{Propietats}}
+
 \newcommand{\pregunta}[2]{\begin{preg}{#1}{}#2\end{preg}}
-\newcommand{\coro}[2]{\begin{Corolari}{#1}{}#2\end{Corolari}}
-\newcommand{\lema}[2]{\begin{Lema}{#1}{}#2\end{Lema}}
-\newcommand{\Prop}[2]{\begin{Propo}{#1}{}#2\end{Propo}}
-\newcommand{\propietats}[2]{\begin{Propietats}{#1}{}#2\end{Propietats}}
 \newcommand{\nota}[2]{\begin{Nota}{#1}{}{\em\color{MyGrey}#2}\end{Nota}}
 \newcommand{\dfe}[2]{\begin{defi}{#1}{}#2\end{defi}}
 \newcommand{\pf}[1]{\begin{proof}[\color{primary}\textbf{Demostració.}] #1 \end{proof}\vspace{7mm}}
@@ -161,7 +162,7 @@
 \newcommand{\obs}[1]{\begin{obser}#1\end{obser}}
 
 %---------------
-%   Listas
+%   Llistes?
 %---------------
 
 % \newcommand{\cnumero}[2]{
@@ -185,7 +186,7 @@
 }
 
 %-------------------------
-% Tabla de Contenidos
+% ToC
 %-------------------------
 
 \patchcmd{\tableofcontents}{\contentsname}{\contentsname}{}{}
@@ -213,11 +214,11 @@
 {\hspace{0.5em}\nobreak\itshape\color{primary}\contentspage}
 
 %-----------------------------
-%   Formato de los capitulos
+%   Format dels capítols
 %-----------------------------
 
 %==================
-% Capitulos
+% Capítols
 %==================
 \newtcolorbox{titlecolorbox}[1]{ %the box around chapter
     coltext=white,
@@ -275,10 +276,10 @@
 \titlespacing*{\section}{0pt}{3mm}{5mm}
 
 %================
-% Sub secciones
+% Subseccions
 %================
-\subsectionfont{\Large\color{primary}}
-
+% \subsectionfont{\Large\color{primary}}
+\titleformat{\subsection}{\Large\color{primary}\bfseries}{\thesubsection}{1em}{#1}
 %---------------------
 % Portada
 %---------------------

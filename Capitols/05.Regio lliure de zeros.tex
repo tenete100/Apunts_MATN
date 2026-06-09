@@ -1,108 +1,101 @@
 \chapter{Regió lliure de zeros (de $\zeta$, dins de la franja crítica).}
-\teorema{Regió lliure de zeros}{\label{6.01_teorema regió lliure de zeros}Existeix una $c\in\RR_{>0}$ tal que els zeros no trivials de $\zeta$ pertanyen a la següent regió.
-\[
-    \frac{c}{\log(2+|t|)}\leq \s\leq 1-\frac{c}{\log(2+|t|)}
-\]}
+\teorema{Regió lliure de zeros}{5.01 regió lliure de zeros}{
+    Existeix una $c\in\RR_{>0}$ tal que els zeros no trivials de $\zeta$ pertanyen a la següent regió.
+    \[
+        \frac{c}{\log(2+|t|)}\leq \s\leq 1-\frac{c}{\log(2+|t|)}
+    \]
+}
 
 \begin{wrapfigure}{r}{0.25\textwidth}
-\begin{tikzpicture}[domain=0:3, scale=0.5]
-    \draw[ultra thick] (-0.3,0)--(3.3,0);
-    \draw[ultra thick] (0,-3)--(0,3);
-    \draw[ultra thick] (3,-3)--(3,3);
-    \draw[red!60!black] plot (   {1/(ln(2+\x))},    \x);
-    \draw[red!60!black] plot ({3-(1/(ln(2+\x)))},   \x);
-    \draw[red!60!black] plot (   {1/(ln(2+\x))},    {-\x});
-    \draw[red!60!black] plot ({3-(1/(ln(2+\x)))},   {-\x});
-    %
-    \draw[red!90!black] plot (   {0.8/(ln(2+\x))},    \x);
-    \draw[red!90!black] plot ({3-(0.8/(ln(2+\x)))},   \x);
-    \draw[red!90!black] plot (   {0.8/(ln(2+\x))},    {-\x});
-    \draw[red!90!black] plot ({3-(0.8/(ln(2+\x)))},   {-\x});
-    %
-    \draw[orange] plot (   {0.6/(ln(2+\x))},    \x);
-    \draw[orange] plot ({3-(0.6/(ln(2+\x)))},   \x);
-    \draw[orange] plot (   {0.6/(ln(2+\x))},    {-\x});
-    \draw[orange] plot ({3-(0.6/(ln(2+\x)))},   {-\x});
-    %
-    \draw[pink!70!purple] plot (   {0.4/(ln(2+\x))},    \x);
-    \draw[pink!70!purple] plot ({3-(0.4/(ln(2+\x)))},   \x);
-    \draw[pink!70!purple] plot (   {0.4/(ln(2+\x))},    {-\x});
-    \draw[pink!70!purple] plot ({3-(0.4/(ln(2+\x)))},   {-\x});
-    %
-    \draw[pink] plot (   {0.2/(ln(2+\x))},    \x);
-    \draw[pink] plot ({3-(0.2/(ln(2+\x)))},   \x);
-    \draw[pink] plot (   {0.2/(ln(2+\x))},    {-\x});
-    \draw[pink] plot ({3-(0.2/(ln(2+\x)))},   {-\x});
-\end{tikzpicture}
-% \begin{tikzpicture}[domain=0:4]
-%   \draw[very thin,color=gray] (-0.1,-1.1) grid (3.9,3.9);
-
-%   \draw[->] (-0.2,0) -- (4.2,0) node[right] {$x$};
-%   \draw[->] (0,-1.2) -- (0,4.2) node[above] {$f(x)$};
-
-%   \draw[color=red]    plot (\x,\x)             node[right] {$f(x) =x$};
-%   % \x r means to convert '\x' from degrees to _r_adians:
-%   \draw[color=blue]   plot (\x,{sin(\x r)})    node[right] {$f(x) = \sin x$};
-%   \draw[color=orange] plot (\x,{0.05*exp(\x)}) node[right] {$f(x) = \frac{1}{20} \mathrm e^x$};
-% \end{tikzpicture}
+    \begin{tikzpicture}[domain=0:3, scale=0.5]
+        \draw[ultra thick] (-0.3,0)--(3.3,0);
+        \draw[ultra thick] (0,-3)--(0,3);
+        \draw[ultra thick] (3,-3)--(3,3);
+        \draw[red!60!black] plot (   {1/(ln(2+\x))},    \x);
+        \draw[red!60!black] plot ({3-(1/(ln(2+\x)))},   \x);
+        \draw[red!60!black] plot (   {1/(ln(2+\x))},    {-\x});
+        \draw[red!60!black] plot ({3-(1/(ln(2+\x)))},   {-\x});
+        %
+        \draw[red!90!black] plot (   {0.8/(ln(2+\x))},    \x);
+        \draw[red!90!black] plot ({3-(0.8/(ln(2+\x)))},   \x);
+        \draw[red!90!black] plot (   {0.8/(ln(2+\x))},    {-\x});
+        \draw[red!90!black] plot ({3-(0.8/(ln(2+\x)))},   {-\x});
+        %
+        \draw[orange] plot (   {0.6/(ln(2+\x))},    \x);
+        \draw[orange] plot ({3-(0.6/(ln(2+\x)))},   \x);
+        \draw[orange] plot (   {0.6/(ln(2+\x))},    {-\x});
+        \draw[orange] plot ({3-(0.6/(ln(2+\x)))},   {-\x});
+        %
+        \draw[pink!70!purple] plot (   {0.4/(ln(2+\x))},    \x);
+        \draw[pink!70!purple] plot ({3-(0.4/(ln(2+\x)))},   \x);
+        \draw[pink!70!purple] plot (   {0.4/(ln(2+\x))},    {-\x});
+        \draw[pink!70!purple] plot ({3-(0.4/(ln(2+\x)))},   {-\x});
+        %
+        \draw[pink] plot (   {0.2/(ln(2+\x))},    \x);
+        \draw[pink] plot ({3-(0.2/(ln(2+\x)))},   \x);
+        \draw[pink] plot (   {0.2/(ln(2+\x))},    {-\x});
+        \draw[pink] plot ({3-(0.2/(ln(2+\x)))},   {-\x});
+    \end{tikzpicture}
 \end{wrapfigure}
-Podem graficar la següent regió per diferents valors de $c$, i ens dona el següent:\\
+Podem dibuixar la següent regió per diferents valors de $c$, i ens dona el següent:\\
 Encara no farem la demostració d'aquest teorema; però de la mateixa manera que la funció $L(\chi,s)$ tingués un pol en $s=1$ era un punt clau de la demostració del teorema de Dirichlet per a successions; aquest teorema serà de vital importància per la demostració del teorema del nombre primer.
 \vspace{7mm}
-\lema{}{\label{6.02_lema}Per $\s>1$ es té:
-\begin{enumerate}
-    \ii $\Re\;\log(\zeta(s))=\sum_p\sum_{m\geq1}\frac{\cos(mt)\log p}{mp^{\s m}}$\\
-    \ii $-\Re\; \frac{\zeta'(s)}{\zeta(s)}=\sum_{n\geq1}\frac{\Lambda(n)\,\cos(t\log n)}{n^\s}$.
-\end{enumerate}
-On en el segon apartat, la funció $\Lambda(n)=\left\{\begin{array}{cc}
-    \log p&\text{ si }n=p^k\\
-    0&\text{ altrament.}
-\end{array}\right.$
+\lema{}{5.02}{
+    Per $\s>1$ es té:
+    \begin{enumerate}
+        \ii $\Re\;\log(\zeta(s))=\sum_p\sum_{m\geq1}\frac{\cos(mt)\log p}{mp^{\s m}}$\\
+        \ii $-\Re\; \frac{\zeta'(s)}{\zeta(s)}=\sum_{n\geq1}\frac{\Lambda(n)\,\cos(t\log n)}{n^\s}$.
+    \end{enumerate}
+    On en el segon apartat, la funció $\Lambda(n)=\left\{\begin{array}{cc}
+        \log p&\text{ si }n=p^k\\
+        0&\text{ altrament.}
+    \end{array}\right.$
 }
 \pf{
-Per $s\in\RR_{>1}$ ja sabem del corol·lari $\ref{2.17_coro sèries de potències de p}$ del capítol \ref{capítol 1: sèries de Dirichlet}, que 
-\[
-    \log(\zeta(s))=-\sum_{p}\log(1-p^{-s})=\sum_p\sum_{m\geq 1}\frac{1}{mp^{\s m}}
-\]
-I per continuació analítica, la igualtat és certa per $s=\s+it\in \CC$. Per tant:
-\[
-    \log(\zeta(s))=\sum_p\sum_{m\geq1}\frac{1}{mp^{ms}}=\sum_p\sum_{m\geq1}\frac{p^{-im t}}{mp^{m\s}}
-\]
-I ara, si prenem la part real del que tenim:
-\[
-    \Re\,\log(\zeta(s))=\sum_p\sum_{m\geq1}\frac{\cos(mt)\log p}{mp^{m\s}}
-\]
-On la igualtat ve de que si $\theta\in\RR$, aleshores $p^{i\theta}=\log p(\cos(\theta)+i\sin(\theta))$.
-Que és el que volíem veure pel primer apartat.\\
-Pel segon, notem que $\frac{\zeta'(s)}{\zeta(s)}$ és la derivada logarítmica de $\zeta(s)$, per tant:
-\[
-    \frac{\zeta'(s)}{\zeta(s)}=
-    \left(-\sum_p\sum_{m\geq1}\frac{1}{mp^{ms}}\right)'\overset{(*)}{=}
-    \sum_p\sum_{m\geq1}\frac{\log(p)}{p^{ms}}=-\sum_{n\geq1}\frac{\Lambda(n)}{n^s}
-\]
-On $(*)$ ve de que tenim convergència absoluta. I ara si estudiem la part real:
-\[
-    \Re\left(\frac{\zeta'(s)}{\zeta(s)}\right)=
-    -\sum_{n\geq1}\frac{\cos(t\log(n))\Lambda(n)}{n^s}
-\]
-Que és el que necessitem veure.
+    Per $s\in\RR_{>1}$ ja sabem del corol·lari $\ref{Corolari:1.19 sèries de potències de p}$ del capítol \ref{capítol 1: sèries de Dirichlet}, que 
+    \[
+        \log(\zeta(s))=-\sum_{p}\log(1-p^{-s})=\sum_p\sum_{m\geq 1}\frac{1}{mp^{\s m}}
+    \]
+    I per continuació analítica, la igualtat és certa per $s=\s+it\in \CC$. Per tant:
+    \[
+        \log(\zeta(s))=\sum_p\sum_{m\geq1}\frac{1}{mp^{ms}}=\sum_p\sum_{m\geq1}\frac{p^{-im t}}{mp^{m\s}}
+    \]
+    I ara, si prenem la part real del que tenim:
+    \[
+        \Re\,\log(\zeta(s))=\sum_p\sum_{m\geq1}\frac{\cos(mt)\log p}{mp^{m\s}}
+    \]
+    On la igualtat ve de que si $\theta\in\RR$, aleshores $p^{i\theta}=\log p(\cos(\theta)+i\sin(\theta))$.
+    Que és el que volíem veure pel primer apartat.\\
+    Pel segon, notem que $\frac{\zeta'(s)}{\zeta(s)}$ és la derivada logarítmica de $\zeta(s)$, per tant:
+    \[
+        \frac{\zeta'(s)}{\zeta(s)}=
+        \left(-\sum_p\sum_{m\geq1}\frac{1}{mp^{ms}}\right)'\overset{(*)}{=}
+        \sum_p\sum_{m\geq1}\frac{\log(p)}{p^{ms}}=-\sum_{n\geq1}\frac{\Lambda(n)}{n^s}
+    \]
+    On $(*)$ ve de que tenim convergència absoluta. I ara si estudiem la part real:
+    \[
+        \Re\left(\frac{\zeta'(s)}{\zeta(s)}\right)=
+        -\sum_{n\geq1}\frac{\cos(t\log(n))\Lambda(n)}{n^s}
+    \]
+    Que és el que necessitem veure.
 }
 I ara, degut a que han aparegut funcions trigonomètriques, voldrem tenir algun control sobre aquestes; i d'aquí sorgirà el lema de Mertens:
-\lema{Lema de Mertens}{\label{6.03_lema de Mertens} Per qualsevol $\theta\in\RR$, tenim la següent desigualtat.
-\[
-    3+4\cos(\theta)+\cos(2\theta)\geq0
-\]
+\lema{Lema de Mertens}{5.03 de Mertens}{
+    Per qualsevol $\theta\in\RR$, tenim la següent desigualtat.
+    \[
+        3+4\cos(\theta)+\cos(2\theta)\geq0
+    \]
 }
 \pf{
-Utilitzant la fórmula de l'angle doble del cosinus, tenim:
-\[
-    3+4\cos(\theta)+\cos(2\theta)=
-    3+4\cos(\theta)+\cos^2(\theta)-\sin^2(\theta)=
-    2(1+\cos(\theta))^2\geq0
-\]
+    Utilitzant la fórmula de l'angle doble del cosinus, tenim:
+    \[
+        3+4\cos(\theta)+\cos(2\theta)=
+        3+4\cos(\theta)+\cos^2(\theta)-\sin^2(\theta)=
+        2(1+\cos(\theta))^2\geq0
+    \]
 }
 I ara d'aquesta identitat trigonomètrica se'n poden derivar dos sobre la funció $\zeta$:
-\Prop{Mertens per a la funció $\zeta$.}{\label{6.04_prop}
+\Prop{Mertens per a la funció $\zeta$.}{5.04}{
     Per $\s>1$, tenim:
     \begin{enumerate}
         \ii $\zeta^3(\s)|\zeta^4(\s+it)||\zeta(\s+i2t)|\geq0$,\\
@@ -110,67 +103,117 @@ I ara d'aquesta identitat trigonomètrica se'n poden derivar dos sobre la funci�
     \end{enumerate}
 }
 \pf{
-Com que a $\s>1$:
-\[
-    |\zeta(s)|=e^{\Re\log(\zeta(s))}
-\]
-Només hem de veure que:
-\[
-    0\leq 3\log(\zeta(\s))+4\Re\log(\zeta(\s+it))+\Re\log\zeta(\s+2it)
-\]
-Però pel lema \ref{6.02_lema}, tenim
-\[
-    3\log(\zeta(\s))+4\Re\log(\zeta(\s+it))+\Re\log\zeta(\s+2it)=\sum_{p}\sum_{m\geq1}\frac{\log(p)}{mp^{\s m}}(3+4\cos(mt\log p)+\cos(2mt\log p))\geq0
-\]
-Que és el que havíem de veure pel primer apartat.\\
-Pel segon apartat, però, podem fer un càlcul anàleg utilitzant el segon apartat del lema \ref{6.02_lema}.
+    Com que a $\s>1$:
+    \[
+        |\zeta(s)|=e^{\Re\log(\zeta(s))}
+    \]
+    Només hem de veure que:
+    \[
+        0\leq 3\log(\zeta(\s))+4\Re\log(\zeta(\s+it))+\Re\log\zeta(\s+2it)
+    \]
+    Però pel lema \ref{Lema:5.02}, tenim
+    \[
+        3\log(\zeta(\s))+4\Re\log(\zeta(\s+it))+\Re\log\zeta(\s+2it)=\sum_{p}\sum_{m\geq1}\frac{\log(p)}{mp^{\s m}}(3+4\cos(mt\log p)+\cos(2mt\log p))\geq0
+    \]
+    Que és el que havíem de veure pel primer apartat.\\
+    Pel segon apartat, però, podem fer un càlcul anàleg utilitzant el segon apartat del lema \ref{Lema:5.02}.
 }
-\teorema{Regió lliure de zeros I}{\label{6.05_teorema regió lliure de zeros en sigma=0,1}La funció $\zeta(s)\neq0$ en $\s=1$ (i per la simetria de $\zeta$, en $\s=0$).}
+\teorema{Regió lliure de zeros I}{5.05 regió lliure de zeros en sigma=0,1}{
+    La funció $\zeta(s)\neq0$ en $\s=1$ (i per la simetria de $\zeta$, en $\s=0$).}
 \pf{
-Procedirem per reducció a l'absurd: suposem que existeix alguna $t\in \RR$ tal que $\zeta(1+it)=0$. Clarament $t\neq0$, ja que $\zeta(1)\neq0$. De fet, podem dir una miqueta més: com que $\zeta(s)\sim \frac{1}{\s-1}$ quan $\s\to 1$.\\
-Com que $\zeta$ té un zero en $1+it$, podem escriure $\zeta(s)=(s-(1+it))^mf(s)$ per alguna $m\geq1$, on ara $f$ no s'anul·la en $1+it$. Per tant, si considerem
-\[
-    \zeta(\s+it)=(\s-1)^m f(\s+it)
-\]
-I ara, utilitzem la proposició \ref{6.04_prop}:
-\[
-    \lim_{\s\to 1}\underbrace{\zeta^3(\s)}_{\sim (\s-1)^{-3}}
-    \underbrace{|\zeta^4(\s+it)|}_{\sim(\s-1)^4|f(1+it)|}
-    \underbrace{|\zeta(\s+2it)|}_{<\infty}=\lim_{\s\to 1}(\s-1)^{4m-3}|\dots|= 0
-\]
-Però, la proposició ens diu que això és com a mínim 1 i, per tant, contradicció.
+    Procedirem per reducció a l'absurd: suposem que existeix alguna $t\in \RR$ tal que $\zeta(1+it)=0$. Clarament $t\neq0$, ja que $\zeta(1)\neq0$. De fet, podem dir una miqueta més: com que $\zeta(s)\sim \frac{1}{\s-1}$ quan $\s\to 1$.\\
+    Com que $\zeta$ té un zero en $1+it$, podem escriure $\zeta(s)=(s-(1+it))^mf(s)$ per alguna $m\geq1$, on ara $f$ no s'anul·la en $1+it$. Per tant, si considerem
+    \[
+        \zeta(\s+it)=(\s-1)^m f(\s+it)
+    \]
+    I ara, utilitzem la proposició \ref{Propo:5.04}:
+    \[
+        \lim_{\s\to 1}\underbrace{\zeta^3(\s)}_{\sim (\s-1)^{-3}}
+        \underbrace{|\zeta^4(\s+it)|}_{\sim(\s-1)^4|f(1+it)|}
+        \underbrace{|\zeta(\s+2it)|}_{<\infty}=\lim_{\s\to 1}(\s-1)^{4m-3}|\dots|= 0
+    \]
+    Però, la proposició ens diu que això és com a mínim 1 i, per tant, contradicció.
 }
 Acabem de demostrar que la funció $\zeta$ té tots els zeros no trivials a l'interior de la franja crítica. Ara passarem a veure que, de fet, aquesta regió és molt més gran. Però abans demostrarem un parell de lemes més, que necessitarem per la demostració.
-\lema{}{Es té el següent:
-\begin{enumerate}
-    \ii Per $1\leq \s\leq 2$
-    \[
-        -\frac{\zeta'(s)}{\zeta(s)}<\frac{1}{\s-1}+K\qquad \text{on }K\in\RR.
-    \]
-    \ii Per $1<\s\leq 2$ i $t\geq 2$
-    \[
-        -\Re\left(\frac{\zeta'(s)}{\zeta(s)}\right)<K\log(t)-\sum_{n}\Re\left(\frac{1}{s-\rho_n}+\frac{1}{\rho_n}\right)
-    \]
-    On $\{\rho_n\}$ són els zeros no trivials de $\zeta$, i $K\in \RR$ és una constant no necessàriament igual a la del primer apartat.
-\end{enumerate}
+\lema{}{5.06}{
+    Es té el següent:
+    \begin{enumerate}
+        \ii Per $1\leq \s\leq 2$
+        \[
+            -\frac{\zeta'(s)}{\zeta(s)}<\frac{1}{\s-1}+K\qquad \text{on }K\in\RR.
+        \]
+        \ii Per $1<\s\leq 2$ i $t\geq 2$
+        \[
+            -\Re\left(\frac{\zeta'(s)}{\zeta(s)}\right)<K\log(t)-\sum_{n}\Re\left(\frac{1}{s-\rho_n}+\frac{1}{\rho_n}\right)
+        \]
+        On $\{\rho_n\}$ són els zeros no trivials de $\zeta$, i $K\in \RR$ és una constant no necessàriament igual a la del primer apartat.
+    \end{enumerate}
 }
 \pf{
-Notem que el primer apartat és exactament el que es demostra al exercici 4 del full de problemes 8.\\[5mm]
-Per la demostració del corol·lari \ref{5.16_corol·lari}\footnote{16 del capítol 4}, sabem que
-\[
-    \frac{\xi'(s)}{\xi(s)}=B+\sum_{n\geq1}\left(\frac{1}{s-\rho_n}+\frac{1}{\rho_n}\right)
-\]
-On, vam veure que $B=-\frac{\gamma}{2}-1+\log(4\pi)/2$. Però
-\[
-    \frac{\zeta'(s)}{\zeta(s)}+\frac{1}{s-1}-\frac{\log(\pi)}{2}+\frac{1}{2}\frac{\Gamma'(s/2+1)}{\Gamma(s/2+1)}=\frac{\xi'(s)}{\xi(s)}=B+\sum_{n\geq1}\left(\frac{1}{s-\rho_n}+\frac{1}{\rho_n}\right)
-\]
-On la primera igualtat es deu al exerici 2 del full de problemes 7. Aleshores, per a $1<\s\leq 2$, i per $t\geq2$, tenim que les següents quantitats estan fitades$(s-1)^{-1}$, $\log \pi/2$ i $B$. Per tant, l'únic que ens pot molestar és $\frac{\Gamma'(s/2+1)}{\Gamma(s/2+1)}$, però al full de problemes 7, vam estudiar justament això
-\[
-    \Re\left(\frac{1}{2}\frac{\Gamma'(s/2+1)}{\Gamma(s/2+1)}\right)=-\frac{\gamma}{2}+\frac{1}{2}\sum_{n\geq1}\Re\left(\frac{1}{n}-\frac1{n+s/2}\right)
-\]
-I ara si fem el canvi de variables $s/2=x+iy$, amb $x\in(1/2,1]$ i $y\in[2,\infty)$:
-\[
-    -\frac{\gamma}{2}+\frac{1}{2}\sum_{n\geq1}\Re\left(\frac{1}{n}-\frac1{n+s/2}\right)=
-    -\frac{\gamma}{2}+\frac{1}{2}\sum_{n\geq1}\frac{1}{n}-\frac{\Re()}{}
-\]
+    Notem que el primer apartat és exactament el que es demostra al exercici 4 del full de problemes 8.\\[5mm]
+    Per la demostració del corol·lari \ref{Corolari:4.16}\footnote{16 del capítol 4}, sabem que
+    \[
+        \frac{\xi'(s)}{\xi(s)}=B+\sum_{n\geq1}\left(\frac{1}{s-\rho_n}+\frac{1}{\rho_n}\right)
+    \]
+    On, vam veure que $B=-\frac{\gamma}{2}-1+\log(4\pi)/2$. Però
+    \[
+        \frac{\zeta'(s)}{\zeta(s)}+\frac{1}{s-1}-\frac{\log(\pi)}{2}+\frac{1}{2}\frac{\Gamma'(s/2+1)}{\Gamma(s/2+1)}=\frac{\xi'(s)}{\xi(s)}=B+\sum_{n\geq1}\left(\frac{1}{s-\rho_n}+\frac{1}{\rho_n}\right)
+    \]
+    On la primera igualtat es deu al exercici 2 del full de problemes 7. Aleshores, per a $1<\s\leq 2$, i per $t\geq2$, tenim que les següents quantitats estan fitades: $(s-1)\inv$, $\log \pi/2$ i $B$. Per tant, l'únic que ens pot molestar és $\frac{\Gamma'(s/2+1)}{\Gamma(s/2+1)}$, però al full de problemes 7, vam estudiar justament això:
+    \[
+        \Re\left(\frac{1}{2}\frac{\Gamma'(s/2+1)}{\Gamma(s/2+1)}\right)=-\frac{\gamma}{2}+\frac{1}{2}\sum_{n\geq1}\Re\left(\frac{1}{n}-\frac1{n+s/2}\right)
+    \]
+    I ara si fem el canvi de variables $s/2=x+iy$, amb $x\in(1/2,1]$ i $y\in[2,\infty)$:
+    \[
+        -\frac{\gamma}{2}+\frac{1}{2}\sum_{n\geq1}\Re\left(\frac{1}{n}-\frac1{n+s/2}\right)=
+        -\frac{\gamma}{2}+\frac{1}{2}\sum_{n\geq1}\frac{1}{n}-
+            \frac{n+x}{(n+x)^2+y^2}=\frac{1}{2}\int_{1}^{\infty}\frac{1}{u}-\frac{u+x}{(u+x)^2-y^2}\dd u+\bigO(1)
+    \]
+    On utilitzem que $\gamma=\int_{1}^{\infty}\frac{1}{u}\dd u-\sum_{n=1}^\infty\frac{1}{n}$, i apliquem la sumació d'Euler. I si ara estudiem la integral, tenim
+    \[
+        \int_{1}^{\infty}\frac{1}{u}-\frac{u+x}{(u+x)^2-y^2}\dd u=\left[\frac{\log(u^2)-\log((u+x)^2+y^2)}{2}
+        \right]_1^\infty
+    \]
+    I avaluant la integral, obtenim
+    \[
+        \frac{1}{2}\left[\log\left(\frac{u^2}{(u+x)^2+y^2}\right)\right]_1^\infty=
+        \frac{\log1+\log((1+x)^2+y^2)}{2}
+    \]
+    I com que $x\in (\frac{1}{2},1]$, tenim que $1+x\leq y\leq 2y$, per tant:
+    \[
+    \frac{\log((1+x)^2+y^2)}{2}\leq \frac{\log(5y^2)}{2}=k'\log(y)\leq k\log(t)
+    \]
+}
+Abans de demostrar el teorema important del capítol, demostrarem un altre lema:
+\lema{}{5.07}{
+    Sigui $\rho=\beta+i\gamma$\footnote{Aquesta és la notació usual per a zeros de $\zeta$.} un zero no trivial de $\zeta$ amb $\gamma\geq2$. Sigui $s=\sigma+it$ amb $1\leq\sigma\leq 2$ i $t\geq2$, aleshores:
+\begin{enumerate}
+    \item Tenim \[
+        -\Re\left(\frac{\zeta'(\s+2it)}{\zeta(\s+2it)}\right)<K\log(t)\qquad\text{per }K\in \RR_{>0}
+    \]
+    \item Si a més, $t=\gamma$, aleshores
+    \[
+        -\Re\left(\frac{\zeta'(\s+2it)}{\zeta(\s+2it)}\right)<K\log(t)
+        -\frac{1}{\s-\beta}
+        \qquad\text{per }K\in \RR_{>0}
+    \]
+\end{enumerate}}
+\pf{
+    Per la segona part del lema \ref{Lema:5.06}, només hem de veure que 
+    \[
+        \sum\Re\left(\frac{1}{\s+2it-\rho_n}+\frac{1}{\rho_n}\right)>0
+    \] 
+    De fet, veurem que estem sumands termes positius: si escrivim $\rho_n=\beta_n+i\gamma_n$:
+    \[
+    \begin{array}{rcl}
+        \Re\left(\frac{1}{\sigma+2it}\right)&=&\frac{\s-\beta_n}{|\s+2it-\rho_n|^2}>0\\
+        \Re\left(\frac{1}{\rho_n}\right)&=&\frac{\beta}{|\rho_n|^2}>0
+
+    \end{array}
+    \]
+    Per tant, la suma és positiva.\par
+    Pel que fa al segon punt, notem que 
+    \[
+        -\sum_{n\geq1}\Re\left(\frac{1}{s-\rho_n}+\frac1{\rho_n}\right)\overset{(1.)}<-\Re\left(\frac{1}{s-\rho_n}\right)
+    \]
 }
