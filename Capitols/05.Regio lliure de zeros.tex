@@ -1,4 +1,4 @@
-\chapter{Regió lliure de zeros (de $\zeta$, dins de la franja crítica).}
+\chapter{\texorpdfstring{Regió lliure de zeros (de $\zeta$, dins de la franja crítica).}{Regió lliure de zeros (de zeta, dins de la franja crítica).}}
 \teorema{Regió lliure de zeros}{5.01 regió lliure de zeros}{
     Existeix una $c\in\RR_{>0}$ tal que els zeros no trivials de $\zeta$ pertanyen a la següent regió.
     \[
@@ -214,6 +214,16 @@ Abans de demostrar el teorema important del capítol, demostrarem un altre lema:
     Per tant, la suma és positiva.\par
     Pel que fa al segon punt, notem que 
     \[
-        -\sum_{n\geq1}\Re\left(\frac{1}{s-\rho_n}+\frac1{\rho_n}\right)\overset{(1.)}<-\Re\left(\frac{1}{s-\rho_n}\right)
+        -\sum_{n\geq1}\Re\left(\frac{1}{s-\rho_n}+\frac1{\rho_n}\right)\overset{(1.)}
+        < -\Re\left(\frac{1}{s-\rho}\right)
+        = -\frac{\s-\beta}{|\underbrace{s}_{\s+it}-\underbrace{\rho}_{\beta+it}|^2}
+        = -\frac{1}{\s-\beta}
     \]
+    I això, juntament amb el lema \ref{Lema:5.06}, ens dona el que volíem.
 }
+I amb aquests lemes, tenim:
+\teorema{$\zeta$ no té zeros a la regió crítica}{5.08}{Existeix una $c>0$ tal que $\zeta$ no té zeros a la regió
+\[
+    t\geq2\quad\text{i}\quad \s\geq1-\frac{c}{\log(t)}
+\]}
+Notem que això és molt semblant al que volem veure en el teorema 1, ja que per la simetria. De fet, amb el que veurem en el FP9: $\zeta$ no té zeros no trivials amb $|z|\leq 6$, i que $\rho$ és zero si i només si $\ol\rho$ és zero; serà suficient per demostrar-ho. 
