@@ -1,0 +1,138 @@
+\chapter{Teorema del nombre primer}
+El teorema del nombre primer afirma que 
+\[
+    \pi(x)=\sum_{p\leq x}1\sim\frac{x}{\log(x)}\quad\text{quan }x\to \infty.
+\]
+Ja vàrem veure al full de problemes 4 que
+\[
+    \pi(x)\overset{x\to\infty}{\sim}\frac{x}{\log(x)}\iff
+    \psi(x):=\sum_{n\leq x}\Lambda(n)\overset{x\to\infty}{\sim}x
+\]
+El teorema que demostrarem en aquest capítol serà:
+\teorema{}{6.01}{El comportament asimptòtic de la funció $\psi$ de Txebitxov quan $x\gg1$, i per a alguna $c\in\RR_{>0}$, és el següent:
+\[
+    \psi(x)=x+\bigO\left(x\exp(-c\sqrt{\log(x)})\right).
+\]}
+Notem que $\bigO\left(x\exp(-c\sqrt{\log(x)})\right)=o(x)$, i per tant, aquest teorema implica el teorema del nombre primer. Però abans de demostrar això, haurem de fer alguns resultats previs:
+\teorema{Fórmula explícita}{6.02}{
+    Per $T\gg1$, $M>0$, i $x\in\NN$ es té
+    \[
+        \psi(x)=x-\sum_{\rho = \beta + i\gamma}\frac{x^\rho}{\rho}-\frac{\zeta'(0)}{\zeta(0)}-\frac{1}{2}\log\left(1-\frac{1}{x^2}\right)+\bigO\left(\frac{x\log(xT)^2}{T}\right).
+    \]
+    On hem pres el sumatori sobre els zeros no trivials de $\zeta$, amb $|\gamma|\leq T$.
+}
+\teorema{Nombre asimptòtic de zeros.}{6.03}{
+    Sigui 
+    \[N(T)=\#\{\text{Zeros no trivials }\rho=\beta+i\gamma\text{ de }\zeta\text{ amb }0<\gamma<T\text{ comptant multiplicitat}\}.\]
+    Aleshores
+    \[
+        N(T)=\bigO(T\log(T))\qquad\text{ per }T\gg1.
+    \]
+}
+
+Ara veurem que amb el teorema \ref{Teorema:6.02} i el \ref{Teorema:6.03} impliquen el teorema \ref{Teorema:6.01}, i pel full de problemes, ens donarà el teorema del nombre primer.
+\lema{}{6.04}{
+    La suma sobre els zeros no trivials de $\zeta$, amb $|\gamma|\leq T$ és igual a
+    \[
+        \sum_{\rho=\beta+i\gamma}\left|\frac{x^\rho}{\rho}\right|=\bigO\left(\frac{x\log (T)^2}{\exp(c\log(x)/\log(\rho))}\right).
+    \]
+    On hem pres $x\gg2$, $T\gg1$ i $c\in\RR_{>0}$.
+}
+\begin{pf}
+    Pel teorema de la regió lliure de zeros \ref{Teorema:5.08}, existeix una $c\in\RR_{>0}$ tal que
+    \[
+        \beta<1-\frac{c}{\log(\gamma)}\overset{\gamma<T}{<}1-\frac{c}{\log(T)}.
+    \]
+    Per tant
+    \[
+        |x^\rho|=x^\beta<x^{1-\frac{c}{\log(T)}}=\frac{x}{\exp(c\log(x)/\log(T))}.
+    \]
+    Que és una fita que no depèn de $\rho$, per tant ara en tenim prou veient que $\sum_{|\gamma|<T}\frac{1}{|\rho|}=\bigO(\log(T)^2)$. Però per simetria, $\sum_{|\gamma|<T}=2\sum_{0<\gamma<T}$, per tant, ens podem restringir als $\rho$ amb $\gamma>0$. Siguin $\rho_1,\dots, \rho_n$ les arrels de $\zeta$ ordenades per fer que $0 < \gamma_i \leq \gamma_j < T$ si $i<j$ (tenint en compte la multiplicitat); on $n=N(T)$. Aleshores considerem la següent expressió:
+    \[
+        \int_0^T\frac{N(t)}{t^2}\dd t=\sum_{i=1}^{n-1}\int_{\gamma_j}^{\gamma_{j+1}}\frac{j}{t^2}\dd t+\int_{\gamma_n}^T\frac{n}{t^2}\dd t=
+        \sum_{i=1}^{n-1}
+        \left[
+            \frac{-j}{T^t}
+        \right]^{\gamma_{j+1}}_{\gamma_j}
+        +\int_{\gamma_n}^T\frac{n}{t^2}\dd t=\sum_{i=1}^n\frac{1}{\gamma_i}-\frac{n}{T}.
+    \]
+    Notem que el que tenim el final, la suma dels recíprocs de les $\gamma_i$ és bastant semblant a la suma de recíprocs de les $|\rho|$, ja que $|\rho_i|>\gamma_i$, per tant, ara podem donar una cota de la suma:
+    \[
+        \sum_{0\leq \gamma<T}\frac{1}{|\rho|}<
+        \sum_{i=1}^n\frac{1}{\gamma_i}=
+        \int_{0}^{T}\frac{N(t)}{t^2}\dd t+\frac{N(T)}{T}\overset{N(1)=0}{=}
+        \int_{1}^{T}\frac{N(t)}{t^2}\dd t+\frac{N(T)}{T}.
+    \]
+    I aplicant el teorema \ref{Teorema:6.03}, obtenim el comportament asimptòtic que volíem:
+    \begin{align*}
+        \int_{1}^{T}\frac{N(t)}{t^2}\dd t+\frac{N(T)}{T}&\overset{\text{Tm. }\ref{Teorema:6.03}}{=\quad}
+        \int_1^T\frac{N(t)}{t^2}\dd t+\bigO(\log T)\\
+        &=\bigO\left(\int_1^T\frac{\log(t)}{t}\dd t\right)+\bigO(\log(T))\\
+        &=\bigO\left(\log^2(T)\right)+\bigO(\log(T))\\
+        &=\bigO\left(\log^2(T)\right)
+    % \end{array}
+    % \]
+    \end{align*}
+    I ajuntant-ho tot ens dona el que volíem.
+\end{pf}
+Ara amb aquest lema i els dos teoremes anteriors podem demostrar el teorema \ref{Teorema:6.01}.
+\begin{pf}
+    Notem que pel teorema \ref{Teorema:6.02} i pel lema \ref{Lema:6.04} tenim que 
+    \[
+        \psi(x)-x=
+        \bigO\left(
+        \frac{x\log(T)^2}{\exp\left(c\log x/\log T\right)}
+        +
+        \frac{x\log(xT)^2}{T}
+        \right).
+    \]
+    Notem que si $T$ és molt gran respecte de $x$, aleshores
+    \[
+        \underbrace{\frac{x\log(T)^2}{\exp\left(c\log x/\log T\right)}}_{\text{gran}}+
+        \underbrace{\frac{x\log(xT)^2}{T}}_{\text{petit}}.
+    \]
+    En canvi si la $x$ és molt més gran que la $T$, aleshores:
+    \[
+        \underbrace{\frac{x\log(T)^2}{\exp\left(c\log x/\log T\right)}}_{\text{petit}}+
+        \underbrace{\frac{x\log(xT)^2}{T}}_{\text{gran}}.
+    \]
+    Però nosaltres voldríem trobar un punt mig en que els dos termes siguin petits (o relativament petits). Prenem $\log(T)^2=\log(x)$:
+    \[
+        \psi(x)-x=
+        \bigO\left(
+        \frac{x\log(x)}{\exp\left(c\sqrt{\log x}\right)}
+        +
+        \frac{x\log\left(x\exp(\sqrt{\log(x)})\right)^2}{\exp(\sqrt{\log(x)})}
+        \right)
+    \]
+    Però notem que $\log\left(x\exp(\sqrt{\log x})\right)=\log(x)+\sqrt{\log(x)}\approx\log(x)$ (per $x$ prou gran, $\log(x)$ domina $\sqrt{\log(x)}$), per tant
+    \[
+        \psi(x)-x=
+        \bigO\left(
+        \frac{x\log(x)}{\exp\left(c\sqrt{\log x}\right)}
+        +
+        \frac{x\log(x)^2}{\exp(\sqrt{\log(x)})}
+        \right)=
+        \bigO\left(
+        \frac{x\log(x)^2}{\exp\left(c'\sqrt{\log x}\right)}
+        \right)
+    \]
+    On la última igualtat la tenim fent la $c$ una mica més petita. Ara si podem eliminar el $\log(x)^2$ ja estarem, però si prenem un $\eps>0$ tenim
+    \[
+        \frac{x\log(x)^2}{\exp\left(c'\sqrt{\log x}\right)}=
+        \frac{x}{\exp\left((c'-\eps)\sqrt{\log x}\right)}
+        \frac{\log(x)^2}{\exp\left(\eps\sqrt{\log x}\right)}
+    \]
+    Per tant, si veiem que $\frac{\log(x)^2}{\exp\left(\eps\sqrt{\log x}\right)}$ se'n va a zero, ja estarem:
+    \[
+        \lim_{x\to\infty}\log\left(\frac{\log(x)^2}{\exp\left(\eps\sqrt{\log x}\right)}\right)=
+        \lim_{x\to\infty}\log(\log(x)^2)-
+        \eps\sqrt{\log x}=-\infty
+    \]
+    Per tant
+    \[
+        \psi(x)-x=\bigO\left(\frac{x}{\exp\left(c'\sqrt{\log x}\right)}\right)
+    \]
+    que és el que volíem veure.
+\end{pf}
+Per tant, ara només queda veure

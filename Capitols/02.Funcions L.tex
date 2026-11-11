@@ -28,14 +28,14 @@ I ara veurem alguna propietat d'aquests caràcters, sobretot com es comporten am
     \]
     és un isomorfisme.
 }
-\pf{
+\begin{pf}
     Com que $\psi(s)^n = \psi(s^n) = \psi(1) = 1$, $\psi(s)$ és arrel $n$-èssima de la unitat. D'altra banda, el morfisme és injectiu perquè si $\psi_1, \psi_2 \in \widehat{G}$ i $\psi_1(s) = \psi_2(s)$, llavors $\psi_1(s^k) = \psi_1(s)^k = \psi_2(s)^k = \psi_1(s^k)$ per tot $s^k \in \langle s \rangle = G$. Finalment, per veure l'exhaustivitat, si $\omega \in \mu_n$, podem definir $\psi(s^k) = \omega^k$.
-}
+\end{pf}
 Resulta també natural preguntar-se ara sobre la relació entre els caràcters d'un grup i el dels seus subgrups. 
 
 \Prop{Extensió de caràcters de subgrups}{2.02 extensió de caràcters de subgrups}{
     Sigui $H \leq G$ subgrup. Tot caràcter de $H$ estén a un caràcter de $G$.}
-\pf{
+\begin{pf}
     Si $H = G$, el resultat és tautològic. Suposem $H \neq G$, i sigui $x \in G \setminus H$. Com que $G$ és finit, n'hi ha prou amb veure que un caràcter $\psi \colon H \to \CC^\times$ estén a un de $H' := \langle H, x \rangle$. Atès que $G$ és abelià, tot element de $H'$ es pot escriure com $hx^a$ on $h \in H$ i $a \in \ZZ$. A més $|G/H| < + \infty$, per tant $[x]$ és d'ordre finit i existeix $n \in \ZZ^+$ tal que $[x]^n = [1]$, equivalentment $x^n \in H$. Prenem el mínim dels $n$ tals que això passi i fixem $\omega \in \CC^\times$ tal que $\psi(x^n) = \omega^n$. Definim 
     \[
         \begin{alignedat}{2}
@@ -52,49 +52,61 @@ Resulta també natural preguntar-se ara sobre la relació entre els caràcters d
         \psi'(h_1x^{a_1} h_2x^{a_2}) = \psi'(h_1 h_2 x^{a_1 + a_2}) = \psi(h_1 h_2) \omega^{a_1 + a_2} =
         \psi(h_1) \omega^{a_1}\psi(h_2) \omega^{a_2} = \psi'(h_1a_1)\psi'(h_2a_2).
     \]
-} 
+\end{pf}
 Podem refinar aquest últim resultat una mica més.
 \Prop{Restricció de caràcters de subgrups}{2.03 restricció de caràcters de subgrups}{
     La restricció $\mathrm{Res} \colon \widehat{G} \to \widehat{H}$ que envia $\psi$ a $\psi|_H$ és exhaustiva, i $\ker(\mathrm{Res}) \cong \widehat{G/H}$.
 }
-\begin{wrapfigure}{r}{0.4\textwidth}
+% \begin{wrapfigure}{r}{0.4\textwidth}
+    \begin{minipage}{0.8\linewidth}
+        \begin{pf}
+    Dir que aquesta aplicació és exhaustiva és equivalent a la proposició anterior. Per veure l'isomorfisme, tenim que $\psi \in \ker(\mathrm{Res})$ si i només si $\psi(H) = \{1\}$ o equivalentment $H \subseteq \ker(\psi)$. Però això últim es dona si i només si existeix $\psi' \colon G/H \to \CC^\times$ tal que $\psi$ factoritza a través de de $\psi'$, és a dir, el diagrama commuta. L'isomorfisme, doncs, ve donat l'assignació $\psi \mapsto \psi'$, i té inversa $\psi' \mapsto \psi' \circ \pi$ on $\pi \colon G \to G/H$ és la projecció al quocient.\end{pf}
+\end{minipage}
+\begin{minipage}{0.2\linewidth}
     \begin{center}
-    \[
-    \shorthandoff{"}
-    \begin{tikzcd}
-        G & {\mathbb{C}^\times} \\
-        {G/H}
-        \arrow["\psi", from=1-1, to=1-2]
-        \arrow["\pi"', from=1-1, to=2-1]
-        \arrow["{\psi'}"', from=2-1, to=1-2]
-    \end{tikzcd}
-    \]
-    \caption{\label{fig:prop_12}Aquest diagrama commuta.}
-    \end{center}
-\end{wrapfigure}
-\pf{
-    Dir que aquesta aplicació és exhaustiva és equivalent a la proposició anterior. Per veure l'isomorfisme, tenim que $\psi \in \ker(\mathrm{Res})$ si i només si $\psi(H) = \{1\}$ o equivalentment $H \subseteq \ker(\psi)$. Però això últim es dona si i només si existeix $\psi' \colon G/H \to \CC^\times$ tal que $\psi$ factoritza a través de de $\psi'$, és a dir, el diagrama commuta. L'isomorfisme, doncs, ve donat l'assignació $\psi \mapsto \psi'$, i té inversa $\psi' \mapsto \psi' \circ \pi$ on $\pi \colon G \to G/H$ és la projecció al quocient.
-}
+    \begin{tikzpicture}[scale=1.5]
+        \node (G) at (0,0) {$G$};
+        \node (C) at (1,0) {$\CC^\times$};
+        \node (GH) at (0,-1) {$G/H$};
+        \draw[->] (G)--(GH) node[pos = 0.5,left] {$\pi$};
+        \draw[->] (GH)--(C) node[pos = 0.5,right] {$\psi'$};
+        \draw[->] (G)--(C) node[pos = 0.5,above] {$\psi$};
+    \end{tikzpicture}
+    % \caption{\label{fig:prop_12}Aquest diagrama commuta.}
+    % \[
+    % \shorthandoff{"}
+    % \begin{tikzcd}
+    %     G & {\mathbb{C}^\times} \\
+    %     {G/H}
+    %     \arrow["\psi", from=1-1, to=1-2]
+    %     \arrow["\pi"', from=1-1, to=2-1]
+    %     \arrow["{\psi'}"', from=2-1, to=1-2]
+    % \end{tikzcd}
+    % \]
+\end{center}
+
+\end{minipage}
+
 
 Això ens dona, a més, l'ordre del grup de caràcters d'un determinat grup.
 
 \coro{Ordre del grup de caràcters}{2.04 ordre del grup de caràcters}{
     Si $G$ és un grup abelià finit, $|G| = |\widehat{G}|$.
 }
-\pf{
+\begin{pf}
     Procedim per inducció sobre l'ordre. Si $|G| = 1$, és trivial. Suposem $|G| > 1$. Pel teorema de Cauchy, existeix un subgrup $H \leq G$ d'ordre $p$, que és cíclic per ser d'ordre primer i per tant pel lema \ref{Lema:2.01 caràcter de grups cíclics}, $|\widehat{H}| = |\mu_p| = p = |H|$. D'altra banda, per la  proposició anterior i pel primer teorema d'isomorfia, $|\widehat{H}| = |\widehat{G}|/|\ker(\mathrm{Res})| = |\widehat{G}|/|\widehat{G/H}|$. Ara, com que $|G/H| < |G|$, per la hipòtesi d'inducció $|G/H| = |\widehat{G/H}|$, i tot plegat deduïm
     \[
     |\widehat{G}|= |\widehat{H}| |\widehat{G/H}| = |H||G/H| = |G|.
     \]
-}
+\end{pf}
 La següent proposició és un anàleg de la relació entre un espai vectorial i el seu bidual en àlgebra lineal. Aquí tindrem també un isomorfisme canònic entre 
 un grup i el grup de caràcters del seu grup de caràcters. 
 \Prop{Isomorfisme canònic entre $G$ i $\skew{3}\widehat{\widehat{G}}$}{2.05 G és isomorf a el dual del dual}{
     Definim $\epsilon \colon G \to \skew{3}\widehat{\widehat{G}}$ per $g \mapsto (\mathrm{ev_g}\colon \widehat{G} \to \mathbb{C}^\times)$ on $\mathrm{ev_g}(\psi) := \psi(g)$. Llavors $\epsilon$ és un isomorfisme.
 }
-\pf{
+\begin{pf}
     Veure que és morfisme és directe: si $g, h \in G$ i $\psi \in \widehat{G}$, $\mathrm{ev}_{gh}(\psi) = \psi(gh) = \psi(g)\psi(h) = \mathrm{ev}_g(\psi) \mathrm{ev}_h(\psi)$, d'on $\mathrm{ev}_{gh} = \mathrm{ev}_g \mathrm{ev}_h$, és a dir, $\epsilon (gh) = \epsilon(g)\epsilon(h)$. A més, pel corol·lari anterior, $|G| = |\widehat{G}| = |\skew{3}\widehat{\widehat{G}}|$, per tant, per provar que és un isomorfisme només cal provar la injectivitat. Sigui $g \in \ker(\epsilon)$, és a dir, $\psi(g) = 1$ per tot $\psi \in \widehat{G}$. Suposem per arribar a contradicció que $g \neq 1$. Llavors tenim un caràcter $\psi \colon \langle g \rangle \to \CC^\times$ definit per $g \mapsto e^{\frac{2\pi i}{|\langle g\rangle|}} \neq 1$. Però llavors $\psi'$ estén a un caràcter $\psi$ de $G$, absurd ja que $\psi(g) = \psi'(g) \neq 1$.
-}
+\end{pf}
 
 La suma de les arrels $n$-èsimes de la unitat dona 0. El següent resultat és una generalització d'això a caràcters de grups abelians finits.
 
@@ -116,7 +128,7 @@ La suma de les arrels $n$-èsimes de la unitat dona 0. El següent resultat és 
         \]
     \end{itemize}
 }
-\pf{
+\begin{pf}
     (i) Si $\psi = 1$, és directe. Suposem que existeix $h \in G$ tal que $\psi(h) \neq 1$. Aleshores
     \[
         \psi(h)\sum_{g \in G}\psi(g) = \sum_{g \in G} \psi(hg) = \sum_{g \in G} \psi(g),
@@ -135,7 +147,7 @@ La suma de les arrels $n$-èsimes de la unitat dona 0. El següent resultat és 
                 \end{cases}
     \]
     i $\mathrm{ev_g} = 1$ si i només si $g = 1$ (ja que $g \mapsto (\mathrm{ev_g}\colon \widehat{G} \to \mathbb{C}^\times)$ és un isomorfisme).
-}
+\end{pf}
 
 Definirem ara els caràcters en els que estarem interessats per a provar el teorema de Dirichlet.
 \dfe{Caràcter mòdul $m$}{
@@ -179,9 +191,10 @@ A partir d'ara, $\chi$ sempre denotarà un caràcter de Dirichlet mòdul $m$ (é
 certa funció que dona nom a aquest capítol. 
 
 \dfe{Funció $L$ associada a un caràcter de Dirichlet}{
-    La funció $L$ associada al caràcter de Dirichlet mòdul $m$ $\chi$ és la sèrie de Dirichlet \[
-    L(\chi, s) = \sum_{n\geq 1} \frac{\chi(n)}{n^s}.
-    \].
+    La funció $L$ associada al caràcter de Dirichlet mòdul $m$ $\chi$ és la sèrie de Dirichlet 
+    \[
+        L(\chi, s) = \sum_{n\geq 1} \frac{\chi(n)}{n^s}.
+    \]
 }
 
 Demostrarem seguidament algunes propietats analítiques de les funcions $L$. 
@@ -195,7 +208,7 @@ Demostrarem seguidament algunes propietats analítiques de les funcions $L$.
         \] atès que $\chi$ és completament multiplicativa. En particular, no s'anul$\cdot$la per $\sigma > 1$. 
     \end{itemize}
 }
-\pf{
+\begin{pf}
     (i) Sigui $x \geq 1$ i sigui $k \in \ZZ^+$ tal que $km \leq x \leq (k+1)m$. Aleshores, 
     \[
         \left|\sum_{n \leq x} \chi(n)\right| = \left|\sum_{n \leq km} \chi(n) + \sum_{km < n \leq x} \chi(n)\right| =
@@ -211,7 +224,7 @@ Demostrarem seguidament algunes propietats analítiques de les funcions $L$.
     \sum_{n \geq 1} \frac{|\chi(n)|}{n^s} = \sum_{\gcd(n, m) = 1} \frac{1}{n}>\sum_{k\geq1}\frac{1}{mk+1},
     \]
     que divergeix.
-}
+\end{pf}
 Ara estem en procés de demostrar el teorema de les progressions aritmètiques de Dirichlet. I per fer-ho passarem per veure propietats de les funcions $L$. La 
 primera, i poder de les més importants, és que $L(\chi_0,s)$ té un pol en $s=1$.
 \lema{Continuació meromorfa de $L(\chi_0,s)$}{2.08 cont meromorfa de X_0}{
@@ -221,7 +234,7 @@ primera, i poder de les més importants, és que $L(\chi_0,s)$ té un pol en $s=
     \]
     En particular $L(\chi_0,s)$ té continuació meromorfa en el semiplà a la dreta del 0 amb un únic pol simple en $s=1$.
 }
-\pf{
+\begin{pf}
     Com que $|\chi_0(m)|\leq1$ (recordem que $\chi_0(m)\in\{0,1\}$), aleshores per l'exercici 1 del full de problemes 1, sabem que $\s_a\leq1$. Per tant, pel corol·lari
     \ref{Corolari:1.05 de sèries de Dirichlet multiplicatives a productes d'Euler}, tenim que:
     \[
@@ -229,7 +242,7 @@ primera, i poder de les més importants, és que $L(\chi_0,s)$ té un pol en $s=
     \underbrace{\left(\prod_p\frac{1}{1-\frac{1}{p^s}}\right)}_{\zeta(s)}\left(\prod_{p|m}1-\frac{1}{p^s}\right)
     \]
     Que és el que volíem veure. Ja que com que podem estendre la funció de la dreta a $\s>0$, podem fer el mateix amb la funció de la esquerra (coincideixen en un conjunt amb com a mínim un punt d'acumulació).
-}
+\end{pf}
 Notem també, que pel lema \ref{Lema:2.07 convergencia de funcions L(X,s), on X no és principal}, tenim que $L(\chi,1)\in\CC$. I el punt clau de la demostració
 del teorema de la progressió aritmètica de Dirichlet consistirà en veure que $L(\chi,1)\neq0$ per cap caràcter de Dirichlet.
 \lema{Un producte sobre tots els caràcters de Dirichlet}{2.09 producte sobre els caràcters de Dirichlet}{
@@ -260,7 +273,7 @@ del teorema de la progressió aritmètica de Dirichlet consistirà en veure que 
     \]
 }
 I ara que hem vist un exemple, comencem la demostració.
-\pf{
+\begin{pf}
     Sigui $\psi\colon(\ZZ/m\ZZ)^{\times}\to\CC^{\times}$, aleshores pel lema \ref{Lema:2.01 caràcter de grups cíclics} tenim que $\psi(p)$ és una arrel $p$-èsima de la 
     unitat, diguem-li $\psi(p)=\xi$. Definim ara
     \[
@@ -284,7 +297,7 @@ I ara que hem vist un exemple, comencem la demostració.
     \prod_\chi1-\chi(p)T=\prod_{\substack{\xi\text{ arrel $f$-èsima}\\\text{de la unitat}}}(1-\xi T)^\frac{\varphi(m)}{f}=(1-T^f)^\frac{\varphi(m)}{f}
     \]
     Que és justament el que volíem veure.
-}
+\end{pf}
 
 I ara definirem un objecte molt important en la demostració del teorema de Dirichlet: la funció $m$-èsima de Dirichlet:
 \dfe{Funció $m$-èsima de Dirichlet}{
@@ -299,11 +312,14 @@ aquesta funció:
 \Prop{Producte d'Euler, i sèrie de Dirichlet de $\zeta_m$.}{2.10 producte d'Euler i sèrie de zeta_m}{
     Es té:
     \begin{enumerate}
-        \ii $\zeta_m(s)=\prod_{p\,\not\mid \,m}(1-p^{-f_ps})^{-\frac{\varphi(m)}{f_p}}$ per $\s>1$; i on $f_p$ és l'ordre de $p$ a $(\ZZ/m\ZZ)^\times$.\\
+        \ii Per $\s>1$ tenim
+        \[\zeta_m(s)=\prod_{p\,\nmid\,m}(1-p^{-f_ps})^{-\frac{\varphi(m)}{f_p}};
+        \]
+        on $f_p$ és l'ordre de $p$ a $(\ZZ/m\ZZ)^\times$.
         \ii $\zeta_m(s)$ admet una expressió com a sèrie de Dirichlet amb coeficients a $\ZZ\geq0$ (en particular, $\RR_{\geq0}$) per a $\sigma>1$.    
     \end{enumerate}
 }
-\pf{
+\begin{pf}
     Per $\s>1$ tenim que:
     \[
     \zeta_m(s)=
@@ -327,15 +343,15 @@ aquesta funció:
     \]
     Notem que per $\s>1$, tenim que $\sum_{r\geq0}p^{-sf_pr}$ és una sèrie de Dirichlet amb coeficients $\in\{0,1\}$. A més, com que sabem que una sèrie de potències al quadrat es transforma a fer una convolució en els coeficients, sabem que ara passen a ser enters no negatius. I per tant, si considerem la funció multiplicativa que en els primers val l'enter no negatiu que hi ha al producte, (i 0 en els primers $p|m$), sabem que té tots els coeficients no 
     negatius. Que és el que volíem veure.
-}
+\end{pf}
 I ara finalment demostrem el que portem un temps volent demostrant: que $L(\chi,1)\neq 0$. De fet, això que veurem ara és la base del teorema de Dirichlet, i tot i que no veurem la demostració original d'aquest fet, sí que en veurem 2: la que va fer l'Edmund Landau, al 1909; i la de'n Vallée-Poussin, del 1896.
 \teorema{Les funcions $L(\chi,s)$ no s'anul·len en $s=1$}{2.11 les funcions L no s'anul·len a l'1}{
     \begin{enumerate}
-    \ii La funció $\zeta_m(s)$ té un pol simple a $s=1$.\\
+    \ii La funció $\zeta_m(s)$ té un pol simple a $s=1$.
     \ii $L(\chi,1)\neq0$ si $\chi\neq\chi_0$.
     \end{enumerate}
 }
-\pf{
+\begin{pf}
     Notem que si veiem el segon apartat, tindrem de regal el primer, ja que:
     \[
     \zeta_m(s)=\underbrace{L(\chi_0,s)}_{\text{pol simple}}\prod_{\chi\neq\chi_0}\overbrace{\underbrace{L(\chi,s)}_{\text{no s'anul·la}}}^{\text{holomorfa per $\s>0$}}
@@ -364,7 +380,7 @@ I ara finalment demostrem el que portem un temps volent demostrant: que $L(\chi,
     \sum_{\substack{n\geq1\\(n,m)=1}}\frac{1}{n^{s\varphi(m)}}
     \]
     I si prenem $s=\frac{1}{\varphi(m)}$ aleshores la sèrie és divergent. Però això contradiu el que havíem suposat: que $\zeta_m$ es pot estendre de manera holomorfa fins a $\s=0$.
-}
+\end{pf}
 Sigui $a\in\ZZ$, tal que $(m,a)=1$, on $m$ és un enter que hem fixat més a munt. Sigui ara $\PP_a\vcentcolon=\{p\equiv a\pmod{m}\}$, aleshores donat un caràcter de Dirichlet $\chi\colon\NN\to \CC$ definim la funció 
 \[
 f_\chi\colon \RR_{\geq1}\to \CC\qquad \text{tal que}\qquad f_\chi(s)\vcentcolon=\sum_{p\,\nmid\,m}\frac{\chi(p)}{p^s}
@@ -376,7 +392,7 @@ Que comparant-la amb $\zeta$ veiem que convergeix de manera absoluta per $\s>1$.
     \sum_{p\in \PP_a}\frac{1}{p^s}=\frac{1}{\varphi(m)}\sum_\chi\frac{f_\chi(s)}{\chi(a)}
     \]
 }
-\pf{
+\begin{pf}
     Considerem el sumatori
     \[
     \sum_\chi\frac{f_\chi(s)}{\chi(a)}=
@@ -399,7 +415,7 @@ Que comparant-la amb $\zeta$ veiem que convergeix de manera absoluta per $\s>1$.
     \sum_{p\in\PP_a}\frac{1}{p^s}=\frac{1}{\varphi(m)}\sum_{\chi}\frac{f_\chi(s)}{\chi(a)}
     \]
     Que és el que volíem veure.
-}
+\end{pf}
 
 Notem que si en algun moment veiem que $\frac{1}{\varphi(m)\chi(a)}\sum_{\chi}f_\chi(s)$ divergeix en alguna $s$, aleshores sabrem que el sumatori $\sum_{p\in\PP_a}\frac{1}{p^s}$ també ho farà, i per tant, sabrem que n'hi haurà d'haver un nombre infinit. Per tant considerem el següent lema:
 
@@ -413,7 +429,7 @@ Notem que si en algun moment veiem que $\frac{1}{\varphi(m)\chi(a)}\sum_{\chi}f_
     \lim_{\substack{s\to 1\\s\in\RR_{>1}}}\frac{f_{\chi}(s)}{\log\left(\frac{1}{s-1}\right)}=0
     \]
 }
-\pf{
+\begin{pf}
     Notem que la diferència entre $f_\chi(s)=\sum_{p\nmid m}p^{-s}$ i $\sum_pp^{-s}$ és només en els primers termes, per tant, el comportament asimptòtic serà igual, i pel corol·lari \ref{Corolari:1.19 sèries de potències de p}, tenim:
     \[
     \lim_{\substack{s\to 1\\s\in\RR_{>1}}}\frac{\sum_{p}p^{-s}}{\log\left(\frac{1}{s-1}\right)}=1
@@ -438,7 +454,7 @@ Notem que si en algun moment veiem que $\frac{1}{\varphi(m)\chi(a)}\sum_{\chi}f_
     e^{F(s)}=\prod_p\frac{1}{1-\chi(p)p^{-s}}=L(\chi,s)\xrightarrow{s\to1^+}L(\chi,1)\neq0
     \]
     Per tant, $F(s)$ roman fitada quan $s\to1^+$. I per tant, $f_\chi(s)$ també ho fa: que és el que volíem veure.
-}
+\end{pf}
 I ara ja podem demostrar el teorema de la progressió aritmètica de Dirichlet:
 \teorema{Teorema de la progressió aritmètica de Dirichlet (fort)}{2.14 TPAD fort}{
     Sigui $a\in\ZZ$ un enter tal que $(a,m)=1$, aleshores
@@ -450,11 +466,11 @@ I ara ja podem demostrar el teorema de la progressió aritmètica de Dirichlet:
     $\#P=\infty$.
 }
 Notem que el teorema ens diu més que el corol·lari, ja que ens descriu la distribució dels primers en les classes mòdul $m$.
-\pf{
+\begin{pf}
     Primer veurem la demostració del corol·lari, que és immediata del teorema. Ja que si suposem que $\PP_a$ fos finit, aleshores $\sum_{p\in\PP_a} p^{-s}$ seria finit, i dividit per alguna cosa que se'n va a l'infinit ens donaria 0, i no $\frac{1}{\varphi(m)}$ que és el que ens diu el teorema per $s\to1$.
-}
+\end{pf}
 I ara veurem la demostració del teorema important:
-\pf{
+\begin{pf}
     Pel lema \ref{Lema:2.12} sabem que
     \[
     \lim_{\substack{s\to 1\\s\in \RR_{>1}}}\frac{\sum_{p\in\PP_a}p^{-s}}{\log\left(\frac{1}{s-1}\right)}=
@@ -464,7 +480,7 @@ I ara veurem la demostració del teorema important:
     \frac{f_\chi(s)}{\log\left(\frac{1}{s-1}\right)}
     \]
     Però pel lema \ref{Lema:2.13 Estudi de convergència de la sèrie Sum fX.} tenim que en el sumatori valdrà $0$ per totes les $\chi\neq \chi_0$, i valdrà $\frac{\chi(a^{-1})}{\varphi(m)}$ si $\chi=\chi_0$, però aleshores, $\frac{\chi(a^{-1})}{\varphi(m)}=\frac{1}{\varphi(m)}$; que és el que volíem veure.
-}
+\end{pf}
 
 Notem que en aquesta demostració incloent tots els lemes previs, hem utilitzat molt el teorema de Landau, en particular el teorema \ref{Teorema:2.11 les funcions L no s'anul·len a l'1}. Però Landau no va ser el primer en demostrar això el teorema de Dirichlet. En aquest curs segurament no veurem la demostració que va donar Dirichlet al 1837-1838; però sí que veurem la que va donar Vallée-Poussin al 1896, 20 anys \footnote{No he trobat enlloc aquesta data, però em sembla que està en algun lloc dels apunts (tampoc he buscat excessivament).} abans de la de Landau; i voldrà demostrar el mateix: que $L(\chi,1)\neq 0$. 
  
@@ -483,7 +499,7 @@ Vallée-Poussin va distingir 2 casos: si $\chi$ és real o si és complexa. Ales
 \Prop{$L(\chi,1)$ no s'anul·la si $\chi$ és complex.}{2.16}{
     Si $\chi$ és un caràcter complex, aleshores $L(\chi,1)\neq 0$.
 }
-\pf{
+\begin{pf}
     Suposem que $L(\chi,1)=0$, aleshores, primer veurem que $L(\ol\chi,1)=0$.\par
     Com que el caràcter $\chi$ no és principal, tenim que la sèrie convergeix per $\sigma>0$. A més, si restringim $L(\chi,s)$ i $L(\ol\chi, s)$ als reals positius, aleshores les funcions $\ol{L(\ol \chi,s)}=L(\chi,s)$ són iguals:
     \[
@@ -501,12 +517,12 @@ Vallée-Poussin va distingir 2 casos: si $\chi$ és real o si és complexa. Ales
     \zeta_m(s)\geq \sum_{\substack{n>1\\(n,m)=1}}\frac{1}{n^{\varphi(m)s}}\geq1
     \]
     Per tant, en un entorn de $s=1$ tenim que $\zeta_m$ no es fa petita, per tant, el límit no pot ser pas 0; que és la contradicció que volíem.
-}
+\end{pf}
 I ara veurem l'altra cara de la demostració de Vallée-Poussin:
 \Prop{$L(\chi,1)$ no s'anul·la si $\chi$ és real no principal.}{2.17}{
     Si $\chi$ és un caràcter complex, aleshores $L(\chi,1)\neq 0$.
     }
-\pf{
+\begin{pf}
     Suposem que existeix algun caràcter $\chi$ tal que $L(\chi,1)=0$ considerem la funció
     \[
     \psi(s)=\frac{L(\chi,s)L(\chi_0,s)}{L(\chi_0,2s)}
@@ -543,5 +559,4 @@ I ara veurem l'altra cara de la demostració de Vallée-Poussin:
     \psi(s_0)=\sum_{k\geq0}\frac{b_k}{k!}\underbrace{(2-s_0)^k}_{\geq0}\geq b_0=\psi(2)=1+\sum_{n\geq1}\frac{a_n}{n^s}>1
     \]
     Que ens diu que el límit que hem calculat abans en $s=\frac{1}{2}$ no pot ser 0; i això és una contradicció.
-}
-
+\end{pf}

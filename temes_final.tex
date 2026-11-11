@@ -1,5 +1,4 @@
 \documentclass{report}
-% Configuración
 \input{config.tex}
 
 \begin{document}
@@ -107,8 +106,11 @@ Aleshores l'ordre de $f$ es defineix
 \newpage
 
 \newpage
-\chapter{Enunciat sense demostració del criteri de sumació d’Abel (Teorema 4,capítol 1)}
-\teorema{Criteri de sumació d'Abel}{\label{2.04_teorema_sumació_Abel}Sigui $a\colon\NN\rightarrow\CC$, considerem $A(t)\coloneq\sum_{n\leq t}a(n)$ les sumes parcials de $a$; i una funció $g:\RR_{\geq0}\rightarrow\CC$ amb derivada contínua en un interval $[x,y]\neq\varnothing$\footnote{Per alguna raó, al professor li ha agradat considerar l'interval $[y,x]$, però em nego a fer servir aquesta notació.}. Aleshores 
+\chapter{Enunciat sense demostració del criteri de sumació d'Abel (Teorema 4,capítol 1)}
+\teorema{Criteri de sumació d'Abel}{
+% \label{2.04 teorema sumació Abel}
+Sigui $a\colon\NN\to\CC$, considerem $A(t):\sum_{n\leq t}a(n)$ les sumes parcials de $a$; i una funció $g:\RR_{\geq0}\to\CC$ amb derivada contínua en un interval $[x,y]\neq\varnothing$
+% \footnote{Per alguna raó, al professor li ha agradat considerar l'interval $[y,x]$, però em nego a fer servir aquesta notació.}. Aleshores 
 \[
 \sum_{x<n\leq y}a(n)g(n)=A(y)g(y)-A(x)g(x)-\int_x^yA(t)g'(t)\dd t
 \]
@@ -116,28 +118,29 @@ Aleshores l'ordre de $f$ es defineix
 
 \newpage
 \chapter{Demostració del Teorema 8, capítol 3 (sense la part final de veure que la integral $I(s)$ defineix una funció holomorfa ).}
-\teorema{}{Per $\sigma>1$, tenim:
+\teorema{}{}{Per $\sigma>1$, tenim:
 \[
 \pi^{-\frac{s}{2}}\Gamma\left(\frac{s}{2}\right)\zeta(s)=-\frac{1}{s}+\frac{1}{s-1}+\underbrace{\int_1^\infty\left(x^{\frac{s}{2}-1}+x^{-\frac{s}{2}-\frac{1}{2}}\right)\omega(x)\dd x}_{=I(s)}
 \]
 On la funció $I(s)$ és una funció holomorfa a tot $\CC$.
 }
+
 \pf{
 \begin{enumerate}
-    \ii Comencem amb $\Gamma(s)$, i apliquem el canvi de variable $x=n^2\pi x$ i ho treiem tot a fora.\\
-    \ii Suposem que hi ha convergència absoluta, i fem el sumatori sobre $n\geq1$ dels 2 costats (en un costat apareix $\omega$ i a l'altre apareix $\zeta$).\\
-    \ii Separem la integral $\int_0^\infty=\int_0^1+\int_{1}^{\infty}$.\\
-    \ii Fem el canvi de varible $u=\frac{1}{t}$ a la integral de la esquerra.\\
-    \ii Fem servir $\theta(\frac{1}{x})=\sqrt{x}\theta(x)$ i que $2\omega(x)+1=\theta$.\\
+    \item Comencem amb $\Gamma(s)$, i apliquem el canvi de variable $x=n^2\pi x$ i ho treiem tot a fora.\\
+    \item Suposem que hi ha convergència absoluta, i fem el sumatori sobre $n\geq1$ dels 2 costats (en un costat apareix $\omega$ i a l'altre apareix $\zeta$).\\
+    \item Separem la integral $\int_0^\infty=\int_0^1+\int_{1}^{\infty}$.\\
+    \item Fem el canvi de variable $u=\frac{1}{t}$ a la integral de la esquerra.\\
+    \item Fem servir $\theta(\frac{1}{x})=\sqrt{x}\theta(x)$ i que $2\omega(x)+1=\theta$.\\
 \end{enumerate}
 }
 \newpage
 \chapter{Demostració de la Proposició 6 del capítol 4, donat el seu enunciat i assumint la Proposició 7.}
-\Prop{proposició 6}{Sigui $f$ una funció entera d'ordre $\alpha$. I suposem que $f$ no té zeros. Aleshores es té que $f=e^{g(s)}$ on $g$ és un polinomi de grau $\alpha$. És a dir, que el grau d'una funció entera sense zeros ha de ser un enter.
+\Prop{proposició 6}{}{Sigui $f$ una funció entera d'ordre $\alpha$. I suposem que $f$ no té zeros. Aleshores es té que $f=e^{g(s)}$ on $g$ és un polinomi de grau $\alpha$. És a dir, que el grau d'una funció entera sense zeros ha de ser un enter.
 }
 \pf{
     Ens caldrà el següent resultat d'AnCo:
-    \Prop{proposició 7}{Sigui $U\subseteq \CC$ simplement connex. Sigui $f:U\to\CC$ holomorfa i sense zeros en $U$. Aleshores existeix $g:U\to\CC$ holomorfa tal que $f(s)=e^{g(s)}$ per tot $s\in U$.}
+    \Prop{proposició 7}{}{Sigui $U\subseteq \CC$ simplement connex. Sigui $f:U\to\CC$ holomorfa i sense zeros en $U$. Aleshores existeix $g:U\to\CC$ holomorfa tal que $f(s)=e^{g(s)}$ per tot $s\in U$.}
     \begin{enumerate}
         \item Agafar la $g(s)$ que ens dona la proposició.
     \end{enumerate}
@@ -199,7 +202,7 @@ On la funció $I(s)$ és una funció holomorfa a tot $\CC$.
 }
 \newpage
 \chapter{Demostració del Teorema 15 del capítol 4, donat el seu enunciat i assumint els corol·laris 10 i 14.}
-\teorema{}{
+\teorema{}{}{
     La funció zeta de Riemann completada
     \[
         \xi(s)=\half s(s-1)\pi^{-s/2}\zeta(s)\Gamma\left(\frac s2\right)
@@ -212,13 +215,13 @@ On la funció $I(s)$ és una funció holomorfa a tot $\CC$.
     \end{enumerate}
 }
 Notem que els zeros de la funció $\xi$ són exactament els zeros (amb multiplicitat) de $\zeta$ en la franja crítica.
-\coro{Corol·lari 10}{Sigui $f$ d'ordre $\alpha$ amb $f(0)\neq 0$. Aleshores per tot $\rho\in\RR_{>\alpha}$, tenim:
+\coro{Corol·lari 10}{}{Sigui $f$ d'ordre $\alpha$ amb $f(0)\neq 0$. Aleshores per tot $\rho\in\RR_{>\alpha}$, tenim:
 \begin{enumerate}
     \item $n(R)=\bigO(R^{\rho})$ per tot $R\gg1$; i on $n:\RR_{\geq0}\to \NN$ és el número de zeros amb mòdul menor que $R$.
     \item $\sum_{n\in N_f}|s_n|^{-1}$, on $s_n$ és el $n$-èsim zero de $f$ (indexat per $N_f$).
 \end{enumerate}
     }
-\coro{Corol·lari 14}{Sigui $f$ d'ordre 1 amb $f(0)\neq0$. Si $\sum_{n\in N_f}|s_n|^{-1}$ convergeix, aleshores $|f|<e^{C|s|}$ per $s\gg1$.}
+\coro{Corol·lari 14}{}{Sigui $f$ d'ordre 1 amb $f(0)\neq0$. Si $\sum_{n\in N_f}|s_n|^{-1}$ convergeix, aleshores $|f|<e^{C|s|}$ per $s\gg1$.}
 \pf{
     I amb aquesta remarca, procedirem a demostrar els 3 apartats del teorema.\\
     Notem que pel corol·lari 9 del tema 3, tenim que la funció $\xi$ és una funció entera.
@@ -254,7 +257,7 @@ Notem que els zeros de la funció $\xi$ són exactament els zeros (amb multiplic
 }
 \newpage
 \chapter{Demostració del Teorema 5 del capítol 5. La demostració ha d'incloure els enunciats i demostracions de Lema 2 i), Lema 3, i Proposició 4 i).}
-\lema{}{\label{6.02_lema}Per $\s>1$ es té:
+\lema{}{}{\label{6.02_lema}Per $\s>1$ es té:
 \begin{enumerate}
     \ii $\Re\;\log(\zeta(s))=\sum_p\sum_{m\geq1}\frac{\cos(mt)\log p}{mp^{\s m}}$\\
 \end{enumerate}
@@ -279,7 +282,7 @@ I ara, si prenem la part real del que tenim:
 On la igualtat ve de que si $\theta\in\RR$, aleshores $p^{i\theta}=\log p(\cos(\theta)+i\sin(\theta))$.
 Que és el que volíem veure.\\
 }
-\lema{Lema de Mertens}{\label{6.03_lema de Mertens} Per qualsevol $\theta\in\RR$, tenim la següent desigualtat.
+\lema{Lema de Mertens}{}{\label{6.03_lema de Mertens} Per qualsevol $\theta\in\RR$, tenim la següent desigualtat.
 \[
     3+4\cos(\theta)+\cos(2\theta)\geq0
 \]
@@ -292,12 +295,11 @@ Utilitzant la fórmula de l'angle doble del cosinus, tenim:
     2(1+\cos(\theta))^2\geq0
 \]
 }
-\Prop{Mertens per a la funció $\zeta$.}{\label{6.04_prop}
+\Prop{Mertens per a la funció $\zeta$.}{}{\label{6.04_prop}
     Per $\s>1$, tenim:
     \begin{enumerate}
         \ii $\zeta^3(\s)|\zeta^4(\s+it)||\zeta(\s+i2t)|\geq1$,\\
     \end{enumerate}
-
 }
 \pf{
 Com que a $\s>1$:
@@ -314,7 +316,7 @@ Però pel lema \ref{6.02_lema}, tenim
 \]
 Que és el que havíem de veure pel primer apartat.\\
 }
-\teorema{Regió lliure de zeros I}{\label{6.05_teorema regió lliure de zeros en sigma=0,1}La funció $\zeta(s)\neq0$ en $\s=1$ (i per la simetria de $\zeta$, en $\s=0$).}
+\teorema{Regió lliure de zeros I}{}{\label{6.05_teorema regió lliure de zeros en sigma=0,1}La funció $\zeta(s)\neq0$ en $\s=1$ (i per la simetria de $\zeta$, en $\s=0$).}
 \pf{
 Procedirem per reducció a l'absurd: suposem que existeix alguna $t\in \RR$ tal que $\zeta(1+it)=0$. Clarament $t\neq0$, ja que $\zeta(1)\neq0$. De fet, podem dir una miqueta més: com que $\zeta(s)\sim \frac{1}{\s-1}$ quan $\s\to 1$.\\
 Com que $\zeta$ té un zero en $1+it$, podem escriure $\zeta(s)=(s-(1+it))^mf(s)$ per alguna $m\geq1$, on ara $f$ no s'anul·la en $1+it$. Per tant, si considerem
@@ -331,20 +333,20 @@ Però, la proposició ens diu que això és com a mínim 1 i, per tant, contradi
 }
 \newpage
 \chapter{Demostració del Teorema 8 §5, donat el seu enunciat. A la demostració cal ser capaç d'enunciar el Lema 6 i) i el Lema 7 de capítol 5 amb les seves dues parts (però no cal donar les demostracions dels lemes).}
-\lema{Lema 6}{
+\lema{Lema 6}{}{
     Per $1<\s\leq2$
     \[
         -\frac{\zeta'(\s)}{\zeta(\s)}<\frac{1}{\s-1}+K\qquad\text{on }K\in\RR
     \]
 }
-\lema{Lema 7}{
+\lema{Lema 7}{}{
     Sigui $\rho=\beta+i\gamma$ un zero no trivial de $\zeta(s)$ amb $\gamma\geq2$. Sigui $s=\s+i t$ amb $1< \s\leq 2$ i $t\geq2$, aleshores
     \begin{enumerate}
         \item $-\Re\left(\frac{\zeta'(\s+2it)}{\zeta(\s+2it)}\right)<K\log(t)$ per $k\in\RR_{>0}$.
         \item Si a més $t=\gamma$, aleshores: $-\Re\left(\frac{\zeta'(\s+it)}{\zeta(\s+it)}\right)<k\log(t)-\frac{1}{\s-\beta}$ per $k\in\RR_{\geq0}$
     \end{enumerate}
 }
-\lema{Teorema 8}{
+\lema{Teorema 8}{}{
     Existeix $c\in\RR_{>0}$ tal que $\zeta$ no té zeros a la regió $t\geq2,$ i $\s\leq1-\frac{c}{\log(t)}$
 }
 \pf{
@@ -407,7 +409,7 @@ Però, la proposició ens diu que això és com a mínim 1 i, per tant, contradi
 }
 \newpage
 \chapter{Demostració de la Proposició 8 de capítol 6 assumint el Lema 9 (l'enunciat del qual cal recordar).}
-\Prop{Proposició 8}{Per $T\gg1$, i $x\in\RR_{\geq2}$, i $c=1+\frac{1}{\log x}$, aleshores:
+\Prop{Proposició 8}{}{Per $T\gg1$, i $x\in\RR_{\geq2}$, i $c=1+\frac{1}{\log x}$, aleshores:
 \[
     \frac{1}{2\pi i}\int_{c-iT}^{c+iT}\underbrace{\left(-\frac{\zeta'(s)}{\zeta(s)}\right)\frac{x^s}{s}}_{F(s)}\dd s=x-\sum_{\substack{\rho=\beta+i\gamma\\|\gamma|<T}}\frac{x^{\rho}}{\rho}-\frac{\zeta'(0)}{\zeta(0)}-\frac{1}{2}\log\left(1-\frac{1}{x^2}\right)+\bigO\left(\frac{x(\log T)^2}{T\log(x)}\right)
 \]
@@ -461,7 +463,7 @@ Per tant, ens queda:
     +I_1+I_2+I_3
 \]
 I ara, pel lema 9:
-\lema{Lema 9}{Les integrals:
+\lema{Lema 9}{}{Les integrals:
 \begin{align*}    
     I_1,I_3&=\bigO\left(\frac{x(\log T)^2}{T\log x}\right)\\
     I_2&=\bigO\left(\frac{T\log U}{U x^U}\right)
@@ -475,7 +477,7 @@ Que és el que volíem veure.
 }
 \newpage
 \chapter{Demostració de Lema 5 del capítol 6 donat el seu enunciat.}
-\lema{Lema 5}{Sigui 
+\lema{Lema 5}{}{Sigui 
 \[
     \delta(y)=\left\{\begin{array}{cl}0&\text{si }y\in(0,1)\\\frac12&\text{si }y=1\\1&\text{si }y>1\end{array}\right.
 \]

@@ -1,6 +1,6 @@
 \chapter{\texorpdfstring{Regió lliure de zeros (de $\zeta$, dins de la franja crítica).}{Regió lliure de zeros (de zeta, dins de la franja crítica).}}
-\teorema{Regió lliure de zeros}{5.01 regió lliure de zeros}{
-    Existeix una $c\in\RR_{>0}$ tal que els zeros no trivials de $\zeta$ pertanyen a la següent regió.
+\teorema{Regió lliure de zeros}{5.01 regió lliure de zeros}{\label{Teorema:5.1_Regió lliure de zeros}
+Existeix una $c\in\RR_{>0}$ tal que els zeros no trivials de $\zeta$ pertanyen a la següent regió.
     \[
         \frac{c}{\log(2+|t|)}\leq \s\leq 1-\frac{c}{\log(2+|t|)}
     \]
@@ -51,7 +51,7 @@ Encara no farem la demostració d'aquest teorema; però de la mateixa manera que
         0&\text{ altrament.}
     \end{array}\right.$
 }
-\pf{
+\begin{pf}
     Per $s\in\RR_{>1}$ ja sabem del corol·lari $\ref{Corolari:1.19 sèries de potències de p}$ del capítol \ref{capítol 1: sèries de Dirichlet}, que 
     \[
         \log(\zeta(s))=-\sum_{p}\log(1-p^{-s})=\sum_p\sum_{m\geq 1}\frac{1}{mp^{\s m}}
@@ -78,7 +78,7 @@ Encara no farem la demostració d'aquest teorema; però de la mateixa manera que
         -\sum_{n\geq1}\frac{\cos(t\log(n))\Lambda(n)}{n^s}
     \]
     Que és el que necessitem veure.
-}
+\end{pf}
 I ara, degut a que han aparegut funcions trigonomètriques, voldrem tenir algun control sobre aquestes; i d'aquí sorgirà el lema de Mertens:
 \lema{Lema de Mertens}{5.03 de Mertens}{
     Per qualsevol $\theta\in\RR$, tenim la següent desigualtat.
@@ -86,14 +86,14 @@ I ara, degut a que han aparegut funcions trigonomètriques, voldrem tenir algun 
         3+4\cos(\theta)+\cos(2\theta)\geq0
     \]
 }
-\pf{
+\begin{pf}
     Utilitzant la fórmula de l'angle doble del cosinus, tenim:
     \[
         3+4\cos(\theta)+\cos(2\theta)=
         3+4\cos(\theta)+\cos^2(\theta)-\sin^2(\theta)=
         2(1+\cos(\theta))^2\geq0
     \]
-}
+\end{pf}
 I ara d'aquesta identitat trigonomètrica se'n poden derivar dos sobre la funció $\zeta$:
 \Prop{Mertens per a la funció $\zeta$.}{5.04}{
     Per $\s>1$, tenim:
@@ -102,7 +102,7 @@ I ara d'aquesta identitat trigonomètrica se'n poden derivar dos sobre la funci�
         \ii $3\left(-\frac{\zeta'(\s)}{\zeta(\s)}\right)+4\Re\left(\frac{\zeta'(\s+it)}{\zeta(\s+it)}\right)+3\left(-\frac{\zeta'(\s+i2t)}{\zeta(\s+i2t)}\right)\geq0$.
     \end{enumerate}
 }
-\pf{
+\begin{pf}
     Com que a $\s>1$:
     \[
         |\zeta(s)|=e^{\Re\log(\zeta(s))}
@@ -117,10 +117,10 @@ I ara d'aquesta identitat trigonomètrica se'n poden derivar dos sobre la funci�
     \]
     Que és el que havíem de veure pel primer apartat.\\
     Pel segon apartat, però, podem fer un càlcul anàleg utilitzant el segon apartat del lema \ref{Lema:5.02}.
-}
+\end{pf}
 \teorema{Regió lliure de zeros I}{5.05 regió lliure de zeros en sigma=0,1}{
     La funció $\zeta(s)\neq0$ en $\s=1$ (i per la simetria de $\zeta$, en $\s=0$).}
-\pf{
+\begin{pf}
     Procedirem per reducció a l'absurd: suposem que existeix alguna $t\in \RR$ tal que $\zeta(1+it)=0$. Clarament $t\neq0$, ja que $\zeta(1)\neq0$. De fet, podem dir una miqueta més: com que $\zeta(s)\sim \frac{1}{\s-1}$ quan $\s\to 1$.\\
     Com que $\zeta$ té un zero en $1+it$, podem escriure $\zeta(s)=(s-(1+it))^mf(s)$ per alguna $m\geq1$, on ara $f$ no s'anul·la en $1+it$. Per tant, si considerem
     \[
@@ -133,7 +133,7 @@ I ara d'aquesta identitat trigonomètrica se'n poden derivar dos sobre la funci�
         \underbrace{|\zeta(\s+2it)|}_{<\infty}=\lim_{\s\to 1}(\s-1)^{4m-3}|\dots|= 0
     \]
     Però, la proposició ens diu que això és com a mínim 1 i, per tant, contradicció.
-}
+\end{pf}
 Acabem de demostrar que la funció $\zeta$ té tots els zeros no trivials a l'interior de la franja crítica. Ara passarem a veure que, de fet, aquesta regió és molt més gran. Però abans demostrarem un parell de lemes més, que necessitarem per la demostració.
 \lema{}{5.06}{
     Es té el següent:
@@ -149,7 +149,7 @@ Acabem de demostrar que la funció $\zeta$ té tots els zeros no trivials a l'in
         On $\{\rho_n\}$ són els zeros no trivials de $\zeta$, i $K\in \RR$ és una constant no necessàriament igual a la del primer apartat.
     \end{enumerate}
 }
-\pf{
+\begin{pf}
     Notem que el primer apartat és exactament el que es demostra al exercici 4 del full de problemes 8.\\[5mm]
     Per la demostració del corol·lari \ref{Corolari:4.16}\footnote{16 del capítol 4}, sabem que
     \[
@@ -183,7 +183,7 @@ Acabem de demostrar que la funció $\zeta$ té tots els zeros no trivials a l'in
     \[
     \frac{\log((1+x)^2+y^2)}{2}\leq \frac{\log(5y^2)}{2}=k'\log(y)\leq k\log(t)
     \]
-}
+\end{pf}
 Abans de demostrar el teorema important del capítol, demostrarem un altre lema:
 \lema{}{5.07}{
     Sigui $\rho=\beta+i\gamma$\footnote{Aquesta és la notació usual per a zeros de $\zeta$.} un zero no trivial de $\zeta$ amb $\gamma\geq2$. Sigui $s=\sigma+it$ amb $1\leq\sigma\leq 2$ i $t\geq2$, aleshores:
@@ -193,12 +193,12 @@ Abans de demostrar el teorema important del capítol, demostrarem un altre lema:
     \]
     \item Si a més, $t=\gamma$, aleshores
     \[
-        -\Re\left(\frac{\zeta'(\s+2it)}{\zeta(\s+2it)}\right)<K\log(t)
+        -\Re\left(\frac{\zeta'(\s+it)}{\zeta(\s+it)}\right)<K\log(t)
         -\frac{1}{\s-\beta}
         \qquad\text{per }K\in \RR_{>0}
     \]
 \end{enumerate}}
-\pf{
+\begin{pf}
     Per la segona part del lema \ref{Lema:5.06}, només hem de veure que 
     \[
         \sum\Re\left(\frac{1}{\s+2it-\rho_n}+\frac{1}{\rho_n}\right)>0
@@ -220,10 +220,76 @@ Abans de demostrar el teorema important del capítol, demostrarem un altre lema:
         = -\frac{1}{\s-\beta}
     \]
     I això, juntament amb el lema \ref{Lema:5.06}, ens dona el que volíem.
-}
+\end{pf}
 I amb aquests lemes, tenim:
 \teorema{$\zeta$ no té zeros a la regió crítica}{5.08}{Existeix una $c>0$ tal que $\zeta$ no té zeros a la regió
 \[
     t\geq2\quad\text{i}\quad \s\geq1-\frac{c}{\log(t)}
 \]}
-Notem que això és molt semblant al que volem veure en el teorema 1, ja que per la simetria. De fet, amb el que veurem en el FP9: $\zeta$ no té zeros no trivials amb $|z|\leq 6$, i que $\rho$ és zero si i només si $\ol\rho$ és zero; serà suficient per demostrar-ho. 
+Notem que si demostrem aquest teorema, immediatament surt el teorema 5.1:
+\begin{pf}
+    Al full de problemes 9 hem vist que $\zeta$ no té zeros no trivials petits (amb $|t|\leq 6$). També hem vist que si $\rho$ és zero, també ho és $\ol\rho$ i $1-\rho$. Per tant, podem suposar que $t>0$ i $\s\geq1/2$
+
+    \[
+        \frac{c}{\log(2+|t|)}\leq\frac{c}{\log(|t|)}\leq\s\leq 1-\frac{c}{\log(|t|)}<1-\frac{c}{\log(2+|t|)}
+    \]
+    Que és la desigualtat del teorema.
+\end{pf}
+I ara, amb això, ja només fa falta demostrar el teorema 5.8.\par
+% \begin{minipage}{0.8\linewidth}
+\begin{pf}
+
+    Notem que per Mertens, per $\s>1$ tenim:
+    \[
+        3\left(-\frac{\zeta'(\s)}{\zeta(\s)}\right)
+        -\Re4\left(\frac{\zeta'(\s+it)}{\zeta(\s+it)}\right)
+        -3\Re\left(\frac{\zeta'(\s+2it)}{\zeta(\s+2it)}\right)\geq0.
+    \]
+    Escollim $s=\s+it$ tal que $\s=1+\frac{\delta}{\log(t)}$ per a alguna $\delta\in\RR_{>0}$ suficientment petita ($\delta<\log(2)$) de manera que $\s\in(1,2]$.\par
+    \begin{wrapfigure}{r}{0.3\textwidth}
+        \centering
+        \begin{tikzpicture}[domain=2:5, yscale=0.5]
+            \draw[ultra thick] (-.3,0)--(2.3,0);
+            \draw[ultra thick] (-.3,2)--(2.3,2) node[pos = 1, right] {$t=2$};
+            \draw[ultra thick] (0,-.5)--(0,5);
+            \draw[ultra thick] (1,-.5)--(1,5) node[pos = 0,below] {$\s=1$} ;
+            \draw[ultra thick] (2,-.5)--(2,5) node[pos = 0,below] {$\s=2$};
+            \draw[blue,thick] plot ({1+.5/(ln(\x))},\x);
+            \draw[fill, red] ({1+.5/(ln(4))},4) ellipse (.05 and .1) node[right]{$s$};
+            \draw [dashed] ({1+.5/(ln(4))},4) -- (0,4) node[pos = 0.5, anchor =  base] 
+            {\tikz[baseline = {(0,0)}]
+            \draw[fill, red] (0,0) circle (.05) node[above] {$\rho$};};
+        \end{tikzpicture}
+    \end{wrapfigure}
+    Sigui $\rho=\beta+it$ un zero no trivial de $\zeta$. Aplicant els lemes \ref{Lema:5.06} i \ref{Lema:5.07} obtenim que:
+    \[
+        0\leq\underbrace{3\left(-\frac{\zeta'(\s)}{\zeta(\s)}\right)}_{\leq \frac{3}{\s-1}+K_1}
+        \underbrace{-4\left(-\frac{\zeta'(\s+it)}{\zeta(\s+it)}\right)}_{\leq 4K_2\log(t)-\frac{3}{\s-\beta}}
+        \underbrace{-3\left(-\frac{\zeta'(\s+2it)}{\zeta(\s+2it)}\right)}_{\leq 3K_3\log(t)}
+    \]
+    Prenent una $K$ comuna obtenim:
+    \[
+        \frac{4}{\s-\beta}<\frac{3}{\s-1}+K\log(t)
+    \]
+    Per alguna $K\in\RR_{>0}$. Però utilitzant que $\s=1+\frac{\delta}{\log(t)}$:
+    \[
+        \frac{4}{\underbrace{1+\frac{\delta}{\log(t)}-\beta}_{>0}}<\frac{3\log(t)}{\delta}+K\log(t)=\frac{\log(t)}{\delta}(3+K\delta).
+    \]
+    I com que el denominador és positiu el podem passar:
+    \[
+        \frac{4\delta}{\log(t)(3+K\delta)}<1+\frac{\delta}{\log(t)}-\beta.
+    \]
+    I si reordenem l'expressió, obtenim:
+    \[
+        \beta+
+        <
+        1+\frac{\delta}{\log(t)}
+        -\frac{4\delta}{\log(t)(3+K\delta)}=
+        1-\frac{1}{\log(t)}\underbrace{\delta\left(\frac{1-K\delta}{3+K\delta}\right)}_{c}.
+    \]
+    Finalment, només ens resta veure que $c>0$, però si $\delta$ és prou petita ($\delta<1/K$), ja ho tenim.
+\end{pf}
+% \end{minipage}
+% \begin{minipage}{0.2\linewidth}
+
+\newpage

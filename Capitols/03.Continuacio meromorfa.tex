@@ -22,7 +22,7 @@ I ara hem de veure que aquestes funcions estan ben definides, és a dir, que les
         \ii El mateix val per la funció $\theta(x)$.
     \end{enumerate}
 }
-\pf{
+\begin{pf}
     \[
     \omega(x)=\sum_{n\geq1}e^{-n^2\pi x}\leq\sum_{n\geq1}e^{-n\pi x}=\frac{e^{-\pi x}}{1-e^{-\pi x}}
     \]
@@ -32,7 +32,7 @@ I ara hem de veure que aquestes funcions estan ben definides, és a dir, que les
     \]
     Ja que $1-e^{-\pi x}\neq 0$, i per tant es pot fitar per una constant.\par
     Finalment, com que $\theta(x)=1+2\omega(x)$, el mateix val per $\theta(x)$.
-}
+\end{pf}
 Ara veurem l'equació funcional de la funció $\theta$.
 \teorema{equació funcional de $\theta(x)$}{3.02 equació funcional de theta}{
     La funció $\theta(x)$ de Jacobi satisfà la següent equació funcional:
@@ -67,7 +67,7 @@ Aquest teorema, com que és temari d'una altra assignatura, no el demostrarem. A
     \]
     On $\sideset{}{'}\sum$ denota que s'ha de fer la mitjana en els extrems.
 }
-\pf{
+\begin{pf}
     Notem que si prenem $A=0$ i $B=1$, aleshores tenim que pel teorema d'expansió de Fourier:
     \[
     \sideset{}{'}\sum_{n=0}^1 f(n)=\frac{f(0)+f(1)}{2}=f_1(0)=\frac{a_0}{2}+\sum_{\nu\in\ZZ}a_\nu=\sum_{\nu\in\ZZ}\int_0^1 f(t)\cos(2\pi \nu t)\dd t
@@ -87,9 +87,9 @@ Aquest teorema, com que és temari d'una altra assignatura, no el demostrarem. A
     \sum_{\nu\in\ZZ}\int_A^B f(t)e^{2\pi i \nu t}\dd t
     \]
     Que és justament el que volíem veure.
-}
+\end{pf}
 I ara, amb aquests dos teoremes, podem donar la demostració del teorema \ref{Teorema:3.02 equació funcional de theta}.
-\pf{
+\begin{pf}
     Considerem ara la següent suma:
     \[
     \sideset{}{'}\sum_{-N\leq n\leq N}e^{-\frac{(n+\alpha)^2}{x}\pi}
@@ -125,7 +125,7 @@ I ara, amb aquests dos teoremes, podem donar la demostració del teorema \ref{Te
         \sum_{n\in\ZZ}e^{-n^2 \pi}=K\sum_{n\in\ZZ}e^{-n^2\pi}
     \]
     I com que la suma no és 0; tenim que $K=1$. Que és el que volíem veure.
-}
+\end{pf}
 I una altra funció que anirà apareixent al llarg de l'assignatura, és la funció $\Gamma$.
 \dfe{Funció $\Gamma$}{
     La funció $\Gamma$, introduïda per Euler, es defineix com
@@ -137,7 +137,7 @@ I no és gaire sorprenent, que aquesta funció que serà de gran rellevància, s
 \lema{La funció $\Gamma$ és holomorfa.}{3.03 holomorfitat de gamma}{
     La funció $\Gamma(s)$ és holomorfa per $\sigma>0$.
 }
-\pf{
+\begin{pf}
     Considerem $n\in \ZZ_{\geq1}$
     \[
     \Gamma_n(s)=\int_{\frac{1}{n}}^n e^{-s}x^s\frac{\dd x}{x}
@@ -182,7 +182,7 @@ I no és gaire sorprenent, que aquesta funció que serà de gran rellevància, s
     |\Gamma(s)-\Gamma_n(s)|\leq \frac{1}{mn^{-m}}+2Ce^{-\frac{n}{2}}
     \]
     Per tant tenim convergència uniforme sobre qualsevol compacte; i amb la proposició 7 del tema 1, tenim que $\Gamma$ és holomorfa.
-}
+\end{pf}
 I de la mateixa manera que hem vist que la funció $\theta$ tenia una equació funcional, ara en donarem una per la de la funció $\Gamma$.
 \lema{Equació funcional de $\Gamma$.}{3.04 eq. funcional de Gamma}{
     La funció $\Gamma$ satisfà
@@ -190,7 +190,7 @@ I de la mateixa manera que hem vist que la funció $\theta$ tenia una equació f
         \Gamma(s+1)=s\Gamma(s)\qquad\text{per }\s>0
     \]
 }
-\pf{
+\begin{pf}
     \[
         \Gamma(s+1)=\int_{0}^{\infty}x^se^{-x}\dd x
     \]
@@ -199,7 +199,7 @@ I de la mateixa manera que hem vist que la funció $\theta$ tenia una equació f
         \Gamma(s+1)=\int_{0}^{\infty}x^se^{-x}\dd x=\left[-x^se^{-x}\right]_0^\infty+\int_0^\infty e^{-x}sx^{s-1}\dd x=s\Gamma(s)
     \]
     que és el que volíem veure.
-}
+\end{pf}
 I ara demostrarem alguna propietat d'aquesta funció.
 \coro{}{}{
     \begin{enumerate}
@@ -207,7 +207,7 @@ I ara demostrarem alguna propietat d'aquesta funció.
         \ii La funció $\Gamma$ és una funció meromorfa a $\CC$, amb només pols simples sobre els enters no positius. A més, el residu en $s=0$ és $1$.
     \end{enumerate}
 }
-\pf{
+\begin{pf}
     Com que del lema \ref{Lema:3.04 eq. funcional de Gamma} tenim que $\Gamma(n)=(n-1)\Gamma(n-1)=\dots=(n-1)!\Gamma(1)$. Per tant, només hem de veure quant val $\Gamma(1)$:
     \[
         \Gamma(1)=\int_{0}^{\infty}e^{-x}\dd x=1
@@ -218,4 +218,151 @@ I ara demostrarem alguna propietat d'aquesta funció.
         \Gamma(s)=\frac{\Gamma(s+1)}{s}
     \]
     Que fora de $s=0$ és una funció sense pols; i en $s=0$ tenim que la funció té un pol d'ordre 1. Per aquest mateix argument, el pol es va propagant per tots els enters no positius.
+\end{pf}
+I ara tenim una manera d'estendre $\Gamma(s)$ a tot el pla complex; i ens podem preguntar si hi ha alguna equació funcional.
+\Prop{Fórmula de reflexió d'Euler.}{3.06}{
+    La funció $Gamma(s)$ satisfà la següent equació funcional
+    \[
+        \Gamma(s)\Gamma(1-s)=\frac{\pi}{\sin(\pi s)}.
+    \]
 }
+I amb aquesta proposició tenim un corol·lari immediat:
+\coro{}{}{
+    La funció $\Gamma$ no s'annul·la per a cap valor de $s\in \CC$.
+}
+Notem que si veiem que $\Gamma(s)$ és una funció meromorfa que no s'annul·la enlloc, tindrem que en particular $\frac{1}{\Gamma(s)}$ és holomorfa a tot $\CC$.
+\begin{pf}
+    Per veure que $\Gamma$ no s'annul·la, notem que 
+    \[
+        \Gamma(s)=\frac{\pi}{\Gamma(1-s)\sin(\pi s)}
+    \]
+    només es pot annul·lar en els pols de $\Gamma(1-s)$, però com que els pols són simples, i $\sin(\pi s)$ s'annul·la en aquests punts, $\Gamma$ no s'annul·la.
+\end{pf}
+I havent vist perquè ens interessaria tenir una equació funcional, en voldrem trobar una per $\zeta(s)$. Però abans hem de demostrar la proposició.
+\begin{pf}
+    Serà suficient veure la igualtat per $0<\s<1$, ja que com que els dos costats són funcions meromorfes, si són iguals en un obert, ho són a tot arreu.\par
+    Utilitzant la definició de $\Gamma$ obtenim
+    \[
+        \Gamma(s)\Gamma(1-s)=
+        \int_{0}^{\infty}u^{s}e^{-u}\frac{\dd u}{u}
+        \int_{0}^{\infty}v^{-s}e^{-v}\dd v=
+        \int_{0}^{\infty}
+        \int_{0}^{\infty}
+        \left(\frac{u}{v}\right)^se^{-u-v}\frac{\dd u\dd v}{u}.
+    \]
+    I ara si fem un canvi de variables semblant al que fem quan passem a coordenades polars: $v=r^2\cos^2(\phi)$ i $u = r^2\sin^2(\phi)$, amb $J(r,\phi)=4r^3\cos(\phi)\sin(\phi)$; obtenim:
+    \[
+        \Gamma(s)\Gamma(1-s)=
+        \int_{0}^{\infty}\int_{0}^{\pi/2}\tan(\phi)^{2s}\frac{e^{-r^2}4r^3\cos(\phi)}{r^2\sin(\phi)}
+        \dd \phi\dd r = 
+        4\int_{0}^{\infty}re^{-r^2}\dd r \int_{0}^{\pi/2}\tan(\phi)^{2s-1}\dd \phi 
+    \]
+    Però sabem que $\int_{0}^{\infty}re^{-r^2}\dd r=1/2$, per tant, només ens falta calcular la segona integral: considerem ara el canvi de variable $\phi=\tan\inv(\sqrt{a})$:
+    \[
+        2\int_{0}^{\pi/2}\tan(\phi)^{2s-1}\dd \phi =
+        2\int_{0}^{\pi/2}a^{\frac{2(s-1)}{2}}\frac{1}{1+a}\frac{1}{2\sqrt a}\dd a=
+        \int_{0}^{\pi/2}\frac{a^{s-1}}{1+a}\dd a=\frac{\pi}{\sin(\pi s)}.
+    \]
+    On l'última igualtat és problema d'alguna llista d'AnCo.
+\end{pf}
+Ara utilitzarem aquest resultat per trobar una equació funcional per $\zeta(s)$.
+\teorema{Equació funcional de $\zeta$}{3.08}{
+    Per $\s>1$ tenim
+    \[
+        \pi^{-s/2}\Gamma\left(\frac{s}{2}\right)\zeta(s)=-\frac{1}{s}+\frac{1}{s-2}+I(s).
+    \]
+    On definim $I(s)$ com
+    \[
+        I(s)=\int_1^\infty\left(x^{s/2-1}+x^{-s/2-1/2}\right)\omega(x)\dd x,
+    \]
+    que és una funció holomorfa a tot $\CC$. De la qual se'n segueix que $\pi^{-s/2}\Gamma\left(\frac{s}{2}\right)\zeta(s)$ només té pols simples en $s=0$ i $s=1$ amb residus $-1$ i $1$ respectivament.
+}
+\begin{pf}
+    Per $\sigma>0$ tenim que:
+    \begin{align*}
+        \Gamma\left(\frac{s}{2}\right)&=\int_0^\infty e^{-x}x^{\frac{s}{2}}\frac{\dd x}{x}\overset{\substack{x=n^2\pi u\\\dd x=n^2\pi \dd u}}{=}\\
+        &=\int_0^\infty e^{-n^2\pi u}(n^2\pi u)^{\frac{s}{2}}\frac{\dd u}{u}=\\
+        &=n^s\pi^{\frac{s}{2}}\int_0^\infty e^{-n^2\pi u}u^{\frac{s}{2}}\frac{\dd u}{u}
+    \end{align*}
+    Per tant, tenim que 
+    \[
+        \pi^{-\frac{s}{2}}n^{-s}\Gamma\left(\frac{s}{2}\right)=\int_0^\infty e^{-n^2\pi u}u^{\frac{s}{2}}\frac{\dd u}{u}.
+    \]
+    I si considerem $\sum_{n\geq1}$ dels 2 costats, en un costat ens apareix la $\zeta(s)$ (per $\sigma>1$); i a l'altre costat, (si suposem que la integral és absolutament convergent; cosa que veurem després) ens dona:
+    \[
+        \pi^{-\frac{s}{2}}\zeta(s)\Gamma\left(\frac{s}{2}\right)=
+        \int_0^\infty u^{\frac{s}{2}}\underbrace{\sum_{n\geq1}e^{-n^2\pi u}}_{\omega(u)}\frac{\dd u}{u}.
+    \]
+    I ara si maregem una mica la integral:
+    \[
+        \int_0^\infty u^{\frac{s}{2}}\omega(u)\frac{\dd u}{u}=
+        \int_0^1 u^{\frac{s}{2}}\omega(u)\frac{\dd u}{u}+
+        \int_1^\infty u^{\frac{s}{2}}\omega(u)\frac{\dd u}{u}.
+    \]
+    I fent el canvi de variable $u=\frac{1}{t}$:
+    \[
+        -\int_\infty^1 t^{-\frac{s}{2}}\omega\left(\frac{1}{t}\right)\frac{\dd t}{t}+
+        \int_1^\infty u^{\frac{s}{2}}\omega(u)\frac{\dd u}{u}=
+    \]
+    Però recordem que $\omega\left(s\right)=\frac{1}{2}(\theta\left(s\right)-1)$, i també sabem que $\theta\left(\frac{1}{x}\right)=\sqrt{x}\theta(x)$; per tant:
+    \[
+        \omega\left(\frac{1}{x}\right)=
+        \frac{1}{2}\left(\theta\left(\frac{1}{x}\right)-1\right)=
+        \frac{1}{2}\left(\sqrt{x}\theta(x)-1\right)=
+        \frac{1}{2}\left(\sqrt{x}(2\omega(x)+1)-1\right)=
+        \sqrt{x}\omega(x)+\frac{\sqrt{x}}{2}-\frac{1}{2}.
+    \]
+    Introduint això a la integral d'abans tenim:
+    \[
+        \int^\infty_1 t^{-\frac{s}{2}}\left(\sqrt{t}\omega(t)+\frac{\sqrt{t}}{2}-\frac{1}{2}\right)\frac{\dd t}{t}+
+        \int_1^\infty u^{\frac{s}{2}}\omega(u)\frac{\dd u}{u}.
+    \]
+    Ajuntant-t'ho tot:
+    \[
+        \underbrace{\int^\infty_1 (t^{-\frac{s}{2}-\frac{1}{2}}+t^{\frac{s}{2}-1})\omega(t)\dd t}_{I(s)}+\int^\infty_1 \frac{1}{2}t^{-\frac{s+1}{2}}\dd t-\int^\infty_1 \frac{1}{2}t^{-\frac{s}{2}-1}\dd t
+    \]
+    Però la segona integral:
+    \[
+        \int^\infty_1 \frac{1}{2}t^{-\frac{s+1}{2}}\dd t=\frac{2}{s-1}
+    \]
+    I la tercera integral:
+    \[
+        -\frac{1}{2}\int^\infty_1 t^{-\frac{s}{2}-1}\dd t=-\frac{1}{-s}
+    \]
+    I tot plegat ens queda:
+    \[
+        \pi^{-\frac{s}{2}}\zeta(s)\Gamma\left(\frac{s}{2}\right)=I(s)+\frac{1}{s-1}-\frac{1}{s}
+    \]
+    Que és el que volíem veure.\\
+    Ara només ens fa falta justificar el pas del principi, on hem assumit que la integral convergia de manera absoluta. Però com que l'argument és molt similar a un que ja hem fet (la $I_2$ del lema \ref{Lema:3.03 holomorfitat de gamma}), i en el fons són arguments propis de l'assignatura de AnCo, no ho demostrarem aquí.
+\end{pf}
+Del teorema que acabem de demostrar en podem deduir que
+\[
+    1=\mathrm{Res}_{s=1}\left(\pi^{-s/2}\Gamma\left(\frac{s}{2}\right)\zeta(s)\right)=
+    \pi^{-1/2}
+    \Gamma\left(\frac{1}{2}\right)
+    \mathrm{Res}_{s=1}\left(
+    \zeta(s)
+    \right)
+\]
+Per tant, $\Gamma(1/2)=\sqrt{\pi}$.\par
+Ara amb l'equació funcional de $\zeta$ podem definir la funció de Riemann completada:
+\dfe{Funció Zeta de Riemann completada.}{
+    La funció Zeta de Riemann completada és
+    \[
+        \xi(s)=\frac{1}{2}s(s-1)\pi^{-s/2}\Gamma\left(\frac{s}{2}\right)\zeta(s)=\frac{s(s-1)}{2}I(s)+\frac{1}{2}
+    \]
+}
+\coro{}{3.09}{Tenim el següent
+\begin{enumerate}
+    \item $\xi(s)$ és holomorfa a tot $\CC$.
+    \item $\zeta(s)$ estén a una funció meromorfa a tot $\CC$ amb un únic pol simple en $s=1$.
+    \item $\zeta(0)=-1/2$. 
+\end{enumerate}}
+\begin{pf}
+    Notem que el primer apartat és immediat, ja que $I(s)$ és holomorfa.\par
+    Notem que $\zeta(s)$ estén a una funció meromorfa a $\CC$ ja que $\zeta(s)$ és holomorfa a $\s>0$ (pel teorema \ref{1.15 Landau}) i com que té un punt d'acumulació es pot estendre a $\s\leq 0$ i 
+    % \[
+    %     \zeta(s)=\frac{1}{\frac{1}{2}}
+    % \]
+\end{pf}

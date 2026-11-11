@@ -15,7 +15,7 @@ Ara farem un petit recopilatori de resultats de sèries:
         Existeix un $\sigma_a\in\RR\cup\{\pm\infty\}$ tal que $\sum\frac{f(n)}{n^s}$ convergeix absolutament si 
     $\Re(s)>\sigma_a$, i no ho fa si $\Re(s)<\sigma_a$. A aquest $\sigma_a$ se li dona el nom de ``$\sigma$ de convergència absoluta''.
 }
-\pf{
+\begin{pf}
     Si no hi ha cap $s$ tal que la sèrie convergeixi, aleshores $\sigma_a\coloneq+\infty$.\\
     Si hi ha algun $s$ tal que $\sum\frac{f(n)}{n^s}$ convergeixi, considerem un $s'$ tal que $\sigma'>\sigma$. Aleshores volem veure que $\sum\frac{f(n)}{n^{s'}}$
     convergeix:
@@ -24,7 +24,7 @@ Ara farem un petit recopilatori de resultats de sèries:
     \]
     I per tant, pel teorema de comparació, tenim que $\sum\frac{f(n)}{n^s}$ convergeix absolutament en un semiplà. Per tant, si considerem l'ínfim $\sigma$ que
     funciona, tenim el que volíem demostrar.
-}
+\end{pf}
 Fins ara hem fet una mica la vista grossa pel que fa a la convergència d'un productori com el que va estudiar Euler. 
 \dfe{Convergència de productoris}{
     Sigui $\{z_n\}_n\subset\CC$ una successió de complexos, aleshores el productori $\prod z_n$ convergeix si i només si existeix el límit $\lim_{n\rightarrow\infty}\prod_{i=1}^nz_n$, i aquest és no nul.
@@ -33,9 +33,9 @@ Donat que tenim un morfisme conegut que envia el producte a la suma, podem mirar
 \lema{}{1.02}{
     Sigui $\{z_n\}_\NN\subset\CC$ on $\Re(z_n)>0$\footnote{Notem que el fet que el productori convergeixi implica que hi ha una quantitat finita lluny de 1, i per tant, no és restrictiu suposar que tots són positius.}. Aleshores, $\prod z_n$ convergeix si i només si $\sum \log (z_n)$ convergeix.
 }
-\pf{
+\begin{pf}
     $\prod z_n$ convergeix $\iff$ $\log\left(\prod z_n\right)$ convergeix $\iff$ $\sum\log(z_n)$ convergeix; que és el que volíem veure.
-}
+\end{pf}
 Ara, amb aquest lema, passarem la noció de convergència absoluta de sumatoris a convergència absoluta de productoris:
 \dfe{Convergència absoluta de productoris}{
     Donada una seqüència $z_n$ amb $\Re(z_n)>0$, aleshores el productori $\prod z_r$ es diu que convergeix absolutament si $\sum \log(z_r)$ convergeix absolutament.
@@ -53,7 +53,7 @@ controlats. I notem de fet, que la hipòtesis que $\Re(z_n)>-1$ no és gens rest
 \claim{
     Si $|u|<\half$, aleshores $\half|u|\leq|\log(1+u)|\leq\frac{3}{2}|u|$
 }
-\pf{
+\begin{pf}
     Notem que en aquest entorn, $\log(1+u)=u+\half u^2+\dots$. Primer demostrarem la primera desigualtat:
     \begin{align*}
         \half|u|\leq& |\log(1+u)|=\left|u+\half u^2+\dots\right|\impliedby\\
@@ -72,16 +72,16 @@ controlats. I notem de fet, que la hipòtesis que $\Re(z_n)>-1$ no és gens rest
         1-|u|\geq&{|u|}\iff1\geq2|u|\iff\half\geq|u|
     \end{align*}
     Que és el que volíem veure.
-}
+\end{pf}
 
 Per tant, per demostrar el lemma:
-\pf{
+\begin{pf}
     Notem que si $\sum_{n\geq 1}\log(1+u_n)$ convergeix absolutament, aleshores $u_n\rightarrow0$, per tant, només hi ha una quantitat petita amb valor absolut major que $\half$, per tant, pel criteri de comparació pel pas al límit tenim:
     \[
     \left|\log(1+u_n)\right|\geq\half\left|u_n\right|
     \]
     Per tant, la sèrie dels logaritmes convergeix absolutament, també ho fa la sèrie de les $u_n$. I per un argument idèntic, utilitzant l'altra desigualtat, obtenim l'altra implicació.
-}
+\end{pf}
 Ara que tenim una eina per transformar productoris a sumatoris, ens podem preguntar si hi ha alguna manera de transformar els sumatoris en productoris sobre els
 primers (un producte d'Euler), que si més no, serà un dels objectes.
 \Prop{Sèries de Dirichlet de funcions multiplicatives}{1.04 sèries de Dirichlet de funcions multiplicatives}{
@@ -92,7 +92,7 @@ primers (un producte d'Euler), que si més no, serà un dels objectes.
         $\prod_p\frac{1}{1-g(p)}=\sum_\NN g(n)$
     \end{enumerate}
 }
-\pf{
+\begin{pf}
     Primer mirem que aquest productori convergeix a la sèrie.\\
     Notem que per $N\in\ZZ_{\geq 2}$, definim $P(N)=\prod_{p\leq N}1+g(p)+g(p^2)+\dots=\sum_{n\in A(N)}g(n)$ on $A(N)\coloneq\{n\in\NN\text{ tal que tots els divisors primers }p\text{ de }n\text{ són }p\leq N\}$. Considerem
     \[
@@ -107,7 +107,7 @@ primers (un producte d'Euler), que si més no, serà un dels objectes.
     Aquest últim pas és degut a que passem de sumar només sobre les potències dels primers a sobre tots els enters, però això sabem per hipòtesis que convergeix,per tant, tot convergeix de manera absoluta.\par
     Per veure la segona part de la proposició, només hem de veure que $g(p^k)=g(p)^k$, i per tant, tenim una sèrie geomètrica.\par
     Una última observació abans de donar per demostrada la proposició, pel lema necessitem que $\Re(u_n)>-1$, però com que la sèrie dels $g(n)$ convergeix, tot se n'ha d'anar a 0.
-}
+\end{pf}
 Ara utilitzarem aquesta proposició més general pel cas particular de les funcions de Dirichlet:
 \coro{}{1.05 de sèries de Dirichlet multiplicatives a productes d'Euler}{
     Considerem $\sum_{n\geq1}\frac{f(n)}{n^s}$, amb $\sigma$ de convergència $\sigma_a$.\\
@@ -119,9 +119,9 @@ Ara utilitzarem aquesta proposició més general pel cas particular de les funci
     \]
 }
 
-\pf{
+\begin{pf}
     Si $f$ és multiplicativa (o completament multiplicativa), aleshores podem aplicar la proposició \ref{Propo:1.04 sèries de Dirichlet de funcions multiplicatives}, i ens dona el que volem.
-}
+\end{pf}
 \exemple{
     Per $\zeta(s)=\sum_{n\geq1}\frac{1}{n^{s}}$ té com a $\sigma_a=1$, i per tant, per tot $s$ amb part real major que 1, podem expressar $\zeta(s)=\prod_p(1-p^{-s})\inv$.
 }
@@ -133,7 +133,7 @@ Ara donarem un mètode per calcular sumatoris:
     \sum_{x<n\leq y}a(n)g(n)=A(y)g(y)-A(x)g(x)-\int_x^yA(t)g'(t)\dd t
     \]
 }
-\pf{
+\begin{pf}
     \[
     \sum_{x<n\leq y}a(n)g(n)=\sum_{n=\lfloor x\rfloor+1}^{\lfloor y\rfloor}(A(n)-(A(n-1)))g(n)=\sum_{n=\lfloor x\rfloor+1}^{\lfloor y\rfloor}A(n)g(n)-\sum_{n=\lfloor x\rfloor}^{\lfloor y\rfloor-1}A(n)g(n+1)=
     \]
@@ -167,7 +167,7 @@ Ara donarem un mètode per calcular sumatoris:
     I ara movem una mica els dits (recordem que $A(x)=A(\lfloor x\rfloor)$, i que $A(y)=A(\lfloor y\rfloor)$), i diem avada kedabra i tot el que no volem mor:
     \[=A(y)g(y)-A(x)g(x)-\int_x^y A(t)g'(t)\dd t\]
     Que és el que volíem veure.
-}
+\end{pf}
 Una mica d'intuïció darrere d'aquest teorema, és que quan tens una sèrie que té moltes cancel·lacions, i que per tant, les $A(n)$ no creix massa; aleshores multiplicar per una funció $g$ no canvia tant això com poder seria d'esperar, ja que tot es pot posar en termes de les $A$.
 
 \lema{Fita tècnica}{1.07 fita_de_sèries_de_Dirichlet}{
@@ -176,7 +176,7 @@ Una mica d'intuïció darrere d'aquest teorema, és que quan tens una sèrie que
     \left|\sum_{a< n\leq b}\frac{f(n)}{n^s}\right|\le2Ma^{\sigma_0-\sigma}\left(1+\frac{|s-s_0|}{\sigma-\sigma_0}\right)
     \]
 }
-\pf{
+\begin{pf}
     Per aplicar el teorema de sumació d'Abel hem d'agafar la $a$ i la $g$, i donat que tenim controlades les sumes parcials de $\frac{f(n)}{n^s}$ és raonable prendre-la com a $a(n)=\frac{f(n)}{n^S}$, i deixar que $g(t)=t^{s_{0}-s}$. I això ens deixa:
     \begin{align*}    
     \left|\sum_{a<n\leq b}\frac{f(n)}{n^{s_0}}\right|=\left|A(b)g(b)-A(a)g(a)-\int_a^bA(t)g'(t)\dd t\right|\leq\\
@@ -187,29 +187,29 @@ Una mica d'intuïció darrere d'aquest teorema, és que quan tens una sèrie que
     \[
     2Ma^{s_0-s}+M|s-s_0|\left(\frac{a^{\sigma_0-\sigma}-b^{\sigma_0-\sigma}}{\sigma-\sigma_0}\right)\leq2Ma^{\sigma_0-\sigma}+M|s-s_0|\frac{2a^{\sigma_0-\sigma}}{\sigma-\sigma_0}=2Ma^{\sigma_0-\sigma}\left(1+\frac{|s-s_0|}{\sigma-\sigma_0}\right)
     \]
-}
+\end{pf}
 Fins ara ens hem interessat sobre tot per la convergència absoluta (per exemple amb el lema \ref{Lema:1.01 semipla_de_convergencia_absoluta}). Ara veurem la relació que hi ha entre això i la convergència normal i corrent:
 \lema{Semiplà de convergència}{1.08 semipla de convergencia}{
     Donada una sèrie de Dirichlet $\sum_{n\geq1}\frac{f(n)}{n^s}$, aleshores aquesta convergeix si i només si $\sigma>\sigma_c$ per alguna $\sigma_c\in\RR\cup\{\pm\infty\}$. De la mateixa manera que abans, aquesta $\sigma_c$ rep un nom: es diu $\sigma$ de convergència.
 }
-\pf{
+\begin{pf}
     La demostració és molt similar a la del lema \ref{Lema:1.01 semipla_de_convergencia_absoluta}. Si no hi ha cap tal $s_0$ convergent, aleshores $\sigma_c\coloneq+\infty$. Sinó, sigui $s_0$ un complex que faci convergir la sèrie. Considerem ara un $s$ tal que $\s>\s_0$. Anomenem $M$ una fita de les sumes parcials de $\sum \frac{f(n)}{n^s}$. Aleshores:
     \[
     \left|\sum_{a<n\leq b}\frac{f(n)}{n^s}\right|\leq2Ma^{\sigma_0-\sigma}\left(1+\frac{|s-s_0|}{\s-\s_0}\right)\leq Ka^{\s_0-\s}\xrightarrow{a\rightarrow\infty}0
     \]
     Que és el que volíem veure.
-}
+\end{pf}
 I ara poder ve la pregunta natural de quina diferència hi ha entre $\s_a$ i $\s_c$. Podria ser que un fos finit i l'altre no? Podria ser que fossin sempre el mateix (com és el cas amb la convergència d'una sèrie de potències en els complexos)? Doncs resulta que de fet, els dos valors sempre estan molt a prop:
 \Prop{Distància entre $\sigma_c$ i $\sigma_a$}{1.09}{
     Suposem que tenim una sèrie de Dirichlet $\sum_{n\geq 1}\frac{f(n)}{n^s}$ amb $\s_c$ finit, aleshores la $0\leq\s_a- \s_c\leq1$.
 }
-\pf{
+\begin{pf}
     Suposem que $\sum_{n\geq 1}\frac{f(n)}{n^s}$ és convergent per un $s_0$. Volem veure que és convergent absolutament per $s_1$ si $\s_1>\s_0+1$. Però que $s_0$ sigui convergent ens diu que existeix una fita $A\in\RR_{\geq0}$ tal que $\left|\frac{f(n)}{n^s}\right|\leq A$ $\forall n \geq 1$. Aleshores:
     \[
     \left|\frac{f(n)}{n^{s_1}}\right|=\left|\frac{f(n)}{n^{s_0}}\right|\left|n^{s_0-s_1}\right|\leq An^{s_0-s_1}
     \]
     Per tant, com que $s_1-s_0>1$, tenim que $\sum_{n\geq 1}n^{s_0-s_1}$ convergeix. I per tant pel criteri de comparació, tenim que la sèrie convergeix per $s_1$. Que és el que volíem veure.
-}
+\end{pf}
 Ara volem veure que tota sèrie de Dirichlet és una funció analítica (de fet meromòrfica). I per això veurem el següent teorema, que ens ajudarà a controlar les sèries de Dirichlet. 
 \teorema{Límit d'una successió de funcions holomorfes és holomorfa.}{1.10}{
     Sigui $\mcal U\in\CC$ un obert i sigui $\{f_n\}_n$ una successió de funcions holomorfes $f_n\colon\mcal U\rightarrow \CC$, que convergeixen sobre tot compacte $K$ de $\mcal U$ cap a una funció $f$. Aleshores:
@@ -218,7 +218,7 @@ Ara volem veure que tota sèrie de Dirichlet és una funció analítica (de fet 
         \ii $\{f_n'\}_n$ convergeix uniformement sobre tots els compactes cap a $f'$.
     \end{enumerate}
 }
-\pf{
+\begin{pf}
     Sigui $D$ un disc contingut en $\mcal U$. Sigui $z_0\in D^\mathrm{o}$.\\
 
     Com que $f_n$ és holomorfa, pel teorema de Cauchy:
@@ -239,12 +239,12 @@ Ara volem veure que tota sèrie de Dirichlet és una funció analítica (de fet 
     \[
     f_(z_0)^{(j)}=\frac{j!}{2\pi i}\int_{\partial D}\frac{f(z)}{(z-z_0)^{j+1}}\dd z
     \]
-}
+\end{pf}
 I ara com que totes les sumes parcials són funcions analítiques, seria molt bonic que ara aquestes funcions convergissin de manera uniforme sobre tots els compactes: així podríem aplicar aquest teorema i veuríem que les sèries de Dirichlet són analítiques. Que és justament el que farem:
 \Prop{Les sèries de Dirichlet convergeixen de manera uniforme sobre tot compacte}{1.11}{
     Una sèrie de Dirichlet $\sum_{n\geq 1}\frac{f(n)}{n^s}$ convergeix uniformement sobre tot compacte a l'interior del semiplà de convergència.
 }
-\pf{
+\begin{pf}
     Tot compacte de $\CC$ està contingut en un rectangle (com que està acotat podem posar-lo dins d'una bola, i aquesta pot anar a dins d'un rectangle). Per tant, si veiem que l'enunciat és cert sobre rectangles, ja estarem.
 
     Considerem un rectangle $R=[\alpha,\beta]\times[\gamma,\delta]$ amb $\alpha>\s_c$. Sigui ara $s\in R$ i considerem $s_0=\s_0\in\RR$ tal que $\s_c<\s_0<\alpha\leq\s=\Re(s)$. Definim $M$ com una fita de les sumes parcials de $|\sum_{n\leq x}\frac{f(n)}{n^{s_0}}|$. Volem fitar $|\sum_{a<n\leq b}\frac{f(n)}{n^s}|$ per una cosa que no depengui de $s$. Aplicant el \ref{Lema:1.07 fita_de_sèries_de_Dirichlet}:
@@ -260,21 +260,21 @@ I ara com que totes les sumes parcials són funcions analítiques, seria molt bo
     \left|\sum_{a<n\leq b}\frac{f(n)}{n^s}\right|\leq Ca^B\xrightarrow{a\rightarrow\infty}0
     \]
     Que és el que volíem veure.
-}
+\end{pf}
 I ara demostrarem el que volíem: que tota sèrie de Dirichlet és una funció holomorfa en tot un semiplà.
 \coro{Les sèries de Dirichlet són funcions holomorfes}{1.12}{
     Considerem la sèrie de Dirichlet $F(s)=\sum_{n\geq1}\frac{f(n)}{n^s}$, aleshores $F$ és una funció holomorfa per tot $\sigma>\sigma_c$.\\
     I a més, $F'(s)=-\sum_{n\geq1}\frac{f(n)\log(n)}{n^s}$ per $\s >\s_c$.
 }
-\pf{
+\begin{pf}
     Considerem $F_N(s)=\sum_{n=1}^N\frac{f(n)}{n^S}$, aleshores per la proposició \ref{Propo:1.09}, $F_N\rightrightarrows F$ sobre tot compacte $K$ del semiplà de convergència. A més, com que $F_N$ són sumes finites de funcions holomorfes, són funcions holomorfes. Per tant pel teorema \ref{Teorema:1.10} $F$ és una funció holomorfa, i té per derivada $F'(s)=-\sum_{n\geq1}\frac{f(n)\log(n)}{n^s}$. Que és el que volíem veure.
-}
+\end{pf}
 Ara acabem de veure que, igual que les sèries de potències, les sèries de Dirichlet són funcions holomorfes; i ara veurem una altra semblança:
 \Prop{Teorema d'unicitat}{1.13}{
     Siguin $F(s)=\sum_{n\geq1}\frac{f(n)}{n^s}$ i $G(s)=\sum_{n\geq1}\frac{g(n)}{n^s}$ sèries de Dirichlet. Sigui $\s_0=\max\{\s_a^F,\s_a^G\}$ i suposem que existeix una successió $(s_k)_{k\geq1}$ al semiplà $\s>\s_0$ tals que $F(s_k)=G(s_k)$ i $\lim_{k\rightarrow\infty}\s=\infty$, llavors:
     \[f(n)=g(n)\quad \forall n\in\NN\]
 }
-\pf{
+\begin{pf}
     Notem que en tenim prou amb veure que $H(s)\coloneq\sum_{n\geq1}\frac{h(n)}{n^s}$ amb $H(s_k)=0$, aleshores això implica que $h(n)=0$ per tot $n$.(aquí la idea és considerar $H=F-G$).\\
     Per tant, suposem que hi ha algun $N\geq1$ tal que $h(N)\neq0$, i sense pèrdua de generalitat podem assumir que tal $N$ és mínim. Aleshores:
     \[
@@ -298,15 +298,15 @@ Ara acabem de veure que, igual que les sèries de potències, les sèries de Dir
     |h(N)|\leq \left(\frac{N}{N+1}\right)^{s_k}C\xrightarrow{k\rightarrow\infty}0
     \]
     Per tant, pel lema del sandvitx tenim que $h(N)=0$, però això contradiu les hipòtesis que teníem.
-}
+\end{pf}
 
 I d'aquí en podem treure un corol·lari immediat:
 \coro{}{1.14 semipla sense zeros}{
     Sigui $F(s)=\sum_{n\geq1}\frac{f(n)}{n^s}$ i suposem que existeix algun $s_0$ amb $\sigma_0>\sigma_a$ tal que $F(s_0)\neq0$, aleshores el conjunt de zeros és finit, i per tant, hi ha algun semiplà en que la funció no s'anul·la.
 }
-\pf{
+\begin{pf}
     Notem que si hi haguessin infinits $s_k$ tals que $F(s_k)=0$, aleshores pel teorema d'unicitat: $f(n)=0$, però això contradiu el fet que $F(s_0)=0$.
-}
+\end{pf}
 I continuant amb la motivació d'abans: les semblances entre les sèries de potències i les de Dirichlet són encara més estretes del que semblen. Per exemple, de la mateixa manera en que el radi de convergència d'una sèrie de potències és la distància a la singularitat més propera, també hi ha una cosa similar amb sèries de Dirichlet amb coeficients positius:
 \teorema{Landau}{1.15 landau}{
     Sigui $F(s)=\sum_{n\geq1}\frac{f(n)}{n^S}$ una sèrie de Dirichlet que convergeix per $\sigma>c\in\RR$. Si a més, tenim:
@@ -320,30 +320,30 @@ I abans d'anar a la demostració del teorema, considerem què passa si $F$ esté
 \coro{Extensions meromorfes}{1.16}{
     Suposem que $F(s)=\sum_{n\geq1}\frac{f(n)}{n^s}$, i suposem que $f(n)\in\RR_{\geq0}$ per tot $n>n_0$, i $f$ admet continuació meromorfa en un disc al voltant de $s=\sigma_c$, aleshores $F(s)$ té un pol en $s=\s_c$.
 }
-\pf{
+\begin{pf}
     Per demostrar aquest corol·lari notem que si $F$ estén en un disc a una funció meromorfa però $\sigma_c$ no és un pol, aleshores podem reduir la mida del disc fins a que no li quedin pols i pel teorema \ref{Teorema:1.15 landau} tenim que estén una mica cap a l'esquerra, i per tant la sèrie convergeix en algun $\sigma<\sigma_c$ però això és una contradicció. Per tant tenim que $F$ ha de tenir un pol en $\sigma_c$.
-}
+\end{pf}
 I ara, entenent la motivació, del teorema:\\
-\begin{wrapfigure}{r}{0.3\textwidth}
-    \begin{center}
-        \begin{tikzpicture}
-            \filldraw[color=black!10!white] (0,-1.3)--(0,1.3)--(2.5,1.3)--(2.5,-1.3)--(0,-1.3);
-            \filldraw[color=black!10!white] (0,0) circle (0.5);
-            \draw (-1,0)--(2.5,0);
-            \draw (0,-1.3)--(0,1.3);
-            \draw (0,0) circle (0.5);
-            \filldraw (0,0) circle (0.05);
-            \draw (-0.2,0.2) node {$c$};
-            \draw (1,0) circle (1);
-            \draw (1.2,0.25) node {$c+1$};
-            \filldraw (1,0) circle (0.05);
-            \draw[color=black!40!green] (1,0) circle (1.1);
-        \end{tikzpicture}
-        \caption{\label{fig:thm13}La zona pintada de gris és la zona en que $F$ és holomorfa.}
-    \end{center}
-
-\end{wrapfigure}
-\pf{
+\begin{pf}
+    \begin{wrapfigure}{r}{0.3\textwidth}
+        \begin{center}
+            \begin{tikzpicture}
+                \filldraw[color=black!10!white] (0,-1.3)--(0,1.3)--(2.5,1.3)--(2.5,-1.3)--(0,-1.3);
+                \filldraw[color=black!10!white] (0,0) circle (0.5);
+                \draw (-1,0)--(2.5,0);
+                \draw (0,-1.3)--(0,1.3);
+                \draw (0,0) circle (0.5);
+                \filldraw (0,0) circle (0.05);
+                \draw (-0.2,0.2) node {$c$};
+                \draw (1,0) circle (1);
+                \draw (1.2,0.25) node {$c+1$};
+                \filldraw (1,0) circle (0.05);
+                \draw[color=black!40!green] (1,0) circle (1.1);
+            \end{tikzpicture}
+            \caption{\label{fig:thm13}La zona pintada de gris és la zona en que $F$ és holomorfa.}
+        \end{center}
+    
+    \end{wrapfigure}
     Notem que si considerem $F$ com una sèrie de potències al voltant de $c+1$, és fàcil veure que tenim $R>1$ (si mirem a la figura \ref{fig:thm13}, el que diem és que al cercle verd centrat a $c+1$, la funció és holomorfa).
     \[
     F(s)=\sum_{k\geq0}\frac{F^{(k)}(c+1)}{k!}(s-(c+1))^k
@@ -370,7 +370,7 @@ I ara, entenent la motivació, del teorema:\\
         &=\sum_{n\geq1}\frac{f(n)}{n^{\eps-c}}
     \end{align*}
     Per tant, com que $F(c-\eps)$ convergeix com a sèrie de potències, també ho fa com a sèrie de Dirichlet, i per tant, $\s_c<c$, que és el que volíem veure.
-}
+\end{pf}
 Es podria dir que hi ha una sèrie de Dirichlet d'especial importància: la funció $\zeta(s)$ de Riemann, degut al seu problema del mil·lenni que té associat: trobar els zeros a la franja $0<\sigma<1$. Però tal com l'hem definit, aquesta pregunta no té sentit, així que ara veurem com la podem estendre:
 \teorema{Riemann}{1.17 extensió_de_riemann}{
     La funció $\zeta(s)=\sum_{n\geq1}\frac{1}{n^s}$ estén a una funció meromorfa a $\s>0$ com
@@ -378,7 +378,7 @@ Es podria dir que hi ha una sèrie de Dirichlet d'especial importància: la func
     \zeta(s)\coloneq\frac{1}{s-1}+\phi(s)\quad \text{on }\phi(s)\text{ és una funció holomorfa per }\s>0. 
     \]
 }
-\pf{
+\begin{pf}
     Per $\s>1$ tenim, gràcies al corol·lari \ref{Corolari:1.05 de sèries de Dirichlet multiplicatives a productes d'Euler} $\zeta(s)$ es pot expressar:
     \[
     \zeta(s)=\sum_{n\ge1}\frac{1}{n^s}=\sum_{n\geq1}n\left(\frac{1}{n^s}-\frac{1}{(n+1)^s}\right)=\sum_{n\geq1}n\int_{n}^{n+1}sx^{-s-1}\dd x=s\int_1^{\infty}\lfloor x\rfloor x^{-s-1}\dd x
@@ -395,7 +395,8 @@ Es podria dir que hi ha una sèrie de Dirichlet d'especial importància: la func
     \claim{
     Veure que la integral $1-s\int_1^\infty \{x\}x^{-s-1}\dd x$ convergeix uniformement pels $\sigma\geq\delta>0$ és suficient per veure que convergeix a una funció holomorfa.
     }
-    \pf{Per veure això, notem que la successió de funcions $I_n(s)=1-s\int_1^N \{x\}x^{-s-1}\dd x$ són holomorfes, ja que es poden expressar com a un sumatori $\sum_{n\geq1}\int_n^{n+1}(x-n)x^{-s-1}\dd x$, i totes aquestes són funcions holomorfes: per tant, si hi ha convergència uniforme sobre qualsevol compacte, el límit és una funció holomorfa: però si ho fa en un semiplà obert, ho farà sobre qualsevol compacte d'aquest.}
+    \begin{pf}Per veure això, notem que la successió de funcions $I_n(s)=1-s\int_1^N \{x\}x^{-s-1}\dd x$ són holomorfes, ja que es poden expressar com a un sumatori $\sum_{n\geq1}\int_n^{n+1}(x-n)x^{-s-1}\dd x$, i totes aquestes són funcions holomorfes: per tant, si hi ha convergència uniforme sobre qualsevol compacte, el límit és una funció holomorfa: però si ho fa en un semiplà obert, ho farà sobre qualsevol compacte d'aquest.
+    \end{pf}
     I ara tornem a la demostració. Primer fitarem aquesta integral de tal manera que no depengui de $\s$, i que només ho faci de $\delta$: Fixem un $\varepsilon>0$, aleshores, prenem $r(\eps)=\frac{1}{\left(\delta\varepsilon\right)^{\frac{1}{\delta}}}$ tal que $\forall r>r(\eps)$ la integral 
     \[
     \left|\int_r^\infty\frac{\{x\}}{x^{1+s}}\dd x\right|<\eps\qquad \text{per tot }\s\geq\delta.
@@ -405,7 +406,7 @@ Es podria dir que hi ha una sèrie de Dirichlet d'especial importància: la func
     \left|\int_r^\infty\frac{\{x\}}{x^{1+s}}\dd x\right|\leq\int_r^\infty\frac{|\{x\}|}{\left|x^{1+s}\right|}\dd x<\int_r^\infty\frac{1}{x^{1+s}}\dd x=\left.\frac{x^{-\s}}{-\s}\right|_{r}^{\infty}=\frac{1}{\s r^{\s}}\leq\frac{1}{\delta r^\delta}=r(\eps)
     \]
     Per tant, per tot $\eps$ hi ha un $r(\eps)$ que no depèn de $s$ tal que la cua de la integral és petita: que és el que volíem veure.
-}
+\end{pf}
 I a partir del que acabem de veure, sabem que $\zeta$ té un pol en $s=1$ de residu 1, per tant:
 \coro{}{1.18 comportament de zeta en s=1}{
     La funció $\zeta$ té un pol de residu 1; i per tant:
@@ -414,9 +415,9 @@ I a partir del que acabem de veure, sabem que $\zeta$ té un pol en $s=1$ de res
     \]
     On $s\in\RR_{\geq1}$
 }
-\pf{
+\begin{pf}
     La part que el residu és 1, és immediat veient que $\zeta(s)=\frac{1}{s-1}+\phi(s)$. Pel que fa a que $\lim_{s\rightarrow1^+}\frac{\log(\zeta(s))}{\log(\frac{1}{1-s})}=1$, només hem de veure que $\zeta(s)\sim \frac{1}{s-1}$ a $s=1$; per tant, $\log(\zeta(s))\sim\log(\frac{1}{z-1})$, que és el que volíem veure.
-}
+\end{pf}
 I un altre corol·lari que ve mitjanament inspirat del teorema \ref{Teorema:1.17 extensió_de_riemann}:
 \coro{}{1.19 sèries de potències de p}{
     La sèrie
@@ -427,7 +428,7 @@ I un altre corol·lari que ve mitjanament inspirat del teorema \ref{Teorema:1.17
     \sum_p\sum_{k\ge2}\frac{1}{p^{ks}}<1\qquad \text{per tot }s\in\RR_{\geq1}
     \]
 }
-\pf{
+\begin{pf}
     Recordem que $\zeta(s)=\prod_p(1-p^{-s})\inv$ per $\s>1$; per tant, per $s\in\RR_{\geq1}$ tenim que
     \[
     \log(\zeta(s))=-\sum_p\log\left(1-\frac{1}{p^s}\right)=\sum_p\left(\sum_{k\geq0}\frac{1}{kp^{ks}}\right)
@@ -443,4 +444,4 @@ I un altre corol·lari que ve mitjanament inspirat del teorema \ref{Teorema:1.17
         &=\sum_{n\geq1}\frac{1}{n-1}-\frac{1}{n}=1
     \end{align*}
     Que és el que volíem veure.
-}
+\end{pf}
